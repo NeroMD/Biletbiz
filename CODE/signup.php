@@ -16,22 +16,22 @@
 
             if (isset($_GET["error"])){
                 if($_GET["error"] == 'emptyinput'){
-                    echo "<p>Fill al the input boxes</p>"
+                    echo "<p>Fill all the input boxes</p>";
                 }
                 else if($_GET["error"] == 'invalidEmail'){
-                    echo "<p>Invalid Email</p>"
+                    echo "<p>Invalid Email</p>";
                 }
                 else if($_GET["error"] == 'pswrdNoMatch'){
-                    echo "<p>Password is not equal to repeat password</p>"
+                    echo "<p>Password is not equal to repeat password</p>";
                 }
                 else if($_GET["error"] == 'emailInUse'){
-                    echo "<p>Email in use</p>"#not good for security
+                    echo "<p>Email in use</p>";#not good for security
                 }
                 else if($_GET["error"] == 'stmtFail'){
-                    echo "<p>Something went wrong</p>"
+                    echo "<p>Something went wrong</p>";
                 }
                 else if($_GET["error"] == 'none'){
-                    echo "<p>Signup successful</p>"
+                    echo "<p>Signup successful</p>";
                 }
             }
 
@@ -43,9 +43,6 @@
 
 
    
-
-
-
 <?php
     include_once 'footer.php'
     ?>

@@ -10,6 +10,23 @@
             <input type="password" name="psswrd" placeholder="Password">
             <button type="submit" name="submit">Log in</button>
         </form>
+
+
+
+        <?php
+
+            if (isset($_GET["error"])){
+                if($_GET["error"] == 'emptyinput'){
+                    echo "<p>Fill all the input boxes</p>";
+                }
+                else if($_GET["error"] == 'wrongLogin'){
+                    echo "<p>Incorrect login info</p>";
+                }
+                
+            }
+
+
+            ?>
     </section>
 
 
