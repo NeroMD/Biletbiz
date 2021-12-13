@@ -10,7 +10,6 @@ email varChar(45) NOT NULL,
 username varChar(45) NOT NULL,
 fname varChar(40) NOT NULL,
 lname varChar(40) NOT NULL,
-password varChar(20) NOT NULL,
 isBanned Boolean default false,
 isAdminstrator Boolean default false,
 PRIMARY KEY(email,username));
@@ -25,7 +24,6 @@ CompanyEmail VarChar(45) NOT NULL,
 CompanyName VarChar(45) NOT NULL,
 CompanyAdress VarChar(45) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
-CompanyPassword VarChar(20) NOT NULL,
 PRIMARY KEY(CompanyEmail));
 
 
