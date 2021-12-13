@@ -49,7 +49,8 @@ EventDescription VarChar(300) NOT NULL,
 EventLocation VarChar(50) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
-PRIMARY KEY(idEvent,idCompanyID,EventName,EventPrice,EventDate));
+PRIMARY KEY(idEvent,idCompanyID,EventName,EventPrice,EventDate),
+FOREIGN KEY(idCompanyID) REFERENCES Company(CompanyID));
 
 CREATE TABLE Ticket(
 TicketID varChar(12) NOT NULL,
