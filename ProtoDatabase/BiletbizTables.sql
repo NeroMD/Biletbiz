@@ -1,4 +1,3 @@
-
 DROP DATABASE BiletbizDatabase;
 CREATE DATABASE BiletbizDatabase;
 USE BiletbizDatabase;
