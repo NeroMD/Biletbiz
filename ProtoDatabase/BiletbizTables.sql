@@ -3,6 +3,13 @@ DROP DATABASE BiletbizDatabase;
 CREATE DATABASE BiletbizDatabase;
 USE BiletbizDatabase;
 
+CREATE TABLE LoginType(
+loginEmail varChar(45) NOT NULL,
+
+loginPassword varChar(20),
+isCompany BOOLEAN,
+PRIMARY KEY(loginEmail)
+);
 
 CREATE TABLE User(
 email varChar(45) NOT NULL,
@@ -12,10 +19,9 @@ fname varChar(40) NOT NULL,
 lname varChar(40) NOT NULL,
 isBanned Boolean default false,
 isAdminstrator Boolean default false,
-PRIMARY KEY(email,username));
-
-
-
+PRIMARY KEY(email),
+FOREIGN KEY(email) REFERENCES LoginType(loginEmail)
+);
 
 
 CREATE TABLE Company(
@@ -24,16 +30,9 @@ CompanyEmail VarChar(45) NOT NULL,
 CompanyName VarChar(45) NOT NULL,
 CompanyAdress VarChar(45) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
-PRIMARY KEY(CompanyEmail));
-
-
-CREATE TABLE LoginType(
-loginEmail varChar(45) NOT NULL,
-loginPassword varChar(20) NOT NULL,
-isCompany BOOLEAN,
-PRIMARY KEY(loginEmail,loginPassword,isCompany),
-FOREIGN KEY(loginEmail) REFERENCES User(email),
-FOREIGN KEY(loginEmail) REFERENCES Company(CompanyEmail));
+PRIMARY KEY(CompanyEmail),
+FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail)
+);
 
 
 CREATE TABLE Event(
@@ -51,13 +50,16 @@ FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
 
 CREATE TABLE Ticket(
 TicketID varChar(12) NOT NULL,
-TUserEmail varChar(45) NOT NULL,
-idEventID varChar(10) NOT NULL,
 seat INTEGER,
+idEventID varChar(10) NOT NULL,
+
+TUserEmail varChar(45) NOT NULL,
+
+
 PRIMARY KEY(TicketID),
 FOREIGN KEY (TUserEmail) REFERENCES User(email),
-FOREIGN KEY (idEventID) REFERENCES Event(idEvent));
-
+FOREIGN KEY (idEventID) REFERENCES Event(idEvent),
+UNIQUE KEY SeatEvent (seat,idEventID));
 
 
 CREATE TABLE Reservation(
@@ -77,7 +79,6 @@ ReceiptID varChar(15) NOT NULL,
 ReceiptDate date NOT NULL,
 ReceiptPayment DOUBLE NOT NULL,
 
-PurchaserUsername VarChar(45) NOT NULL,
 PurchaserEmail VarChar(45) NOT NULL,
 
 ReceiptTicketID varChar(12) NOT NULL,
@@ -89,9 +90,9 @@ ReceiptEventPrice double NOT NULL,
 ReceiptEventDate date NOT NULL,
 
 
-PRIMARY KEY(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserUsername,PurchaserEmail,ReceiptTicketID,OrganizatorCompanyEmail,ReceiptEventName,ReceiptEventID,ReceiptEventPrice,ReceiptEventDate),
+PRIMARY KEY(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,OrganizatorCompanyEmail,ReceiptEventName,ReceiptEventID,ReceiptEventPrice,ReceiptEventDate),
 
-FOREIGN KEY(PurchaserEmail,PurchaserUsername) REFERENCES User(email,username),
+FOREIGN KEY(PurchaserEmail) REFERENCES User(email),
 
 FOREIGN KEY(ReceiptTicketID) REFERENCES Ticket(TicketID),
 
