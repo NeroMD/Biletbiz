@@ -62,7 +62,7 @@ VALUES('ugurkaya@hotmail.com','UurK','Ugur','Kaya',False,False),
 	  ('damianlillard@gmail.com','DameTime','Damian','Lillard',False,False),
       ('klaythompson@hotmail.com','SplashBro','Klay','Thompson',False,False),
       ('reggiejackson@hotmail.com','ScarryR','Reggie','Jackson',False,False),
-	  ('burakyilmaz@hotmail.com','BurakKing','Burak','Yılmaz',False,False),
+	  ('burakyilmaz@hotmail.com','BurakKing','Burak','Yilmaz',False,False),
       ('ismailcipe@hotmail.com','Nargileci50','Ismail','Cipe',False,False),
       ('alexandrucicaldau@hotmail.com','Cica','Alexandru','Cicaldau',False,False),
 	  ('ibrahimtatlises@gmail.com','IboT','İbrahim','Tatlıses',False,False),
@@ -99,7 +99,7 @@ VALUES('ugurkaya@hotmail.com','UurK','Ugur','Kaya',False,False),
 
 
 INSERT INTO Company(CompanyEmail,CompanyName,CompanyAdress,CompanyPhone)
-VALUES('riotgames@hotmail.com','Riot Games','Merdivenkoy Kadıkoy Istanbul','05553450019'),
+VALUES('riotgames@hotmail.com','Riot Games','Merdivenkoy Kadikoy Istanbul','05553450019'),
       ('NBAFaculties@hotmail.com','NBA','Çekmekoy Tasdelen Istanbul','05652153211'),
       ('twitchHQ@hotmail.com','Twitch','Sile Istanbul','05543450432'),
       ('RedbullEnterprises@hotmail.com','Redbull','Uskudar Unalan Mahallesi Libadiye Caddesi Istanbul','05423455012'),
@@ -113,23 +113,23 @@ VALUES('riotgames@hotmail.com','Riot Games','Merdivenkoy Kadıkoy Istanbul','055
 
 
 INSERT INTO Event(idEvent,ECompanyEmail,EventName,EventPrice,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(123124,'riotgames@hotmail.com','TBF Final',80,2021-12-24,'TBF Finalinde Takimlar kozlarini paylasiyor!Galatasaray Esports ve NASR Esports Karsi karsiya! Simdi biletlerini alin','Barbaros, 34746 Atasehir/İstanbul',False,200),
-(125124,'NBAFaculties@hotmail.com','NBA Istanbul"da!',150,2022-01-21,'NBA Gosteri macı Istanbulda sahne aliyor! Houston Rockets ve Brooklyn Nets karsı karsıya, hem de Istanbulda!','Kazlıcesme, 34020 Zeytinburnu/İstanbul',False,20000),
-(146124,'NBAFaculties@hotmail.com','NBA Istanbul"da!',150,2021-01-23,'NBA Gosteri macı Istanbulda sahne aliyor! Minnesota Timberwolves ve Los Angeles Lakers karsi karsiya, hem de Istanbulda','Kazlicesme, 34020 Zeytinburnu/Istanbul',False,20000),
-(154124,'twitchHQ@hotmail.com','Streamer Bulusması',50,2022-01-05,'Favori streameriniz ile bu bulusmada tanisma firsati edinin!','Cumhuriyet Mahallesi, Hadımköy Yolu 9/1, 34500 Büyükcekmece/Esenyurt/Istanbul',False,500),
-(147124,'RedbullEnterprises@hotmail.com','Gosteri Yarısı',250,2021-02-19,'Dunyanın en iyi pilotları Istanbul Parkta gosteri yarisinda kozlarini paylasiyor! Hemen biletlerinizi alın!','Akfirat, Gocbeyli Bv No:1, 34959 Tuzla/Istanbul',False,30000),
-(134124,'RedbullEnterprises@hotmail.com','Drone Yarısı Turnuvası',40,2022-05-15,'Drone Yarısı tüm hızıyla devam ediyor! Redbull sponsorluğunda heyecana ortak ol!','Ortamahalle Topkapi Maltepe Caddesi Canayakin Sitesi A blok No 6 34040 Bayrampaşa / Istanbul',False,1000),
-(111124,'WWEEnterprises@gmail.com','WWE Turkiye Undertaker vs Rey Mysterio',280,2022-03-04,'Guresin super yildizlari karsi karsiya! Sen de bu muhtesem karsilasmaya ortak ol!','Maltepe Orhangazi Sehir Parki',False,1500),
-(166124,'KulturIstanbul@hotmail.com','Delibo Tiyatro',40,2021-12-28,'Kaybolmus bir gencliğin hikayesini anlatan Delibo isimli oyun simdi sahnelerde.','Ataköy 7-8-9-10, E5 Karayolu Üzeri Atakoy Yerleskesi, 34158 Bakirkoy',False,250),
-(177124,'KulturIstanbul@hotmail.com','Romeo ve Juliet',50,2021-01-05,'Klasik ve unutulmaz tiyatro simdi Istanbul Kultur sahnelerinde!','Ataköy 7-8-9-10, E5 Karayolu Uzeri Ataköy Yerleşkesi, 34158 Bakırkoy',False,250),
-(108124,'KulturIstanbul@hotmail.com','Rapunzel ve Beyazatlı Prens’',20,2021-12-29,'Cocuklariniz icin masallar alemine bir kesif! Klasik masal simdi Istanbul Kultur sahnelerinde!','Atakoy 7-8-9-10, E5 Karayolu Uzeri Atakoy Yerleskesi, 34158 Bakırkoy',False,250),
-(199124,'RockNCoke@hotmail.com','Metallica',480,2021-06-12,'Efsanevi grup Metallica tekrar Istanbulda! Tukenmeden hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',True,15000),
-(120124,'RockNCoke@hotmail.com','Orden Ogan',180,2021-07-22,'Alman power metal grubu Orden Ogan Istanbulda! Hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',False,15000),
-(156150,'PSMLovesSummer@gmail.com','Artic Monkeys',380,2022-05-03,'Artic Monkeys Turkiye"de! Tukenmeden biletlerinizi kapin!','Zorlu Center, Levazım Mah. Koru Sok. No:2/PSM/70 Zincirlikuyu, Besiktas / Istanbul',True,2200),
-(123020,'PSMLovesSummer@gmail.com','Ebru Gundes Konseri',150,2021-04-27,'Ebru Gundes! Basarili sarkici sahnede biletler Biletbiz"de!','Istanbul Buyuksehir Belediyesi Harbiye Cemil Topuzlu Acikhava Tiyatrosu',False,3900),
-(144001,'TurkiyeTiyatrolar@hotmail.com','Midas"in Altinlari',35,2022-02-01,'Kariyerinde en üst noktaya gelmiş bir adamın bitmek bilmeyen tutkuları onu bir seçim yapmaya zorlanan bir adamin hikayesi.','Plevne Mah. Babur Cad. No:40 Altindağ / Ankara',False,150),
-(149039,'TurkiyeTiyatrolar@hotmail.com','Bir Baba Hamlet',50,2022-01-17,'"Bir Baba Hamlet", tiyatro yapma aşkının basdondurucu guzelligi ile aptallastırıcı buyusune ayna tutuyor.','Caferaga Mah. Bahariye Cad. Sakizgulu Sok.No 31/37 Kadikoy/Istanbul',False,100),
-(190137,'FıkralarlaTurkiye@hotmail.com','Medyum',20,2022-01-03,'Keyifli bir cinayet gizemi macerası. Bir cok komik supheli, beklenmedik kıvrımlar ve donusler… Şimdi biletlerini alın!','Gulbaharhatun, Senol Gunes Cd. No:17, 61040 Trabzon Merkez/Trabzon',False,220);
+VALUES(123124,'riotgames@hotmail.com','TBF Final',80,'2021-12-24','TBF Finalinde Takimlar kozlarini paylasiyor!Galatasaray Esports ve NASR Esports Karsi karsiya! Simdi biletlerini alin','Barbaros, 34746 Atasehir/İstanbul',False,200),
+(125124,'NBAFaculties@hotmail.com','NBA Istanbul"da!',150,'2022-01-21','NBA Gosteri maci Istanbulda sahne aliyor! Houston Rockets ve Brooklyn Nets karsi karsiya, hem de Istanbulda!','Kazlıcesme, 34020 Zeytinburnu/İstanbul',False,20000),
+(146124,'NBAFaculties@hotmail.com','NBA Istanbul"da!',150,'2021-01-23','NBA Gosteri maci Istanbulda sahne aliyor! Minnesota Timberwolves ve Los Angeles Lakers karsi karsiya, hem de Istanbulda','Kazlicesme, 34020 Zeytinburnu/Istanbul',False,20000),
+(154124,'twitchHQ@hotmail.com','Streamer Bulusmasi',50,'2022-01-05','Favori streameriniz ile bu bulusmada tanisma firsati edinin!','Cumhuriyet Mahallesi, Hadımköy Yolu 9/1, 34500 Büyükcekmece/Esenyurt/Istanbul',False,500),
+(147124,'RedbullEnterprises@hotmail.com','Gosteri Yarisi',250,'2021-02-19','Dunyanın en iyi pilotları Istanbul Parkta gosteri yarisinda kozlarini paylasiyor! Hemen biletlerinizi alın!','Akfirat, Gocbeyli Bv No:1, 34959 Tuzla/Istanbul',False,30000),
+(134124,'RedbullEnterprises@hotmail.com','Drone Yarısı Turnuvası',40,'2022-05-15','Drone Yarisi tüm hiziyla devam ediyor! Redbull sponsorluğunda heyecana ortak ol!','Ortamahalle Topkapi Maltepe Caddesi Canayakin Sitesi A blok No 6 34040 Bayrampaşa / Istanbul',False,1000),
+(111124,'WWEEnterprises@gmail.com','WWE Turkiye Undertaker vs Rey Mysterio',280,'2022-03-04','Guresin super yildizlari karsi karsiya! Sen de bu muhtesem karsilasmaya ortak ol!','Maltepe Orhangazi Sehir Parki',False,1500),
+(166124,'KulturIstanbul@hotmail.com','Delibo Tiyatro',40,'2021-12-28','Kaybolmus bir gencliğin hikayesini anlatan Delibo isimli oyun simdi sahnelerde.','Ataköy 7-8-9-10, E5 Karayolu Üzeri Atakoy Yerleskesi, 34158 Bakirkoy',False,250),
+(177124,'KulturIstanbul@hotmail.com','Romeo ve Juliet',50,'2021-01-05','Klasik ve unutulmaz tiyatro simdi Istanbul Kultur sahnelerinde!','Ataköy 7-8-9-10, E5 Karayolu Uzeri Ataköy Yerleşkesi, 34158 Bakırkoy',False,250),
+(108124,'KulturIstanbul@hotmail.com','Rapunzel ve Beyazatli Prens’',20,'2021-12-29','Cocuklariniz icin masallar alemine bir kesif! Klasik masal simdi Istanbul Kultur sahnelerinde!','Atakoy 7-8-9-10, E5 Karayolu Uzeri Atakoy Yerleskesi, 34158 Bakırkoy',False,250),
+(199124,'RockNCoke@hotmail.com','Metallica',480,'2021-06-12','Efsanevi grup Metallica tekrar Istanbulda! Tukenmeden hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',True,15000),
+(120124,'RockNCoke@hotmail.com','Orden Ogan',180,'2021-07-22','Alman power metal grubu Orden Ogan Istanbulda! Hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',False,15000),
+(156150,'PSMLovesSummer@gmail.com','Artic Monkeys',380,'2022-05-03','Artic Monkeys Turkiye"de! Tukenmeden biletlerinizi kapin!','Zorlu Center, Levazım Mah. Koru Sok. No:2/PSM/70 Zincirlikuyu, Besiktas / Istanbul',True,2200),
+(123020,'PSMLovesSummer@gmail.com','Ebru Gundes Konseri',150,'2021-04-27','Ebru Gundes! Basarili sarkici sahnede biletler Biletbiz"de!','Istanbul Buyuksehir Belediyesi Harbiye Cemil Topuzlu Acikhava Tiyatrosu',False,3900),
+(144001,'TurkiyeTiyatrolar@hotmail.com','Midas"in Altinlari',35,'2022-02-01','Kariyerinde en üst noktaya gelmiş bir adamın bitmek bilmeyen tutkuları onu bir seçim yapmaya zorlanan bir adamin hikayesi.','Plevne Mah. Babur Cad. No:40 Altindağ / Ankara',False,150),
+(149039,'TurkiyeTiyatrolar@hotmail.com','Bir Baba Hamlet',50,'2022-01-17','"Bir Baba Hamlet", tiyatro yapma aşkının basdondurucu guzelligi ile aptallastırıcı buyusune ayna tutuyor.','Caferaga Mah. Bahariye Cad. Sakizgulu Sok.No 31/37 Kadikoy/Istanbul',False,100),
+(190137,'FıkralarlaTurkiye@hotmail.com','Medyum',20,'2022-01-03','Keyifli bir cinayet gizemi macerası. Bir cok komik supheli, beklenmedik kivrimlar ve donusler… Şimdi biletlerini alın!','Gulbaharhatun, Senol Gunes Cd. No:17, 61040 Trabzon Merkez/Trabzon',False,220);
 
 INSERT INTO Ticket(TicketID,seat,TUserEmail,idEventID)
 VALUES(031523,52,'ugurkaya@hotmail.com',123124),

@@ -5,7 +5,7 @@ USE BiletbizDatabase;
 CREATE TABLE LoginType(
 loginEmail varChar(45) NOT NULL,
 
-loginPassword varChar(20),
+loginPassword varChar(120),
 isCompany BOOLEAN,
 PRIMARY KEY(loginEmail)
 );
@@ -26,8 +26,8 @@ FOREIGN KEY(email) REFERENCES LoginType(loginEmail)
 CREATE TABLE Company(
 CompanyEmail VarChar(45) NOT NULL,
 
-CompanyName VarChar(45) NOT NULL,
-CompanyAdress VarChar(45) NOT NULL,
+CompanyName VarChar(100) NOT NULL,
+CompanyAdress VarChar(200) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
 PRIMARY KEY(CompanyEmail),
 FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail)
@@ -40,8 +40,8 @@ ECompanyEmail varChar(45) NOT NULL,
 EventName VarChar(45) NOT NULL,
 EventPrice double NOT NULL,
 EventDate date NOT NULL,
-EventDescription VarChar(300) NOT NULL,
-EventLocation VarChar(50) NOT NULL,
+EventDescription VarChar(500) NOT NULL,
+EventLocation VarChar(250) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
 PRIMARY KEY(idEvent,ECompanyEmail,EventName,EventPrice,EventDate),
