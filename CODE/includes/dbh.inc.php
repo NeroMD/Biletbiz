@@ -3,7 +3,7 @@
 $serverName="localhost";
 $dbUsername="root";
 $dbPassword="";
-$dbName="biletbiz";
+$dbName="biletbizdatabase";
 
 $conn = mysqli_connect($serverName,$dbUsername,$dbPassword,$dbName);
 

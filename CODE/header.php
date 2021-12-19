@@ -31,6 +31,9 @@
         if(isset($_SESSION["uid"])){
             echo  "<li><a href=''>profile</a></li>";
             echo "<li><a href='includes/logout.inc.php'>Log out</a></li>";
+            if($_SESSION["isCompany"]==1){
+                echo "<li><a href='createEvent.php'>Create Event</a></li>";
+            }
         }
         else{
             echo  '<!--Logn-->
@@ -72,7 +75,7 @@
             <a href="signup.php" class="btn btn-warning">Register</a>
           </ul>
         </div>';
-            
+           
         }
     ?>
 
