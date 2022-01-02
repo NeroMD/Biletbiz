@@ -498,7 +498,20 @@ VALUES(00500500,'2021-01-01',20,'tatarusanu@hotmail.com',070510,190137,'Fikralar
 (00900600,'2021-01-01',20,'cjmccolum@hotmail.com',108030,190137,'FikralarlaTurkiye@hotmail.com','Medyum','20','2022-01-03'),
 (04616400,'2021-01-02',20,'karlanthonytowns@hotmail.com',180700,190137,'FikralarlaTurkiye@hotmail.com','Medyum','20','2022-01-03');
 
+INSERT INTO CompanyRequest(RequestDescription)
 
+VALUES("Baybars Eglence, eglence sektorunde yuksek hedefleri olan bir sirket."),
+      ("Altin Eglence, bir cok unlu isimle anlasmali bir sirket."),
+      ("Oni Eu Fuar, Istanbul'da kiraya acik bir topluluk platformu."),
+      ("Izmir Tiyatrolari, İzmir'in en koklu tiyatrolar kurulusu."),
+      ("Youtube Turkiye, dunyaca unlu video stream platformu Youtube'nin Turkiye uzantisi."),
+      ("Ala Ajentasi, bir cok unlu sarkicinin menejerligini yapan firma."),
+      ("Turkiye Opera Organizasyonu, operanin Turkiye uzerine yayginlastirilmasina calisan organizasyon."),
+      ("SinemaLovers, bir cok unlu sinema sirketlerinden bagimsiz, sadece sinema severlerden olusan bir kurulus."),
+      ("MonsterEnergy Turkiye, dunyanın en unlu enerji icecek firmalarindan birinin Turkiye uzantisi."),
+      ("Cekmekoy Kultur Sanat, Cekmekoylu sanatcilarin ve eglence sektoru calisanlarinin olusturdugu kurulus."),
+      ("Amator Araba Yariscilar, bir cok amator gencin hizlarini kullanip yaristirmayi amaclayan bir organizasyon."),
+      ("Euroleague Turkiye, Avrupanin en unlu basketbol organizasyonu Euroleague'nin Turkiye uzantisi kurulus.");
 
 SELECT * FROM LoginType;
 SELECT * FROM User;
@@ -506,3 +519,4 @@ SELECT * FROM Company;
 SELECT * FROM Event;
 SELECT * FROM Ticket;
 SELECT * FROM Receipt;
+SELECT * FROM CompanyRequest;
