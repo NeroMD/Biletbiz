@@ -17,18 +17,19 @@
             <ul>
                 <li><a href="createEvent.html">Create Event</a> </li>
                 <li><a href="listEvent.html">List Event</a> </li>
+                <li><a href="participants.html">Participants</a> </li>
             </ul>
             <div class="searchbox">
                 <input class="searchtxt" type="text" name="" placeholder="Search...">
                 <a class="searchbutton" href="#"><i class="fas fa-search"></i></a>
             </div>
             <div class="logo">
-                <img src="logo.png" alt="Logo" style="width:250px; height:70px;">
+               <a href="companypage.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a> 
             </div>
             <div class="logout">
                 <ul class="logout">
-                    <a class="button" onclick="popupToggle();">Logout</a>
-                    <div id="popup">
+                    <a class="button" onclick="popup1Toggle();">Logout</a>
+                    <div id="popup1">
                         <div class="inputbox">
                             <h2><center>Are you sure?</center></h2>
                         </div>
@@ -36,18 +37,210 @@
                             <a href="index.html" class="buton" style="color: black;font-size: 25px;margin-right: 50px;">Yes</a> 
                             <a href="companypage.html" class="buton" style="color: black;font-size: 25px;">No</a>
                         </div>
-                        <a class="close" onclick="popupToggle();"><img src="exit.png"
+                        <a class="close" onclick="popup1Toggle();"><img src="exit.png"
                                 style="width: 15px;height: 15px;"></a>
                     </div>
                     <script>
-                        function popupToggle() {
-                            const popup = document.getElementById('popup');
-                            popup.classList.toggle('active')
+                        function popup1Toggle() {
+                            const popup1 = document.getElementById('popup1');
+                            popup1.classList.toggle('active')
                         }
                     </script>
                 </ul>
             </div>
         </div>
+        <div class="partpage">
+            <!--slider-->
+            <div class="sol">
+              <div class="slider">
+                <div class="slides">
+                  <input type="radio" name="radio-btn" id="radio1">
+                  <input type="radio" name="radio-btn" id="radio2">
+                  <input type="radio" name="radio-btn" id="radio3">
+                  <input type="radio" name="radio-btn" id="radio4">
+                  <div class="slide first">
+                    <img src="Haber1.jpg" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="Haber2.jpg" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="Haber3.jpg" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="Haber4.jpg" alt="">
+                  </div>
+                  <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                  </div>
+                </div>
+                <div class="navigation-manual">
+                  <label for="radio1" class="manual-btn"></label>
+                  <label for="radio2" class="manual-btn"></label>
+                  <label for="radio3" class="manual-btn"></label>
+                  <label for="radio4" class="manual-btn"></label>
+                </div>
+              </div>
+            </div>
+      
+            <!--concert-->
+            <div class="sag">
+              <h1>Concert</h1>
+              <div class="gallery">
+                <img src="ZeynepBastık.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Zeynep Bastık</button>
+              </div>
+              <div class="gallery">
+                <img src="OğuzhanKoç.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Oğuzhan Koç</button>
+              </div>
+              <div class="gallery">
+                <img src="YıldızTilbe.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Yıldız Tilbe</button>
+              </div>
+              <div class="gallery">
+                <img src="LeventYüksel.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">LeventYüksel</button>
+              </div>
+              <div class="gallery">
+                <img src="Sıla.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Sıla</button>
+              </div>
+              <div class="gallery">
+                <img src="SertabErener.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Sertab Erener</button>
+              </div>
+              <div class="gallery">
+                <img src="KenanDoğulu.jpg" alt="Cinema" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Kenan Doğulu</button>
+              </div>
+              <div class="gallery">
+                <img src="MabelMatiz.jpg" alt="Mabel Matiz" style="width: 150px; height: 100px;">
+                </a>
+                <button class="btn success">Mabel Matiz</button>
+              </div>
+            </div>
+            <!--list-->
+            <div class="sol1">
+              <div class="calenderlist">
+                <h1>Calender</h1>
+                <ul>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Sıla Konseri<br>15.01.2022 - 20:30
+                      <br>Bostanlı Suat Taşer
+                      Tiyatrosu(İzmir)</a></li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Bkm ÇGHB<br>17.01.2022 - 21:30
+                      <br>Beşiktaş Kültür
+                      Merkezi(İstanbul)</a>
+                  </li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">TolgShow<br>20.01.2022 - 21:00
+                      <br>Erciyes Kültür
+                      Merkezi(Kayseri)</a></li>
+                  <br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Mabel Matiz Konseri<br>20.01.2022 -
+                      22:30<br>Torium
+                      Sahne(İstanbul)</a>
+                  </li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Yasemin Sakallıoğlu
+                      Stand-Up<br>22.01.2022 - 20:00
+                      <br>Bostancı Gösteri Merkezi(İstanbul)</a></li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Güldür Güldür<br>23.01.2022 - 20:30
+                      <br>Beşiktaş Kültür
+                      Merkezi(İstanbul)</a></li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Ölün Bizi Ayırana Dek<br>26.01.2022
+                      -
+                      20:00 <br>Muhsin
+                      Yazıcıoğlu Kültür
+                      Merkezi(Sivas)</a></li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">İki Bekar<br>26.01.2022 - 20:30
+                      <br>Gebze Osman Hamdi Bey
+                      Kültür
+                      Merkezi(Kocaeli)</a></li><br>
+                  <li><a href="bookingseat.html" class="calender" style="color: black;">Buray Konseri<br>29.01.2022 - 21:00
+                      <br>Yenimahalle Bld.4
+                      Mevsim Tiyatro
+                      Salonu(Ankara)</a></li><br>
+                </ul>
+              </div>
+            </div>
+      
+            <!---cinema-->
+            <div class="sag1">
+              <h1>Cinema</h1>
+              <div class="gallery">
+                <img src="uyumusz.jpg" alt="Uyumsuz" style="width: 100px; height: 100px;">
+                </a>
+                <button class="btn success">Uyumsuz</button>
+              </div>
+              <div class="gallery">
+                <img src="harrypotter.jpg" alt="Harry Potter" style="width: 100px; height: 100px;">
+                </a>
+                <button class="btn success">Harry Potter</button>
+              </div>
+              <div class="gallery">
+                <img src="joker.jpg" alt="Joker" style="width: 100px; height: 100px;">
+                </a>
+                <button class="btn success">Joker</button>
+              </div>
+              <div class="gallery">
+                <img src="labirent.jpg" alt="Labirent" style="width: 100px; height: 100px;">
+                </a>
+                <button class="btn success">Labirent</button>
+              </div>
+              <div class="gallery">
+                <img src="amelie.jpg" alt="Amelie" style="width: 90px; height: 100px;">
+                </a>
+                <button class="btn success">Amelie</button>
+              </div>
+              <div class="gallery">
+                <img src="marvel.jpg" alt="Marvel" style="width: 90px; height: 100px;">
+                </a>
+                <button class="btn success">Marvel</button>
+              </div>
+            </div>
+      
+            <!---theatre-->
+            <div class="sag2">
+              <h1>Theatre</h1>
+              <div class="gallery">
+                <img src="theatre1.jpg" alt="Zengin Mutfagi" style="width: 90px; height: 100px;">
+                </a>
+                <button class="btn success">Zengin Mutfağı</button>
+              </div>
+              <div class="gallery">
+                <img src="theatre2.jpg" alt="Olun Bizi Ayirana Dek" style="width: 90px; height: 100px;">
+                </a>
+                <button class="btn success">Ölün Bizi Ayırana Denk</button>
+              </div>
+              <div class="gallery">
+                <img src="theatre3.jpg" alt="Iki Bekar" style="width: 90px; height: 100px;">
+                </a>
+                <button class="btn success">İki Bekar</button>
+              </div>
+              <div class="gallery">
+                <img src="theatre4.jpg" alt="7KocaliHurmuz" style="width: 100px; height: 100px;">
+                </a>
+                <button class="btn success">7 Kocalı Hürmüz</button>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <p class="footertext" style="color: black;">Copyright &copy; BiletBiz 2021</p>
+          </div>
+        </div>
+      
+      </body>
+      
+      </html>
     </div>
     <div class="footer">
         <p class="footertext">Copyright &copy; BiletBiz 2021</p>
