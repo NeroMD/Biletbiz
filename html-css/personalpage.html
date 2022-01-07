@@ -64,11 +64,7 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <ul>
-                <li><a href="#">Concert</a> </li>
-                <li><a href="#">Cinema</a> </li>
-                <li><a href="#">Theatre</a> </li>
-            </ul>
+            
             <div class="searchbox">
                 <input class="searchtxt" type="text" name="" placeholder="Search...">
                 <a class="searchbutton" href="#"><i class="fas fa-search"></i></a>
@@ -80,44 +76,47 @@
 
             <div id="rightMenu" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="profile.html">Profile</a>
+                <a href="personprofile.html">Profile</a>
                 <a href="myticket.html">My Tickets</a>
                 <a class="button" onclick="popup1Toggle();">Logout</a>
             </div>
             <div class="logout">
-                <img src="user1.png" alt="Logo"onclick="openNav()" style="width:30; height:30px;margin-top: 30px;margin-right: 25px;"></a>
-        </div>
-            <div class="logout">
-                <ul class="logout">
-                    <div id="popup1">
-                        <div class="inputbox">
-                            <h2>
-                                <center>Are you sure?</center>
-                            </h2>
-                        </div>
-                        <div class="buton">
-                            <a href="index.html" class="buton"
-                                style="color: black;font-size: 25px;margin-right: 50px;">Yes</a>
-                            <a href="companypage.html" class="buton" style="color: black;font-size: 25px;">No</a>
-                        </div>
-                        <a class="close" onclick="popup1Toggle();"><img src="exit.png"
-                                style="width: 15px;height: 15px;"></a>
-                    </div>
-                    <script>
-                        function popup1Toggle() {
-                            const popup1 = document.getElementById('popup1');
-                            popup1.classList.toggle('active')
-                        }
-                        function openNav() {
-                            document.getElementById("rightMenu").style.width = "250px";
-                        }
-                        function closeNav() {
-                            document.getElementById("rightMenu").style.width = "0";
-                        }
-                    </script>
-                </ul>
+                <img src="user1.png" alt="Logo" onclick="openNav()"
+                    style="width:30; height:30px;margin-top: 30px;margin-right: 25px;"></a>
             </div>
-        
+        </div>
+        <div class="logout">
+            <ul class="logout">
+                <div id="popup1">
+                    <div class="inputbox">
+                        <h2>
+                            <center>Are you sure?</center>
+                        </h2>
+                    </div>
+                    <br><br><br>
+                    <div class="buton">
+                        <a href="index.html" class="buton"
+                            style="color: black;font-size: 25px;margin-right: 50px;">Yes</a>
+                        <a href="companypage.html" class="buton" style="color: black;font-size: 25px;">No</a>
+                    </div>
+                    <a class="close" onclick="popup1Toggle();"><img src="exit.png"
+                            style="width: 15px;height: 15px;"></a>
+                </div>
+                <script>
+                    function popup1Toggle() {
+                        const popup1 = document.getElementById('popup1');
+                        popup1.classList.toggle('active')
+                    }
+                    function openNav() {
+                        document.getElementById("rightMenu").style.width = "250px";
+                    }
+                    function closeNav() {
+                        document.getElementById("rightMenu").style.width = "0";
+                    }
+                </script>
+            </ul>
+        </div>
+
         <div class="partpage">
             <!--slider-->
             <div class="sol">
@@ -204,44 +203,44 @@
                 <div class="calenderlist">
                     <h1>Calender</h1>
                     <ul>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Sıla Konseri<br>15.01.2022
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Sıla Konseri<br>15.01.2022
                                 - 20:30
                                 <br>Bostanlı Suat Taşer
                                 Tiyatrosu(İzmir)</a></li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Bkm ÇGHB<br>17.01.2022 -
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Bkm ÇGHB<br>17.01.2022 -
                                 21:30
                                 <br>Beşiktaş Kültür
                                 Merkezi(İstanbul)</a>
                         </li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">TolgShow<br>20.01.2022 -
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">TolgShow<br>20.01.2022 -
                                 21:00
                                 <br>Erciyes Kültür
                                 Merkezi(Kayseri)</a></li>
                         <br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Mabel Matiz
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Mabel Matiz
                                 Konseri<br>20.01.2022 -
                                 22:30<br>Torium
                                 Sahne(İstanbul)</a>
                         </li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Yasemin Sakallıoğlu
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Yasemin Sakallıoğlu
                                 Stand-Up<br>22.01.2022 - 20:00
                                 <br>Bostancı Gösteri Merkezi(İstanbul)</a></li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Güldür
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Güldür
                                 Güldür<br>23.01.2022 - 20:30
                                 <br>Beşiktaş Kültür
                                 Merkezi(İstanbul)</a></li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Ölün Bizi Ayırana
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Ölün Bizi Ayırana
                                 Dek<br>26.01.2022
                                 -
                                 20:00 <br>Muhsin
                                 Yazıcıoğlu Kültür
                                 Merkezi(Sivas)</a></li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">İki Bekar<br>26.01.2022 -
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">İki Bekar<br>26.01.2022 -
                                 20:30
                                 <br>Gebze Osman Hamdi Bey
                                 Kültür
                                 Merkezi(Kocaeli)</a></li><br>
-                        <li><a href="bookingseat.html" class="calender" style="color: black;">Buray
+                        <li><a href="eventinfo.html" class="calender" style="color: black;">Buray
                                 Konseri<br>29.01.2022 - 21:00
                                 <br>Yenimahalle Bld.4
                                 Mevsim Tiyatro
@@ -316,4 +315,5 @@
     </div>
 
 </body>
+
 </html>

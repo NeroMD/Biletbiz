@@ -7,6 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bookingseat.css">
     <title>Booking Seat</title>
+    <style>
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,21 +60,20 @@
                         <div id="popup">
                             <div class="content">
                                 <img src="user.png" style="margin-left: 100px;">
-                                <div class="inputbox">
-                                    <input type="text" placeholder="Enter Email Adress" name="email" style="margin-bottom: 15px; width: 290px;"
-                                        required=" required" >
-                                </div>
-                                <div class=" inputbox">
-                                    <input type="password" placeholder="Enter Password" name="psw"style="margin-bottom: 15px; width: 290px;" required="required">
-                                </div>
                                 <br>
+                                <label for="email"><b>Email</b></label>
+                                <input type="text" placeholder="Enter Email" name="email" required>
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required><br><br>
                                 <div class="buton">
-                                    <a href="payment.html" style="color:black; font-size: 25px;">Login</a>
-                                </div>
-                                <br>
+                                    <a href="payment.html"
+                                        style="color:black; font-size: 25px;margin-left:5px;">Login</a>
+                                </div><br><br>
                                 <a href="forgotpassword.html" style="color:black; font-size: 20px; float:right">Forgot
                                     Password?</a>
                             </div>
+                            <a class="close" onclick="popupToggle();"><img src="exit.png"
+                                    style="width: 15px;height: 15px;"></a>
                             <a class="close" onclick="popupToggle();"><img src="exit.png"
                                     style="width: 15px;height: 15px;"></a>
                         </div>
