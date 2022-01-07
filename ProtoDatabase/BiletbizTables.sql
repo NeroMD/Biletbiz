@@ -14,8 +14,6 @@ CREATE TABLE User(
 email varChar(45) NOT NULL,
 
 username varChar(45) NOT NULL,
-fname varChar(40) NOT NULL,
-lname varChar(40) NOT NULL,
 isBanned Boolean default false,
 isAdminstrator Boolean default false,
 PRIMARY KEY(email),
@@ -26,6 +24,7 @@ FOREIGN KEY(email) REFERENCES LoginType(loginEmail)
 CREATE TABLE Company(
 CompanyEmail VarChar(45) NOT NULL,
 
+ApprovedCompany Boolean,
 CompanyName VarChar(100) NOT NULL,
 CompanyAdress VarChar(200) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
@@ -36,29 +35,37 @@ FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail)
 
 CREATE TABLE Event(
 idEvent INT NOT NULL AUTO_INCREMENT,
+
+VipAvailability BOOLEAN,
+SeatAvailability BOOLEAN,
+
 ECompanyEmail varChar(45) NOT NULL,
 EventName VarChar(45) NOT NULL,
-EventPrice double NOT NULL,
 EventDate date NOT NULL,
 EventDescription VarChar(500) NOT NULL,
 EventLocation VarChar(250) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
-PRIMARY KEY(idEvent,ECompanyEmail,EventName,EventPrice,EventDate),
+PRIMARY KEY(idEvent),
 FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
+
+
 
 CREATE TABLE Ticket(
 TicketID INTEGER NOT NULL AUTO_INCREMENT,
+TicketPrice double NOT NULL,
 seat INTEGER,
 idEventID INTEGER NOT NULL,
-
 TUserEmail varChar(45) NOT NULL,
 
 
-PRIMARY KEY(TicketID),
+PRIMARY KEY(TicketID,TicketPrice),
 FOREIGN KEY (TUserEmail) REFERENCES User(email),
 FOREIGN KEY (idEventID) REFERENCES Event(idEvent),
 UNIQUE KEY SeatEvent (seat,idEventID));
+
+
+
 
 
 CREATE TABLE Reservation(
@@ -75,31 +82,21 @@ FOREIGN KEY(REventID) REFERENCES Event(idEvent));
 
 CREATE TABLE Receipt(
 ReceiptID INTEGER NOT NULL AUTO_INCREMENT,
-ReceiptDate date NOT NULL,
-ReceiptPayment DOUBLE NOT NULL,
+ReceiptDate date NOT NULL, 
+ReceiptPayment DOUBLE, 
 
-PurchaserEmail VarChar(45) NOT NULL,
+PurchaserEmail VarChar(45) NOT NULL, 
 
 ReceiptTicketID INTEGER NOT NULL,
-
-ReceiptEventID INTEGER NOT NULL,
-OrganizatorCompanyEmail VarChar(45) NOT NULL,
-ReceiptEventName VarChar(45) NOT NULL,
-ReceiptEventPrice double NOT NULL,
-ReceiptEventDate date NOT NULL,
+ReceiptTicketPrice double NOT NULL, 
 
 
-PRIMARY KEY(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,OrganizatorCompanyEmail,ReceiptEventName,ReceiptEventID,ReceiptEventPrice,ReceiptEventDate),
+AmountOfTicketsPurchased INTEGER NOT NULL,
+
+
+PRIMARY KEY(ReceiptID),
 
 FOREIGN KEY(PurchaserEmail) REFERENCES User(email),
 
-FOREIGN KEY(ReceiptTicketID) REFERENCES Ticket(TicketID),
+FOREIGN KEY(ReceiptTicketID,ReceiptTicketPrice) REFERENCES Ticket(TicketID,TicketPrice));
 
-FOREIGN KEY(ReceiptEventID,OrganizatorCompanyEmail,ReceiptEventName,ReceiptEventPrice,ReceiptEventDate) REFERENCES Event(idEvent,ECompanyEmail,EventName,EventPrice,EventDate)
-
-);
-
-
-CREATE TABLE CompanyRequest(
-RequestDescription VarChar(400),
-PRIMARY KEY(RequestDescription));

@@ -9,6 +9,44 @@
   <link rel="stylesheet" href="stylesheet.css">
   <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
+<style>
+  p {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+  }
+
+  .dropdown {
+    position: relative;
+    display: block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #460707;
+    min-width: 160px;
+
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 20px 90px;
+    text-decoration: underline;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    letter-spacing: 1px;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #3a1e1e;
+  }
+</style>
 
 <body>
   <div class="container">
@@ -20,7 +58,7 @@
         <li><a href="#">Theatre</a> </li>
       </ul>
       <div class="searchbox">
-        <input class="searchtxt" type="text" name="" placeholder="Search...">
+        <input class="searchtxt" type="text1" name="" placeholder="Search...">
         <a class="searchbutton" href="#"><i class="fas fa-search"></i></a>
       </div>
       <div class="logo">
@@ -30,13 +68,43 @@
       <!--Login-->
       <div class="login">
         <ul class="login">
-          <div class="button">
-            <a href="selectuser.html">Login</a>
+          <a class="btn" onclick="popupToggle();">Login</a>
+          <div id="popup">
+            <div class="content">
+              <img src="user.png">
+              <p1>&nbsp;</p1>
+              <!--error message-->
+              <div class="inputbox">
+                <input type="text" placeholder="Enter Email Adress" name="email" required="required">
+              </div>
+              <div class="inputbox">
+                <input type="password" placeholder="Enter Password" name="psw" required="required">
+              </div>
+              <div class="buton">
+                <a href="personalpage.html" style="color:black; font-size: 25px;">Login</a>
+              </div>
+              <a href="forgotpassword.html" style="color:black; font-size: 20px;">Forgot Password?</a>
+            </div>
+            <a class="close" onclick="popupToggle();"><img src="exit.png" style="width: 15px;height: 15px;"></a>
           </div>
+          <script>
+            function popupToggle() {
+              const popup = document.getElementById('popup');
+              popup.classList.toggle('active')
+            }
+          </script>
+        </ul>
       </div>
+
       <div class="login">
         <ul class="login">
-          <a href="register.html" class="btn btn-warning">Register</a>
+          <div class="dropdown">
+            <a href="#" class="btn">Register</a>
+            <div class="dropdown-content">
+              <a href="personregister.html" style="font-size: 17px;">Person Register</a>
+              <a href="companyregister.html" style="font-size: 17px;">Company Register</a>
+            </div>
+          </div>
         </ul>
       </div>
     </div>
@@ -228,7 +296,7 @@
       </div>
     </div>
     <div class="footer">
-      <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+      <p class="footertext" style="color: black;">Copyright &copy; BiletBiz 2021</p>
     </div>
   </div>
 
