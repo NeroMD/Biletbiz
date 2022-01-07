@@ -29,8 +29,7 @@ CompanyName VarChar(100) NOT NULL,
 CompanyAdress VarChar(200) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
 PRIMARY KEY(CompanyEmail),
-FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail)
-);
+FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail));
 
 
 CREATE TABLE Event(
@@ -38,14 +37,16 @@ idEvent INT NOT NULL AUTO_INCREMENT,
 
 VipAvailability BOOLEAN,
 SeatAvailability BOOLEAN,
-
+TicketPrice double NOT NULL,
+EventHour TIME,
 ECompanyEmail varChar(45) NOT NULL,
 EventName VarChar(45) NOT NULL,
 EventDate date NOT NULL,
-EventDescription VarChar(500) NOT NULL,
+EventDescription VarChar(750) NOT NULL,
 EventLocation VarChar(250) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
+
 PRIMARY KEY(idEvent),
 FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
 
@@ -53,18 +54,15 @@ FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
 
 CREATE TABLE Ticket(
 TicketID INTEGER NOT NULL AUTO_INCREMENT,
-TicketPrice double NOT NULL,
 seat INTEGER,
 idEventID INTEGER NOT NULL,
 TUserEmail varChar(45) NOT NULL,
 
 
-PRIMARY KEY(TicketID,TicketPrice),
+PRIMARY KEY(TicketID),
 FOREIGN KEY (TUserEmail) REFERENCES User(email),
 FOREIGN KEY (idEventID) REFERENCES Event(idEvent),
 UNIQUE KEY SeatEvent (seat,idEventID));
-
-
 
 
 
@@ -87,16 +85,25 @@ ReceiptPayment DOUBLE,
 
 PurchaserEmail VarChar(45) NOT NULL, 
 
+
 ReceiptTicketID INTEGER NOT NULL,
-ReceiptTicketPrice double NOT NULL, 
 
 
 AmountOfTicketsPurchased INTEGER NOT NULL,
 
 
 PRIMARY KEY(ReceiptID),
-
 FOREIGN KEY(PurchaserEmail) REFERENCES User(email),
+FOREIGN KEY(ReceiptTicketID) REFERENCES Ticket(TicketID));
 
-FOREIGN KEY(ReceiptTicketID,ReceiptTicketPrice) REFERENCES Ticket(TicketID,TicketPrice));
+
+
+CREATE TABLE News(
+NewsTitle varChar(200),
+NewsDescription varChar(750),
+
+PRIMARY KEY(NewsTitle));
+
+
+
 
