@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-image: url(back.jpg);
+    background-size: 100% 100%;
+    height: 30cm;
+}
+
+.container .navbar {
+    width: 100%;
+    height: 100px;
+    background-color: #8b2323;
+}
+
+.navbar ul {
+    float: left;
+    margin-right: 20px;
+}
+
+.navbar .logo {
+    display: inline-block;
+    margin-left: 620px;
+    margin-top: 20px;
+    width: 10px;
+    height: 70px;
+}
+
+.footer {
+    background: #634a4a;
+    height: 180px;
+}
+
+.footertext {
+    font-size: 20px;
+    text-align: center;
+    line-height: 180px;
+}
+
+input[type=text],
+input[type=number],
+input[type=date] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid rgb(58, 56, 59);
+    background: #f1f1f1;
+    border-radius: 5px;
+
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=date]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-family: Lobster Two;
+    color: #8b2323;
+}
+
+button {
+    background-color: #374d45;
+    color: white;
+    padding: 14px 20px;
+    margin-left: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+.clear::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.eventform {
+    width: 450px;
+    height: 450px;
+    margin: auto;
+}
+
+
+.th {
+    border: 1px solid rgb(158, 150, 150);
+    border-radius: 5px;
+    width: 450px;
+    margin-top: 35px;
+    margin-left: 450px;
+    text-align: center;
+}
