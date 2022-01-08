@@ -42,7 +42,7 @@ EventHour TIME,
 ECompanyEmail varChar(45) NOT NULL,
 EventName VarChar(45) NOT NULL,
 EventDate date NOT NULL,
-EventDescription VarChar(750) NOT NULL,
+EventDescription VarChar(1500) NOT NULL,
 EventLocation VarChar(250) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
@@ -55,8 +55,9 @@ FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
 CREATE TABLE Ticket(
 TicketID INTEGER NOT NULL AUTO_INCREMENT,
 seat INTEGER,
-idEventID INTEGER NOT NULL,
 TUserEmail varChar(45) NOT NULL,
+idEventID INTEGER NOT NULL,
+
 
 
 PRIMARY KEY(TicketID),
@@ -100,7 +101,7 @@ FOREIGN KEY(ReceiptTicketID) REFERENCES Ticket(TicketID));
 
 CREATE TABLE News(
 NewsTitle varChar(200),
-NewsDescription varChar(750),
+NewsDescription varChar(1500),
 
 PRIMARY KEY(NewsTitle));
 

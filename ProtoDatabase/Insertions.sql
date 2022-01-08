@@ -53,7 +53,8 @@ VALUES('ugurkaya@hotmail.com','12241212',False),
       ('TurkiyeTiyatrolar@hotmail.com', '12das3d',True),
       ('KerkiSolfej@hotmail.com','3eesd4',True),
       ('TurkiyeKultur@hotmail.com','3basd4',True),
-      ('FikralarlaTurkiye@hotmail.com','3absd4',True);
+      ('FikralarlaTurkiye@hotmail.com','3absd4',True),
+      ('SinemalarTurkiye@hotmail.com','ada333',True);
       
 
 INSERT INTO User(email,username,isBanned,isAdminstrator)
@@ -102,7 +103,7 @@ VALUES('ugurkaya@hotmail.com','UurK',False,False),
 
 INSERT INTO Company(CompanyEmail,ApprovedCompany,CompanyName,CompanyAdress,CompanyPhone)
 VALUES('KerkiSolfej@hotmail.com',True,'KerkiSolfej','Bostanci Istanbul','05477455063'),
-	  ('TurkiyeKultur@hotmail.com',True,'Turkiye Kultur','İzmir Bornova','05476450654'),
+	  ('TurkiyeKultur@hotmail.com',True,'Turkiye Kultur','Izmir Bornova','05476450654'),
       ('riotgames@hotmail.com',True,'Riot Games','Merdivenkoy Kadikoy Istanbul','05553450019'),
       ('NBAFaculties@hotmail.com',True,'NBA','Çekmekoy Tasdelen Istanbul','05652153211'),
       ('twitchHQ@hotmail.com',True,'Twitch','Sile Istanbul','05543450432'),
@@ -112,67 +113,132 @@ VALUES('KerkiSolfej@hotmail.com',True,'KerkiSolfej','Bostanci Istanbul','0547745
       ('RockNCoke@hotmail.com',True,'Rock n Coke','Taksim Istanbul','05453450077'),
       ('PSMLovesSummer@gmail.com',True,'PSMLovesSummer','Kadikoy Istanbul','05533351910'),
       ('TurkiyeTiyatrolar@hotmail.com',True,'Turkiye Tiyatro Dernegi','Etimesgut Ankara','05543557615'),
-      ('FikralarlaTurkiye@hotmail.com',True,'Tiyatro Trabzon','Akcaabat Trabzon','05526450044');
-     
-     
+      ('FikralarlaTurkiye@hotmail.com',True,'Tiyatro Trabzon','Akcaabat Trabzon','05526450044'),
+      ('SinemalarTurkiye@hotmail.com',True,'Sinemalar Turkiye','Taksim Istanbul','05426658231');
+      
+
+      
       
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(455124,False,True,150,'20:30:00','KerkiSolfej@hotmail.com','Sila Konseri ','2022-01-15','Sila, KerkiSolfej organizasyonu ile sizlerle bulusuyor.','Bostanli Suat Taser Tiyatrosu(İzmir)',False,1550),
+VALUES(455124,False,True,150,'20:30:00','KerkiSolfej@hotmail.com','Sila Konseri ','2022-01-15','Sila, KerkiSolfej organizasyonu ile sizlerle bulusuyor.','Bostanli Suat Taser Tiyatrosu(Izmir)',False,1550),
 	  (152060,False,False,105,'22:30:00','KerkiSolfej@hotmail.com','Mabel Matiz','2022-01-20','Mabel Matiz, KerkiSolfej organizasyonuyla seyircisiyle bulusuyor.','Torium Sahne(Istanbul)',False,2000),
       (677771,False,True,120,'20:00:00','KerkiSolfej@hotmail.com','Buray Konseri','2022-01-29','Buray, KerkiSolfej organizasyonu ile sizlerle bulusuyor…','Yenimahalle Bld.4 Mevsim Tiyatro Salonu(Ankara)',False,550);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(617124,False,True,175,'21:00:00','TurkiyeKultur@hotmail.com','TolgShow ','2022-01-20 ','Tolga Cevik’in gösterisi ‘Tolgshow’ turneye cıkıyor!‘Arkadasım’ karakteri ile milyonları güldüren Tolga Cevik sahnede artık bir klasik haline gelen dogaclama oyununun Turkiye Turnesi’yle izleyicinin karşısına çıkıyor.Bugüne kadar ‘Yönetmen’in akla sığmayan isteklerini yerine getirmeye calışan ‘Arkadasım’ Turkiye Turnesinde Yonetmeni cildirtmaya kararli.‘Gizemli Yönetmen’ Firat Parlak ve ‘Minik’ lakapli müzisyen Ozer Atik’in de eslik ettigi tamami dogaclama gösteri seyircisiyle bulusmak icin yollara düsüyor. ','Erciyes Kultur Merkezi(Kayseri)',False,375),
-      (675671,False,True,105,'20:00:00','TurkiyeKultur@hotmail.com','Olum Bizi Ayirana Dek','2022-01-26','Cansu ve Serdar, evlilik hayati canlarina tak etmis ve bosanmaya karar vermis bir cifttir. Bosanmadan bir gece once kendileri icin duzenlenen bir kutlama partisine katilirlar. Ancak sabah ayni yatakta uyanirlar! Bir gece öncesine dair çok az sey hatirlayan Cansu ve Serdar’i bekleyen asil surpriz, salondaki kanepede uzanmakta olan cesettir.','Muhsin Yazıcıoglu Kultur Merkezi(Sivas)',False,600);
+VALUES(617124,False,True,175,'21:00:00','TurkiyeKultur@hotmail.com','TolgShow ','2022-01-20 ','Tolga Cevik’in gösterisi ‘Tolgshow’ turneye cikiyor!‘Arkadasim’ karakteri ile milyonlari gulduren Tolga Cevik sahnede artik bir klasik haline gelen dogaclama oyununun Turkiye Turnesi’yle izleyicinin karsisina çikiyor.Bugune kadar ‘Yönetmen’in akla sigmayan isteklerini yerine getirmeye calisan ‘Arkadasim’ Turkiye Turnesinde Yonetmeni cildirtmaya kararli.‘Gizemli Yönetmen’ Firat Parlak ve ‘Minik’ lakapli muzisyen Ozer Atik’in de eslik ettigi tamami dogaclama gösteri seyircisiyle bulusmak icin yollara dusuyor. ','Erciyes Kultur Merkezi(Kayseri)',False,375),
+      (675671,False,True,105,'20:00:00','TurkiyeKultur@hotmail.com','Olum Bizi Ayirana Dek','2022-01-26','Cansu ve Serdar, evlilik hayati canlarina tak etmis ve bosanmaya karar vermis bir cifttir. Bosanmadan bir gece once kendileri icin duzenlenen bir kutlama partisine katilirlar. Ancak sabah ayni yatakta uyanirlar! Bir gece öncesine dair çok az sey hatirlayan Cansu ve Serdar’i bekleyen asil surpriz, salondaki kanepede uzanmakta olan cesettir.','Muhsin Yazicioglu Kultur Merkezi(Sivas)',False,600);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(123124,False,True,80,'15:30:00','riotgames@hotmail.com','TBF Final','2021-12-24','TBF Finalinde Takimlar kozlarini paylasiyor!Galatasaray Esports ve NASR Esports Karsi karsiya! Simdi biletlerini alin','Barbaros, 34746 Atasehir/İstanbul',False,1200);
+VALUES(123124,False,True,80,'15:30:00','riotgames@hotmail.com','TBF Final','2021-12-24','TBF Finalinde Takimlar kozlarini paylasiyor!Galatasaray Esports ve NASR Esports Karsi karsiya! Simdi biletlerini alin','Barbaros, 34746 Atasehir/Istanbul',False,1200);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(125124,True,True,150,'20:30:00','NBAFaculties@hotmail.com','NBA Istanbul"da!','2022-01-21','NBA Gosteri maci Istanbulda sahne aliyor! Houston Rockets ve Brooklyn Nets karsi karsiya, hem de Istanbulda!','Kazlıcesme, 34020 Zeytinburnu/İstanbul',False,20000),
+VALUES(125124,True,True,150,'20:30:00','NBAFaculties@hotmail.com','NBA Istanbul"da!','2022-01-21','NBA Gosteri maci Istanbulda sahne aliyor! Houston Rockets ve Brooklyn Nets karsi karsiya, hem de Istanbulda!','Kazlicesme, 34020 Zeytinburnu/Istanbul',False,20000),
       (146124,True,True,150,'21:30:00','NBAFaculties@hotmail.com','NBA Istanbul"da!','2021-01-23','NBA Gosteri maci Istanbulda sahne aliyor! Minnesota Timberwolves ve Los Angeles Lakers karsi karsiya, hem de Istanbulda','Kazlicesme, 34020 Zeytinburnu/Istanbul',False,20000);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(154124,False,True,50,'16:30:00','twitchHQ@hotmail.com','Streamer Bulusmasi','2022-01-05','Favori streameriniz ile bu bulusmada tanisma firsati edinin!','Cumhuriyet Mahallesi, Hadımköy Yolu 9/1, 34500 Büyükcekmece/Esenyurt/Istanbul',False,500);
+VALUES(154124,False,True,50,'16:30:00','twitchHQ@hotmail.com','Streamer Bulusmasi','2022-01-05','Favori streameriniz ile bu bulusmada tanisma firsati edinin!','Cumhuriyet Mahallesi, Hadimköy Yolu 9/1, 34500 Buyukcekmece/Esenyurt/Istanbul',False,500);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(147124,True,True,250,'15:30:00','RedbullEnterprises@hotmail.com','Gosteri Yarisi','2021-02-19','Dunyanın en iyi pilotları Istanbul Parkta gosteri yarisinda kozlarini paylasiyor! Hemen biletlerinizi alın!','Akfirat, Gocbeyli Bv No:1, 34959 Tuzla/Istanbul',False,30000),
-      (134124,False,False,40,'14:30:00','RedbullEnterprises@hotmail.com','Drone Yarisi Turnuvasi','2022-05-15','Drone Yarisi tüm hiziyla devam ediyor! Redbull sponsorluğunda heyecana ortak ol!','Ortamahalle Topkapi Maltepe Caddesi Canayakin Sitesi A blok No 6 34040 Bayrampaşa / Istanbul',False,1000);
+VALUES(147124,True,True,250,'15:30:00','RedbullEnterprises@hotmail.com','Gosteri Yarisi','2021-02-19','Dunyanin en iyi pilotlari Istanbul Parkta gosteri yarisinda kozlarini paylasiyor! Hemen biletlerinizi alin!','Akfirat, Gocbeyli Bv No:1, 34959 Tuzla/Istanbul',False,30000),
+      (134124,False,False,40,'14:30:00','RedbullEnterprises@hotmail.com','Drone Yarisi Turnuvasi','2022-05-15','Drone Yarisi tum hiziyla devam ediyor! Redbull sponsorlugunda heyecana ortak ol!','Ortamahalle Topkapi Maltepe Caddesi Canayakin Sitesi A blok No 6 34040 Bayrampasa / Istanbul',False,1000);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
 VALUES(111124,True,True,280,'21:30:00','WWEEnterprises@gmail.com','WWE Turkiye Undertaker vs Rey Mysterio','2022-03-04','Guresin super yildizlari karsi karsiya! Sen de bu muhtesem karsilasmaya ortak ol!','Maltepe Orhangazi Sehir Parki',False,1500);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(166124,False,True,40,'19:30:00','KulturIstanbul@hotmail.com','Delibo Tiyatro','2021-12-28','Kaybolmus bir gencliğin hikayesini anlatan Delibo isimli oyun simdi sahnelerde.','Ataköy 7-8-9-10, E5 Karayolu Üzeri Atakoy Yerleskesi, 34158 Bakirkoy',False,250),
-      (177124,False,True,50,'18:00:00','KulturIstanbul@hotmail.com','Romeo ve Juliet','2021-01-05','Klasik ve unutulmaz tiyatro simdi Istanbul Kultur sahnelerinde!','Ataköy 7-8-9-10, E5 Karayolu Uzeri Ataköy Yerleşkesi, 34158 Bakırkoy',False,250),
-      (108124,False,True,20,'15:30:00','KulturIstanbul@hotmail.com','Rapunzel ve Beyazatli Prens','2021-12-29','Cocuklariniz icin masallar alemine bir kesif! Klasik masal simdi Istanbul Kultur sahnelerinde!','Atakoy 7-8-9-10, E5 Karayolu Uzeri Atakoy Yerleskesi, 34158 Bakırkoy',False,250),
-      (621030,False,True,100,'20:00:00','KulturIstanbul@hotmail.com','Yasemin Sakallıoglu','2022-01-15','Yasemin Sakallıoglu “Dogru Koca Nasil Secilir” isimli tek kisilik oyunu ile sevenleriyle bulusuyor.Genc komedyen; aile baglari, kadin erkek iliskileri ve bu iliskilerin psikolojik etkilerini cesitli tiplemelerinden yardim alarak esprili bir dille aktariyor.Kendini de elestirmeyi ihmal etmeyen Yasemin Sakallioglu’nun gösterisinin ismi “Dogru Koca Nasil Secilir?”','Bostanci Gösteri Merkezi(İstanbul)',False,100),
-      (477124,False,True,200,'20:30:00','KulturIstanbul@hotmail.com','Guldur Guldur','2022-01-23','Ekranlarin begenilen komedi programı Guldur Guldur Show, BKM"de seyirciyle bulusmaya devam ediyor.Gunluk hayatin siradan konularina farkli bir bakıs acisi ile yaklaşan Guldur Guldur Show, aileden aska, sohretten teknolojiye, futboldan arkadaslıga, bircok konuya yine kendi mizah anlayisi ile yeni yaklasimlar ve cozumleri ile kahkahanin adresi olmaya devam ediyor.','Besiktas Kultur Merkezi(Istanbul)',False,200),
-      (783728,False,True,250,'21:30:00','KulturIstanbul@hotmail.com','Cghb','2022-01-17','Cok Guzel Hareketler 2, Besiktas Kultur Merkezi"nde sizlerle.Yaklasik 2 yil boyunca sahne, senaryo ve oyunculuk egitimlerinden geçen ve 3 sezondur BKM"de kapalı gişe oynayan  Çok Güzel Hareketler 2, Eser Yenenler kaptanlığında seyirciyle buluşmaya devam ediyor.Bkm Mutfak"ın 20 kişiden oluşan ekibi, atölyeden yeni çıkan skeçleri ile her hafta BKM"de!','Besiktaş Kultur Merkezi(Istanbul)',False,250);
+VALUES(166124,False,True,40,'19:30:00','KulturIstanbul@hotmail.com','Delibo Tiyatro','2021-12-28','Kaybolmus bir gencligin hikayesini anlatan Delibo isimli oyun simdi sahnelerde.','Ataköy 7-8-9-10, E5 Karayolu Üzeri Atakoy Yerleskesi, 34158 Bakirkoy',False,250),
+      (177124,False,True,50,'18:00:00','KulturIstanbul@hotmail.com','Romeo ve Juliet','2021-01-05','Klasik ve unutulmaz tiyatro simdi Istanbul Kultur sahnelerinde!','Ataköy 7-8-9-10, E5 Karayolu Uzeri Ataköy Yerleskesi, 34158 Bakirkoy',False,250),
+      (108124,False,True,20,'15:30:00','KulturIstanbul@hotmail.com','Rapunzel ve Beyazatli Prens','2021-12-29','Cocuklariniz icin masallar alemine bir kesif! Klasik masal simdi Istanbul Kultur sahnelerinde!','Atakoy 7-8-9-10, E5 Karayolu Uzeri Atakoy Yerleskesi, 34158 Bakirkoy',False,250),
+      (621030,False,True,100,'20:00:00','KulturIstanbul@hotmail.com','Yasemin Sakallioglu','2022-01-15','Yasemin Sakallioglu “Dogru Koca Nasil Secilir” isimli tek kisilik oyunu ile sevenleriyle bulusuyor.Genc komedyen; aile baglari, kadin erkek iliskileri ve bu iliskilerin psikolojik etkilerini cesitli tiplemelerinden yardim alarak esprili bir dille aktariyor.Kendini de elestirmeyi ihmal etmeyen Yasemin Sakallioglu’nun gösterisinin ismi “Dogru Koca Nasil Secilir?”','Bostanci Gösteri Merkezi(Istanbul)',False,100),
+      (477124,False,True,200,'20:30:00','KulturIstanbul@hotmail.com','Guldur Guldur','2022-01-23','Ekranlarin begenilen komedi programi Guldur Guldur Show, BKM"de seyirciyle bulusmaya devam ediyor.Gunluk hayatin siradan konularina farkli bir bakis acisi ile yaklasan Guldur Guldur Show, aileden aska, sohretten teknolojiye, futboldan arkadasliga, bircok konuya yine kendi mizah anlayisi ile yeni yaklasimlar ve cozumleri ile kahkahanin adresi olmaya devam ediyor.','Besiktas Kultur Merkezi(Istanbul)',False,200),
+      (783728,False,True,250,'21:30:00','KulturIstanbul@hotmail.com','Cghb','2022-01-17','Cok Guzel Hareketler 2, Besiktas Kultur Merkezi"nde sizlerle.Yaklasik 2 yil boyunca sahne, senaryo ve oyunculuk egitimlerinden geçen ve 3 sezondur BKM"de kapali gise oynayan  Çok Guzel Hareketler 2, Eser Yenenler kaptanliginda seyirciyle bulusmaya devam ediyor.Bkm Mutfak"in 20 kisiden olusan ekibi, atölyeden yeni çikan skeçleri ile her hafta BKM"de!','Besiktas Kultur Merkezi(Istanbul)',False,250);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(199124,False,False,480,'19:30:00','RockNCoke@hotmail.com','Metallica','2021-06-12','Efsanevi grup Metallica tekrar Istanbulda! Tukenmeden hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',True,15000),
+VALUES(199124,False,False,480,'19:30:00','RockNCoke@hotmail.com','Metallica','2021-06-12','Efsanevi grup Metallica tekrar Istanbulda! Tukenmeden hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',False,15000),
       (120124,False,False,180,'19:45:00','RockNCoke@hotmail.com','Orden Ogan','2021-07-22','Alman power metal grubu Orden Ogan Istanbulda! Hemen biletlerinizi Biletbiz"den kapin!','Aydinevler Siteler Yolu No:28. Kat:3 Hilltown AVM Kucukyali / Istanbul',False,15000);
+       
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(156150,False,True,380,'21:00:00','PSMLovesSummer@gmail.com','Arctic Monkeys','2022-05-03','Arctic Monkeys Turkiye"de! Tukenmeden biletlerinizi kapin!','Zorlu Center, Levazım Mah. Koru Sok. No:2/PSM/70 Zincirlikuyu, Besiktas / Istanbul',True,2200),
+VALUES(156150,False,True,380,'21:00:00','PSMLovesSummer@gmail.com','Arctic Monkeys','2022-05-03','Arctic Monkeys Turkiye"de! Tukenmeden biletlerinizi kapin!','Zorlu Center, Levazim Mah. Koru Sok. No:2/PSM/70 Zincirlikuyu, Besiktas / Istanbul',True,2200),
       (123020,False,True,150,'21:30:00','PSMLovesSummer@gmail.com','Ebru Gundes Konseri','2021-04-27','Ebru Gundes! Basarili sarkici sahnede biletler Biletbiz"de!','Istanbul Buyuksehir Belediyesi Harbiye Cemil Topuzlu Acikhava Tiyatrosu',False,3900);
 
-INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(144001,False,True,35,'20:00:00','TurkiyeTiyatrolar@hotmail.com','Midas"in Altinlari','2022-02-01','Kariyerinde en üst noktaya gelmiş bir adamın bitmek bilmeyen tutkuları onu bir seçim yapmaya zorlanan bir adamin hikayesi.','Plevne Mah. Babur Cad. No:40 Altindağ / Ankara',False,150),
-      (149039,False,True,50,'19:45:00','TurkiyeTiyatrolar@hotmail.com','Bir Baba Hamlet','2022-01-17','"Bir Baba Hamlet", tiyatro yapma askının basdondurucu guzelligi ile aptallastırıcı buyusune ayna tutuyor.','Caferaga Mah. Bahariye Cad. Sakizgulu Sok.No 31/37 Kadikoy/Istanbul',False,100),
-      (765451,False,True,120,'20:30:00','TurkiyeTiyatrolar@hotmail.com','Iki Bekar','2022-01-26','Emre Kinay Jack Fisher"i; Evrim Alasya piril piril enerjisiyle Shanette Millburn"u canlandiriyor. Oyunun muziklerini Gokhan Turkmen, Gokhan Tepe, Keremcem gibi daha bircok populer sanatcıya besteler veren oyuna ozel bir titizlikle Serdar Aslan besteledi.Duru Tiyatro"nun yeni kurulan orkestrası Durucazzz"ın canli performans muzikleriyle muzikal tadinda bir oyunla eglenceli kahkahali 2 saat sizi bekliyor. Gec kalmadan yerlerinizi hemen ayirtin. Bizden söylemesi..."','Gebze Osman Hamdi Bey Kultur Merkezi(Kocaeli)',False,120);
 
 INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
-VALUES(190137,False,True,20,'20:00:00','FikralarlaTurkiye@hotmail.com','Medyum','2022-01-03','Keyifli bir cinayet gizemi macerası. Bir cok komik supheli, beklenmedik kivrimlar ve donusler… Simdi biletlerini alın!','Gulbaharhatun, Senol Gunes Cd. No:17, 61040 Trabzon Merkez/Trabzon',False,220);
+VALUES(144001,False,True,35,'20:00:00','TurkiyeTiyatrolar@hotmail.com','Midas"in Altinlari','2022-02-01','Kariyerinde en ust noktaya gelmis bir adamin bitmek bilmeyen tutkulari onu bir seçim yapmaya zorlanan bir adamin hikayesi.','Plevne Mah. Babur Cad. No:40 Altindag / Ankara',False,150),
+      (149039,False,True,50,'19:45:00','TurkiyeTiyatrolar@hotmail.com','Bir Baba Hamlet','2022-01-24','"Bir Baba Hamlet", tiyatro yapma askinin basdondurucu guzelligi ile aptallastirici buyusune ayna tutuyor.','Caferaga Mah. Bahariye Cad. Sakizgulu Sok.No 31/37 Kadikoy/Istanbul',False,100),
+      (765451,False,True,120,'20:30:00','TurkiyeTiyatrolar@hotmail.com','Iki Bekar','2022-01-26','Emre Kinay Jack Fisher"i; Evrim Alasya piril piril enerjisiyle Shanette Millburn"u canlandiriyor. Oyunun muziklerini Gokhan Turkmen, Gokhan Tepe, Keremcem gibi daha bircok populer sanatciya besteler veren oyuna ozel bir titizlikle Serdar Aslan besteledi.Duru Tiyatro"nun yeni kurulan orkestrasi Durucazzz"in canli performans muzikleriyle muzikal tadinda bir oyunla eglenceli kahkahali 2 saat sizi bekliyor. Gec kalmadan yerlerinizi hemen ayirtin. Bizden söylemesi..."','Gebze Osman Hamdi Bey Kultur Merkezi(Kocaeli)',False,420),
+      (154020,False,True,150,'21:00:00','TurkiyeTiyatrolar@hotmail.com','Zengin Mutfagi','2022-07-17','Sener Sen, Zengin Mutfagi’inda sahneledigi muhtesem performansiyla 17 Temmuz Cumartesi saat 21:00’de Maximum Uniq Acikhava’da!Cumhuriyet tarihinde görulmus en buyuk isci hareketi olan 15-16 Haziran 1970 olaylarinin zengin bir ailenin mutfagina yansimasi.Hizmet etmekten baska bir sey dusunemeyen kösk çalisanlari da gözlerinin önunde gelisen olaylar karsisinda kayitsiz kalamayacaktir. Toplumdaki degisimden her biri kendi payina duseni alacaktir.  Vasif Öngören’in bu olaylari eglenceli bir biçimde aktardigi oyun, tiyatro sahnesinde defalarca yorumlanmis ve beyazperdeye de uyarlanmistir. 1978 yilinda ilk kez Istanbul Sehir Tiyatrolari’nda bu oyunda asçi Lutfu Usta’yi canlandiran Sener Sen, 40 yil aradan sonra ayni rolde ve genç bir oyuncu kadrosuyla tekrar sahnede.“Is Bankasi kartlarina %10 indirim” uygulanacak oyunun biletlerini kaçirma.','Maximum Uniq Acikhava',False,500),
+      (172111,False,True,100,'20:00:00','TurkiyeTiyatrolar@hotmail.com','7 kocali hurmuz','2022-04-21','Yillarca birçok önemli tiyatrocu tarafindan sahnelenen "7 Kocali Hurmuz" muzikali usta tiyatrocu Mujdat Gezen yorumuyla yeniden sahnelendi. Basrollerini Birce Akalay, Ilker Ayrik, Yonca Evcimik, Cengiz Kuçukayvaz, Suzan Kardes, Onur Dilber, Arzu Okay, Yasar Ayvaci, Aykut Taskin, Baris Taskin, Melih Çardak ve Cengiz Gezgin’in paylastigi muzikal, buyuk begeni toplamasi uzerine yeni sezonda da devam ediyor.Dev kadrosu ve usta tiyatrocu Mujdat Gezen’in yorumuyla yeniden sahneye tasinan muzikalde, Atilla Özdemiroglu’nun unlu bestesi “Yalniz Kullar (Tanrim)” parçasinin yani sira Sadik Sendil’in vasiyeti uzerine Istanbul turkuleri de yer almaktadir.Kostum tasarimini Leyla Gezen ile Bahar Korçan’in, koreografisini Pinar Ataer’in ustlendigi oyunun muzikleri Emirhan Cengiz tarafindan hazirlanmistir.Sahne dekoru Baris Dinçel imzali muzikalde, farkli meslek gruplarindan 6 kocasi olan Hurmuz’un (Birce Akalay) yedinci kocayla evlenmek istemesi mizahi bir dille anlatilir.','Gebze Osman Hamdi Bey Kultur Merkezi(Kocaeli)',False,420);
+
+
+INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
+VALUES(190137,False,True,20,'20:00:00','FikralarlaTurkiye@hotmail.com','Medyum','2022-01-03','Keyifli bir cinayet gizemi macerasi. Bir cok komik supheli, beklenmedik kivrimlar ve donusler… Simdi biletlerini alin!','Gulbaharhatun, Senol Gunes Cd. No:17, 61040 Trabzon Merkez/Trabzon',False,220);
+
+
+INSERT INTO Event(idEvent,VipAvailability,SeatAvailability,TicketPrice,EventHour,ECompanyEmail,EventName,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
+VALUES(203054,False,True,75,'20:30:00','SinemalarTurkiye@hotmail.com','Uyumsuz','2022-01-25','Uzak bir gelecekte geçen distopik hikayede insanlik, her biri farkli bir erdemi temsil eden bes farkli parçaya bölunmus bir duzende yasamaktadir. Insanlar 16 yasina geldiklerinde kendi insani özelliklerine göre bu bes bölumden birine dahil olup ömur boyu bu bölumde yasamlarini surdurmektedirler. Tris Prior için de bu kurali uygulama zamani geldiginde kendiyle ilgili buyuk bir sirri kesfeder.','CineMaximum Metrogarden Alemdag Cd',False,100),
+	  (152033,False,False,80,'21:30:00','SinemalarTurkiye@hotmail.com','Harry Potter','2022-02-10','Harry Potter, annesi ve babasini bir trafik kazasinda öldu sanarak 10 yil boyunca sevmedigi Petunia teyzesi,Vernon enistesi ve kuzeni Dudley ile yasamak zorunda kalan yetim bir çocuktur. Fakat gerçekte annesi ve babasi buyuculer dunyasinin karanlik yuzu, Voldemort tarafindan öldurulmustur.Harry Potter, kendisinde bazi garipliklerin oldugunu sezmekte ama gene de normal ve siradan bir çocuk oldugunu dusunmektedir. 10 yasina geldiginde Hogwarts Cadicilik ve Buyuculuk Okulu’ndan kabul edildigine dair mektuplar alir. Muggle ( buyucu olmayan) teyzesi ve enistesi bu mektuplari almasini engellemeye çalisirlar.Fakat ne yaparlarsa yapsinlar Harry’e mektuplarin ulastirilmasini engelleyemezler ve Harry Hogwarts’a göturulerek okula baslar.','CinemaPink Buyaka Istanbul',False,120),
+      (141958,False,True,50,'20:00:00','SinemalarTurkiye@hotmail.com','Joker','2022-02-11','Basarisiz bir komedyen olan Arthur Fleck, toplum tarafindan yok sayilip dislanmis biridir ve dolayisiyla yapayalniz birakilmistir. Surekli olarak birileriyle bag kurma istegi içinde olan Arthur, hayatini taktigi iki maskeyle geçirir. Gunduzleri, hayatini idame ettirebilmek için palyaço maskesiyle dolasirken geceleri ise hayatindan silip atmasi asla mumkun olmayacak bir maske takar.','CineMaximum Akyaka Park Istanbul',False,100),
+      (634099,False,True,70,'20:30:00','SinemalarTurkiye@hotmail.com','Labirent','2022-02-13','Labirent: Ölumcul Kaçis"ta, Thomas bir anda uyanir ve yukari dogru hareket halindeki bir asansörde oldugunu fark eder.  Asansörun kapilari açilir ve karsisinda kendi yaslarinda bir grup genci görur. Koloni gibi görunen bu grup onu bir kayranda karsilamistir. Devasa buyuklukteki duvarlarla çevrelenen bu genis alanda Thomas ne kendisini, ne ailesini ne de geçmisini hatirlayamaz. Dahasi karsisindaki “Kayranlilar” da tipki kendisi gibi buraya nasil ve neden getirildiklerini bilmemektedirler.Tek bildikleri sey ise her sabah labirente gidilen dev bir kapinin açildigidir. Gunes batarken ise her aksam kapi kapanir. Üstelik her 30 gunde bir asansörle gruba yeni bir genç gelmektedir. Thomas"in ardindansa beklenmedik bir sekilde, bir hafta sonra asansör labirente Teresa adinda bir genç kizi birakir. Thomas simdi hem kayran sakinlerinin hem de geçmiste bir yerlerden hatirladigi bu labirentin sirrini çözmeye çalisacaktir… ','CineMaximum WaterGarden Istanbul',False,120),
+	  (890094,False,False,65,'22:30:00','SinemalarTurkiye@hotmail.com','Amelie','2022-02-14','Amelie, Ünlu Fransiz yönetmen Jean-Pierre Jeunet’nin bes dalda Oscar’a aday gösterilen ve son on yilin en ses getiren yapimlari arasinda. Bu Fransiz komedisi bizi genç ve özel bir kadinla tanismaya davet ediyor; her daim hayat dolu, yasama sevgi dolu gözlerle taniklik eden ve sahip oldugu özel isiltiyi her aninda yaninda tasiyan Amelie’nin hikayesine... ','CineMaximum MaltepePark Istanbul',False,100),
+      (890060,False,True,70,'19:00:00','SinemalarTurkiye@hotmail.com','Captain Marvel','2022-02-15','Film, Carol Danvers"in Captain Marvel"a dönusumunden degil, Carol Danvers"in Captain Marvel olarak dunyaya dususunden ilerliyor. Super guçlere sahip, guzel bir kadin olarak dunyaya dusen Carol Danvers, gezegeni kesfettikçe kimi göruntuler hatirlamaya baslar. Geçmiste gezegenimizde yasadigini ve burada bir hayati oldugunu hatirlamaya baslayan genç kadinin guvenebilecegi tek kisi ise SHIELD çalisani Nick Fury"dir. Geçmisini kesfettikçe kendine dair bilmedigi yeni detaylari kesfeden super kahraman, bir yandan da sekil degistiren dusmanlari Skrull irki ile onu ölumden kurtararak kendileri gibi guçlu yapan erdemli Kree irki arasindaki savasta önemli bir rol oynamaktadir. ','CineMaximum Atasehir Palladium Istanbul',False,120);
 
 
 
+
+--  Uyumsuz --
 INSERT INTO Ticket(TicketID,seat,TUserEmail,idEventID)
+  VALUES(043002,9,'bezginmete@hotmail.com',203054),
+        (684899,10,'assassinboyz@hotmail.com',203054),
+	    (505000,15,'Ldimitrescu@hotmail.com',203054),
+
+-- Harry Potter --
+     (566717,36,'neomatrix@hotmail.com',152033),
+     (456303,22,'assassinboyz@hotmail.com',152033),
+	 (566600,17,'tatumjayson@hotmail.com',152033),
+	 (541401,18,'mariobros@hotmail.com',152033),
+
+
+-- Joker -- 
+
+     (676447,19,'Heisenberg@hotmail.com',141958),
+     (456404,22,'darkinaatrox@gmail.com',141958),
+	 (500001,24,'lichking@hotmail.com',141958),
+     
+-- Labirent --
+
+
+      (455661,5,'thewitcher@hotmail.com',634099),
+      (043423,6,'cjmccolum@hotmail.com',634099),
+      (166302,8,'goldlion@hotmail.com',634099),
+      (194490,42,'dancingbanana@hotmail.com',634099),
+
+
+-- Amelie --
+      (040130,32,'reggiejackson@hotmail.com',890094),
+	  (194406,43,'alexandrucicaldau@hotmail.com',890094),
+
+-- Captain Marvel --
+      (066898,15,'literallyahand@hotmail.com',199124),
+      (314995,16,'ugurkaya@hotmail.com',199124),
+	  (600243,22,'thewitcher@hotmail.com',199124),
+
+-- 7 kocali hurmuz --
+
+	  (421101,21,'Heisenberg@hotmail.com',172111),
+      (678256,22,'tatarusanu@hotmail.com',172111),
+      (456190,14,'burakyilmaz@hotmail.com',172111),
+
+
+-- Zengin Mutfagi -- 
+      (162212,14,'dancingbanana@hotmail.com',890060),
+      (147870,27,'brodixon@gmail.com',890060),
+
+
 
 -- SILA KONSERI --
 
-VALUES(531523,15,'mkeremhan@hotmail.com',455124),
+(531523,15,'mkeremhan@hotmail.com',455124),
 (781351,16,'damianlillard@gmail.com',455124),
 (483445,27,'klaythompson@hotmail.com',455124),
 (539152,33,'reggiejackson@hotmail.com',455124),
@@ -202,20 +268,20 @@ VALUES(531523,15,'mkeremhan@hotmail.com',455124),
 (999020,06,'bekirmalik@hotmail.com',152060),
 (094031,12,'mkeremhan@hotmail.com',152060),
 
--- Yasemin Sakallıoğlu --
+-- Yasemin Sakallioglu --
 
 (642000,55,'karlanthonytowns@hotmail.com',621030),
 (763100,56,'tatumjayson@hotmail.com',621030),
 (010111,151,'darkinaatrox@gmail.com',621030),
 
 
--- Güldür Güldür --
+-- Guldur Guldur --
 
 (535352,20,'cjmccolum@hotmail.com',477124),
 (641000,15,'goldlion@hotmail.com',477124),
 
 
--- Ölün Bizi Ayırana Dek --
+-- Ölun Bizi Ayirana Dek --
 
 (064010,22,'reggiejackson@hotmail.com',675671),
 (053100,12,'ibrahimtatlises@gmail.com',675671),
@@ -223,7 +289,7 @@ VALUES(531523,15,'mkeremhan@hotmail.com',455124),
 (100350,17,'tatarusanu@hotmail.com',675671),
 
 
--- İki Bekar --
+-- Iki Bekar --
 
 (602100,56,'damianlillard@gmail.com',765451),
 (700530,05,'klaythompson@hotmail.com',765451),
@@ -409,9 +475,70 @@ VALUES(531523,15,'mkeremhan@hotmail.com',455124),
 (108030,16,'cjmccolum@hotmail.com',190137),
 (180700,12,'karlanthonytowns@hotmail.com',190137);
 
+
+-- Uyumsuz --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(53003029,'2022-01-01',75,'bezginmete@hotmail.com',043002,1),
+      (46400301,'2022-01-02',75,'assassinboyz@hotmail.com',684899,1),
+	  (28648881,'2022-01-06',75,'Ldimitrescu@hotmail.com',505000,1);
+
+
+
+-- Harry Potter --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(62134672,'2022-01-04',80,'neomatrix@hotmail.com',566717,1),
+      (65737694,'2022-01-04',80,'assassinboyz@hotmail.com',456303,1),
+      (12439694,'2022-01-05',80,'tatumjayson@hotmail.com',566600,1),
+	  (22949929,'2022-01-07',80,'mariobros@hotmail.com',541401,1);
+
+
+-- Joker --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(64637672,'2022-01-07',50,'Heisenberg@hotmail.com',676447,1),
+      (90930664,'2022-01-09',50,'darkinaatrox@gmail.com',456404,1),
+	  (10049998,'2022-01-10',50,'lichking@hotmail.com',500001,1);
+
+
+-- Labirent --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(92134622,'2022-01-08',70,'thewitcher@hotmail.com',455661,1),
+      (43239609,'2022-01-08',70,'cjmccolum@hotmail.com',043423,1),
+	  (30049908,'2022-01-09',70,'burakyilmaz@hotmail.com',166302,1),
+      (37079908,'2022-01-09',70,'dancingbanana@hotmail.com',194490,1);
+
+-- Amelie --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(67704679,'2022-01-01',65,'reggiejackson@hotmail.com',040130,1),
+      (50209604,'2022-01-03',65,'alexandrucicaldau@hotmail.com',194406,1);
+
+
+-- Captain Marvel -- 
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(40130670,'2022-01-04',70,'literallyahand@hotmail.com',066898,1),
+      (20439564,'2022-01-04',70,'ugurkaya@hotmail.com',314995,1),
+	  (30049020,'2022-01-06',70,'thewitcher@hotmail.com',600243,1);
+
+
+
+-- 7 kocali hurmuz --
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(6889672,'2022-01-07',120,'Heisenberg@hotmail.com',421101,1),
+      (40239664,'2022-01-07',120,'tatarusanu@hotmail.com',678256,1),
+	  (20049928,'2022-01-08',120,'burakyilmaz@hotmail.com',456190,1);
+
+-- Zengin Mutfagi --
+
+INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
+VALUES(21166774,'2021-12-25',150,'dancingbanana@hotmail.com',162212,1),
+	  (42316670,'2021-12-25',150,'brodixon@gmail.com',147870,1);
+
 -- SILA KONSERI --
-
-
 
 INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 VALUES(32678544,'2021-12-25',150,'mkeremhan@hotmail.com',531523,1),
@@ -447,25 +574,25 @@ VALUES(47722521,'2022-01-02',105,'tatarusanu@hotmail.com',999310,1),
       (44116181,'2022-01-03',105,'mkeremhan@hotmail.com',094031,1);
 
 
--- Yasemin Sakallıoğlu --
+-- Yasemin Sakallioglu --
 INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 VALUES(11710023,'2022-01-12',100,'karlanthonytowns@hotmail.com',642000,1),
 	  (12290372,'2022-01-12',100,'tatumjayson@hotmail.com',763100,1),
       (13347890,'2022-01-08',100,'darkinaatrox@gmail.com',010111,1);
 
--- Güldür Güldür --
+-- Guldur Guldur --
 INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 VALUES(18709020,'2022-01-09',200,'cjmccolum@hotmail.com',535352,1),
 	  (17062171,'2022-01-08',200,'goldlion@hotmail.com',641000,1);
 
--- Ölüm Bizi Ayırana Dek --
+-- Ölum Bizi Ayirana Dek --
 INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 VALUES(16676121,'2022-01-06',100,'reggiejackson@hotmail.com',064010,1),
 	  (14236676,'2022-01-07',100,'ibrahimtatlises@gmail.com',053100,1),
 	  (19930023,'2022-01-09',100,'burakyilmaz@hotmail.com',005641,1),
-      (72134440,'2022-01-11',100,'tatarusanu@hotmail.com',100350,1);
+      (72134440,'2022-01-10',100,'tatarusanu@hotmail.com',100350,1);
 
--- İki Bekar --
+-- Iki Bekar --
 
 INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 VALUES(66677666,'2022-01-08',120,'damianlillard@gmail.com',602100,1),
@@ -510,14 +637,14 @@ VALUES(52346654,'2022-01-19',150,'damianlillard@gmail.com',200100,1),
       -- 3 --
     INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
 
-VALUES(10000654,'2021-01-15',150,'damianlillard@gmail.com',103123,1),
-	(20796654,'2021-01-16',150,'klaythompson@hotmail.com',169123,1),
-	(65554004,'2021-01-17',150,'reggiejackson@hotmail.com',131131,1),
-	(30040064,'2021-01-18',150,'alexandrucicaldau@hotmail.com',100126,1),
-	(21130454,'2021-01-19',150,'tatumjayson@hotmail.com',123008,1),
-	(45307694,'2021-01-21',150,'karlanthonytowns@hotmail.com',531453,1),
-	(40235664,'2021-01-20',150,'literallyahand@hotmail.com',600100,1),
-	(40094664,'2021-01-20',150,'thewitcher@hotmail.com',475400,1);
+VALUES(10000654,'2022-01-05',150,'damianlillard@gmail.com',103123,1),
+	(20796654,'2022-01-06',150,'klaythompson@hotmail.com',169123,1),
+	(65554004,'2022-01-07',150,'reggiejackson@hotmail.com',131131,1),
+	(30040064,'2022-01-08',150,'alexandrucicaldau@hotmail.com',100126,1),
+	(21130454,'2022-01-09',150,'tatumjayson@hotmail.com',123008,1),
+	(45307694,'2022-01-01',150,'karlanthonytowns@hotmail.com',531453,1),
+	(40235664,'2022-01-01',150,'literallyahand@hotmail.com',600100,1),
+	(40094664,'2022-01-09',150,'thewitcher@hotmail.com',475400,1);
       
       
       -- 4 --
@@ -538,12 +665,12 @@ VALUES(53157122,'2021-12-17',50,'mkeremhan@hotmail.com',148023,1),
 
 VALUES(60421300,'2021-12-25',250,'ugurkaya@hotmail.com',146793,1),
 	(70640502,'2021-12-27',250,'Ldimitrescu@hotmail.com',174733,1),
-	(70315859,'2021-01-20',250,'reggiejackson@hotmail.com',176443,1),
-	(12900065,'2021-01-22',250,'ibrahimtatlises@gmail.com',163723,1),
-	(53106032,'2021-01-25',250,'burakyilmaz@hotmail.com',140003,1),
-	(15315000,'2021-02-03',250,'tatarusanu@hotmail.com',100003,1),
-	(35050535,'2021-02-04',250,'bekirmalik@hotmail.com',147620,1),
-	(63141032,'2021-02-15',250,'mkeremhan@hotmail.com',177900,1);
+	(70315859,'2022-01-01',250,'reggiejackson@hotmail.com',176443,1),
+	(12900065,'2022-01-04',250,'ibrahimtatlises@gmail.com',163723,1),
+	(53106032,'2022-01-04',250,'burakyilmaz@hotmail.com',140003,1),
+	(15315000,'2022-01-05',250,'tatarusanu@hotmail.com',100003,1),
+	(35050535,'2022-01-06',250,'bekirmalik@hotmail.com',147620,1),
+	(63141032,'2022-01-06',250,'mkeremhan@hotmail.com',177900,1);
       
       -- 6 --
    INSERT INTO Receipt(ReceiptID,ReceiptDate,ReceiptPayment,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased)
@@ -664,17 +791,17 @@ VALUES(00500500,'2021-01-01',20,'tatarusanu@hotmail.com',070510,1),
 (04616400,'2021-01-02',20,'karlanthonytowns@hotmail.com',180700,1);
 
 INSERT INTO News(NewsTitle,NewsDescription)
-VALUE('24."Istanbul Tiyatro Festivali", Bu Yil Her Yere Ulasiyor!','Istanbul Kültür Sanat Vakfı (İKSV) tarafından düzenlenen 24. İstanbul Tiyatro Festivali, bu yıl 14 Kasım - 1 Aralık tarihleri arasında hem sahnelerde hem de çevrimiçi platformda tiyatroseverlerle buluşuyor.Bu yıl yurtdışından ve Türkiye"den toplam 29 tiyatro, dans ve performans topluluğunun gösterisini izleyicilerle buluşturacak festivalin Onur Ödülleri; dansçı, koreograf Geyvan McMillen, yönetmen Işıl Kasapoğlu ve Belçikalı yönetmen Ivo van Hove"a sunuluyor.
-Bu yıl programında hem fiziki hem de cevrimici performanslara yer veren festivalin fiziki performansları COVID-19 önlemleri altında DasDas, Fisekhane, Moda Sahnesi, Zorlu PSM, Harbiye Muhsin Ertugrul Sahnesi, Babylon, Yapı Kredi bomontiada, Caddebostan Kultur Merkezi, Surp Vortvots Vorodman Kilisesi gibi mekânlarda gerçekleşecek.
-ilk kez tiyatroseverlere hem fiziki hem de çevrimici bir program sunan Istanbul Tiyatro Festivali bu yıl izleyicilerini alısılmısın disinda bir festival deneyimi ile bulusturacak. “Podacto” yapimi iki farklı ses performansından izleyicinin cesitli araçlarla dâhil olacagi interaktif yapimlara, seyirciyi İstiklal Caddesi"nin unutulmaya yüz tutmus mekânlarinda gezdiren ya da izleyicinin “ev”ini bir galeriye donüsturen birçok ozgun proje bu yil festivalin programini zenginlestiriyor.
+VALUE('24."Istanbul Tiyatro Festivali", Bu Yil Her Yere Ulasiyor!','Istanbul Kultur Sanat Vakfi (IKSV) tarafindan duzenlenen 24. Istanbul Tiyatro Festivali, bu yil 14 Kasim - 1 Aralik tarihleri arasinda hem sahnelerde hem de çevrimiçi platformda tiyatroseverlerle bulusuyor.Bu yil yurtdisindan ve Turkiye"den toplam 29 tiyatro, dans ve performans toplulugunun gösterisini izleyicilerle bulusturacak festivalin Onur Ödulleri; dansçi, koreograf Geyvan McMillen, yönetmen Isil Kasapoglu ve Belçikali yönetmen Ivo van Hove"a sunuluyor.
+Bu yil programinda hem fiziki hem de cevrimici performanslara yer veren festivalin fiziki performanslari COVID-19 önlemleri altinda DasDas, Fisekhane, Moda Sahnesi, Zorlu PSM, Harbiye Muhsin Ertugrul Sahnesi, Babylon, Yapi Kredi bomontiada, Caddebostan Kultur Merkezi, Surp Vortvots Vorodman Kilisesi gibi mekânlarda gerçeklesecek.
+ilk kez tiyatroseverlere hem fiziki hem de çevrimici bir program sunan Istanbul Tiyatro Festivali bu yil izleyicilerini alisilmisin disinda bir festival deneyimi ile bulusturacak. “Podacto” yapimi iki farkli ses performansindan izleyicinin cesitli araçlarla dâhil olacagi interaktif yapimlara, seyirciyi Istiklal Caddesi"nin unutulmaya yuz tutmus mekânlarinda gezdiren ya da izleyicinin “ev”ini bir galeriye donusturen birçok ozgun proje bu yil festivalin programini zenginlestiriyor.
 '),
-('‘Pop’ zirvedeki yerini 2021’de de korudu','fizy kullanıcıları; 2021 yılında en fazla Pop, Rap, En İyiler/Best Of, Yeni Çıkan Albümler, Yöresel/Ülkesel, Oldies ve Melankolik kategorilerini dinledi. 35 milyondan fazla tekil şarkının yanı sıra özenle oluşturulan listeler de yoğun ilgi gördü. 2021’de en çok ‘Karışık Kaset’, ‘En Yeniler (Yerli)’, ‘fizy Top 50 Yerli’, ‘Haftalık Keşif Listesi’, ‘fizy Pop’, ‘Popüler Trend’, ‘Günün Listesi’, ‘En Yeniler (Yabancı)’, ‘Top 50 Unutulmaz Sarkılar Yerli’ ve ‘fizy Top 50 Yabancı’ listeleri dinlendi.
- 2021 yılında fizy’i tercih eden müziksever şehirler arasında İstanbul başta yer alırken, İstanbul’u sırasıyla Ankara, Konya, İzmir, Adana, Bursa, Antalya, Diyarbakır, Gaziantep ve Kayseri takip etti.'),
-('Teoman"in biletleri tukendi','Teoman, biletleri günler öncesinden tükenen Zorlu PSM Turkcell Platinum Sahnesi"ndeki konseri ile kış performanslarına başladı
-Teoman, 2021-2022 konserlerinin İstanbul performansı için dün gece Zorlu PSM Turkcell Platinum sahnesindeydi. Ünlü sanatçının konserinin biletleri günler öncesinde tükendi.
-Geceye bir klasik olan "N"apim Tabiatım Böyle" ile başlayan Teoman, "İstanbul’da Sonbahar", "Duş", "Ruhun Sarışın" "Papatya" ve "Gönülçelen" gibi hitlerinin yanı sıra kariyerinde yer etmiş coverları ile konserine devam etti.'),
-('Selami Sahin"den yilin son konserleri!','Türk müziğinin duayen sanatçısı Selami Şahin, konserleri ile 2022 yılını sürprizlerle karşılamaya hazırlanıyor
-Geçtiğimiz günlerde Kadıköy, Moda"da dinleyicileriyle buluşan Selami Şahin, 24 Aralık Cumartesi akşamı da Aşkın Nur Yengi ile Maslak"taki bir mekanda sahne alacak.2022 için geri sayımı Antalya, Nirvana Cosmopolitan Otel"de yapacak olan Şahin, şarkılarını SemiJazz orkestrası eşliğinde müzikseverler ile hep bir ağızdan söyleyecek. Usta sanatçı, ayrıca 2022 yılının ilk aylarında sevenleriyle paylaşacağı yeni projelerinin hazırlığı içinde çalışmalarını sürdürüyor.');
+('‘Pop’ zirvedeki yerini 2021’de de korudu','fizy kullanicilari; 2021 yilinda en fazla Pop, Rap, En Iyiler/Best Of, Yeni Çikan Albumler, Yöresel/Ülkesel, Oldies ve Melankolik kategorilerini dinledi. 35 milyondan fazla tekil sarkinin yani sira özenle olusturulan listeler de yogun ilgi gördu. 2021’de en çok ‘Karisik Kaset’, ‘En Yeniler (Yerli)’, ‘fizy Top 50 Yerli’, ‘Haftalik Kesif Listesi’, ‘fizy Pop’, ‘Populer Trend’, ‘Gunun Listesi’, ‘En Yeniler (Yabanci)’, ‘Top 50 Unutulmaz Sarkilar Yerli’ ve ‘fizy Top 50 Yabanci’ listeleri dinlendi.
+ 2021 yilinda fizy’i tercih eden muziksever sehirler arasinda Istanbul basta yer alirken, Istanbul’u sirasiyla Ankara, Konya, Izmir, Adana, Bursa, Antalya, Diyarbakir, Gaziantep ve Kayseri takip etti.'),
+('Teoman"in biletleri tukendi','Teoman, biletleri gunler öncesinden tukenen Zorlu PSM Turkcell Platinum Sahnesi"ndeki konseri ile kis performanslarina basladi
+Teoman, 2021-2022 konserlerinin Istanbul performansi için dun gece Zorlu PSM Turkcell Platinum sahnesindeydi. Ünlu sanatçinin konserinin biletleri gunler öncesinde tukendi.
+Geceye bir klasik olan "N"apim Tabiatim Böyle" ile baslayan Teoman, "Istanbul’da Sonbahar", "Dus", "Ruhun Sarisin" "Papatya" ve "Gönulçelen" gibi hitlerinin yani sira kariyerinde yer etmis coverlari ile konserine devam etti.'),
+('Selami Sahin"den yilin son konserleri!','Turk muziginin duayen sanatçisi Selami Sahin, konserleri ile 2022 yilini surprizlerle karsilamaya hazirlaniyor
+Geçtigimiz gunlerde Kadiköy, Moda"da dinleyicileriyle bulusan Selami Sahin, 24 Aralik Cumartesi aksami da Askin Nur Yengi ile Maslak"taki bir mekanda sahne alacak.2022 için geri sayimi Antalya, Nirvana Cosmopolitan Otel"de yapacak olan Sahin, sarkilarini SemiJazz orkestrasi esliginde muzikseverler ile hep bir agizdan söyleyecek. Usta sanatçi, ayrica 2022 yilinin ilk aylarinda sevenleriyle paylasacagi yeni projelerinin hazirligi içinde çalismalarini surduruyor.');
 
 SELECT * FROM LoginType;
 SELECT * FROM User;
