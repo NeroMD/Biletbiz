@@ -128,6 +128,7 @@ function loginUser($conn,$username,$passwrd){
         session_start();
         $_SESSION["uid"]=$uidExists["loginEmail"];
         $_SESSION["isCompany"]=$uidExists["isCompany"];
+        $_SESSION["isAdmin"]= isAdmin($username, $conn);
         header("location:../index.php");
         exit();
     }
@@ -205,27 +206,27 @@ function invalidDate($date){
     return $result;
 }
 
-function createTicket($conn,$capacity,$eventID,$seatNo){
-    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../createEvent.php?error=stmtFail");
-        exit();
-    }
-    $placeholder = 'ugurkaya@hotmail.com';
-    
-    mysqli_stmt_bind_param($stmt,"isi",$seatNo,$placeholder,$eventID);
-    mysqli_stmt_execute($stmt);
-    
-    
-
-    
-    mysqli_stmt_close($stmt);
-    header("location:../createEvent.php?error=none");
-    exit();
-    
-
-}
+//function createTicket($conn,$capacity,$eventID,$seatNo){
+//    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
+//    $stmt = mysqli_stmt_init($conn);
+//    if (!mysqli_stmt_prepare($stmt,$sql)) {
+//        header("location:../createEvent.php?error=stmtFail");
+//        exit();
+//    }
+//    $placeholder = 'ugurkaya@hotmail.com';
+//    
+//    mysqli_stmt_bind_param($stmt,"isi",$seatNo,$placeholder,$eventID);
+//    mysqli_stmt_execute($stmt);
+//    
+//    
+//
+//    
+//    mysqli_stmt_close($stmt);
+//    header("location:../createEvent.php?error=none");
+//    exit();
+//    
+//
+//}
 
 function EventDetail($conn,$eventID){
     $sql = "SELECT * FROM event WHERE idEvent=?;";
@@ -331,22 +332,23 @@ function bookSeat($conn,$seatNo,$eventID,$uid){
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../createEvent.php?error=stmtFail");
+        header("location:../listevent.php?error=stmtFail");
         exit();
     }
+    getPrice($conn,$eventID);
     
-    $x='ugurkaya@hotmail.com';
     mysqli_stmt_bind_param($stmt,"isi",$seatNo,$uid,$eventID);
     mysqli_stmt_execute($stmt);
     
+    $confirm = mysqli_insert_id($conn);
     
+    createReceipt($conn, $confirm, $price, $uid);
 
     
     mysqli_stmt_close($stmt);
     header("location:../listevent.php?");
     exit();
     
-
 }
 
 function isBanned($conn,$mail){
@@ -362,12 +364,11 @@ function isBanned($conn,$mail){
     
     $resultData = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_assoc($resultData);
-    if($row['isBanned']==1){
+    if ($row['isBanned'] == 1) {
         return false;
-    }
-    else
+    } else {
         return true;
-    
+    }
 }
 
 function refundTicket($conn,$ticketID){
@@ -378,7 +379,7 @@ function refundTicket($conn,$ticketID){
     $sql = "DELETE FROM ticket WHERE TicketID = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../MyTickets.php?error=stmtFail");
         exit();
     }
     
@@ -393,7 +394,7 @@ function invalidDateTicket($conn,$ticketID){
     $sql = "SELECT * FROM ticket WHERE TicketID = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../MyTickets.php?error=stmtFail");
         exit();
     }
     
@@ -408,7 +409,7 @@ function invalidDateTicket($conn,$ticketID){
     $sql = "SELECT * FROM event WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../MyTickets.php?error=stmtFail");
         exit();
     }
     
@@ -467,4 +468,247 @@ function eventParticipants($conn,$eventID){
     }
     mysqli_stmt_close($stmt);
     return $ret;
+}
+
+function BanUser($conn,$mail){
+    $sql = "UPDATE user SET isBanned=1 WHERE email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../BanUser.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"s",$mail);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Banned");
+    exit();
+}
+function UnbanUser($conn,$mail){
+    $sql = "UPDATE user SET isBanned=0 WHERE email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../BanUser.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"s",$mail);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function isAdmin($email,$conn){
+    $sql = "SELECT * FROM user WHERE email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../login.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"s",$email);
+    mysqli_stmt_execute($stmt);
+    
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+        
+        return $row["isAdminstrator"];
+    
+    
+    mysqli_stmt_close($stmt);
+
+}
+function UpdateEventName($conn,$value,$ID){
+    $sql = "UPDATE event SET EventName=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"si",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function UpdateEventDescription($conn,$value,$ID){
+    $sql = "UPDATE event SET EventDescription=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");//yeni sayfa
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"si",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");//yeni sayfa
+    exit();
+}
+function UpdateEventPrice($conn,$value,$ID){
+    $sql = "UPDATE event SET EventPrice=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");//yeni sayfa
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"di",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");//yeni sayfa
+    exit();
+}
+function UpdateEventDate($conn,$value,$ID){
+    $sql = "UPDATE event SET EventName=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"si",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function UpdateEventLocation($conn,$value,$ID){
+    $sql = "UPDATE event SET EventLocation=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"si",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function UpdateEventCapacity($conn,$value,$ID){
+    $sql = "UPDATE event SET EventCapacity=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"ii",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function UpdateEventPurchasable($conn,$value,$ID){
+    $sql = "UPDATE event SET EventNoLongerPurchasable=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"ii",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../BanUser.php?Unbanned");
+    exit();
+}
+function createCompanyRequest($conn,$name,$email,$adress,$phone){
+    
+    $sql = "INSERT INTO company (CompanyEmail, ApprovedCompany, CompanyName, CompanyAdress, CompanyPhone) VALUES (?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    
+    
+    $zero=0;
+    mysqli_stmt_bind_param($stmt,"sisss",$email,$zero,$name,$adress,$phone);
+    mysqli_stmt_execute($stmt);
+         
+    mysqli_stmt_close($stmt);
+    header("location:../signup.php?error=none");// deis
+    exit();    
+}
+function approveCompanyRequest($conn,$email){
+    
+    $sql = "UPDATE company SET ApprovedCompany=1 WHERE CompanyEmail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    
+    
+    
+    mysqli_stmt_bind_param($stmt,"s",$email);
+    mysqli_stmt_execute($stmt); 
+    
+    $sql = "INSERT INTO logintype (loginEmail,loginPassword,isCompany) VALUES (?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");
+        exit();
+    }
+    $password=1;
+    $hashedPsswrd=password_hash($password,PASSWORD_DEFAULT);
+    $comp=1;
+    mysqli_stmt_bind_param($stmt,"ssi",$email,$hashedPsswrd,$comp);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    
+    
+    header("location:../signup.php?error=none");// deis
+    exit();    
+}
+function disapproveCompanyRequest($conn,$email){
+    
+    $sql = "DELETE FROM company [WHERE CompanyEmail=?];";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    
+    
+    $zero=0;
+    mysqli_stmt_bind_param($stmt,"s",$email);
+    mysqli_stmt_execute($stmt);
+         
+    mysqli_stmt_close($stmt);
+    header("location:../signup.php?error=none");// deis
+    exit();    
+}
+function createReceipt($conn,$ticketID,$price,$purchaser){// receipt price eklencek odenen para yazilcak
+    $sql = "INSERT INTO receipt(ReceiptDate,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased,ReceiptPayment) VALUES(?,?,?,1,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../createEvent.php?error=stmtFail");
+        exit();
+    }
+    $time = date("Y-m-d");
+    
+    mysqli_stmt_bind_param($stmt,"ssi",$time,$purchaser,$ticketID,$price);
+    mysqli_stmt_execute($stmt);
+    
+    
+
+    
+    mysqli_stmt_close($stmt);
+    header("location:../listevent.php?");
+    exit();
 }

@@ -34,6 +34,9 @@
             if($_SESSION["isCompany"]==1){
                 echo "<li><a href='createEvent.php'>Create Event</a></li>";
             }
+            if($_SESSION["isAdmin"]==1){
+                echo "<li><a href='BanUser.php'>BanUser</a></li>";
+            }
         }
         else{
             echo  '<!--Logn-->
