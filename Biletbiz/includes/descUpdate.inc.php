@@ -2,7 +2,7 @@
 
 if(isset($_POST["submit"])){
 
-    $username = $_POST["email"];
+    $username = $_POST["name"];
     $passwrd= $_POST["ID"];
 
     require_once 'dbh.inc.php';

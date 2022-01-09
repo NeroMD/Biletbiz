@@ -83,9 +83,7 @@
         
         
     </div>
-    <div class="footer">
-        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
-    </div>
+    
 </body>
 
 </html>

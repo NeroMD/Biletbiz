@@ -9,7 +9,7 @@ refundTicket($conn, $ticketID);
 else{
 
     
-     header("location:../MyTickets.php?yok");
+     header("location:../myticket.php?yok");
      exit();
     
     

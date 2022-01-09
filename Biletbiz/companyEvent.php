@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="event.css">
+    <link rel="stylesheet" href="css/event.css">
     <title>List Event</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
@@ -64,7 +64,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
             ?>
         <div class="navbar">
             <div class="logo">
-                <a href="companypage.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <br><br>
@@ -103,7 +103,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
 
 
         </table>
-            <a href="editevent.html"><button type="submit" class="button" style="margin-left: 600px;">Edit</button></a>
+            
          
     </div>
     <div class="footer">
