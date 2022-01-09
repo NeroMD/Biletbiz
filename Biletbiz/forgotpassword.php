@@ -103,15 +103,23 @@
             <div class="logo">
                 <a href="index.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
+            <form action="passwordresettoken.php" method="post">
             <div class="resetpassword">
                 <br>
                 <h1>Forgot Password?</h1>
                 <label for="email"><b>Email</b></label><br>
                 <input type="text" placeholder="Enter Email" name="email" required>
                 <div class="clear">
+
+                    <a href="passwordresettoken.php"><button type="submit" class="registerbutton">Send Code</button></a>
+                </div>
+            </div>
+            </form>>
+
                     <a href="#"><button type="submit" class="registerbutton">Send Code</button></a>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="footer">

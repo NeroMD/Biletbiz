@@ -20,10 +20,19 @@
           <li><a href="#">Cinema</a> </li>
           <li><a href="#">Theatre</a> </li>
         </ul>
+
+        <form action="Search.php" method="post">
+        <div class="searchbox" method="post">
+          <input class="searchtxt" type="text" name="query" placeholder="Search...">
+          <input class="searchbutton" type="submit" methods="post" href="Search.php"><i class="fas fa-search"></i></input>
+        </div>
+        </form>
+
         <div class="searchbox">
           <input class="searchtxt" type="text" name="" placeholder="Search...">
           <a class="searchbutton" href="#"><i class="fas fa-search"></i></a>
         </div>
+
         <div class="logo">
             <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
         </div>
@@ -61,10 +70,23 @@
                         </div>
                         <a class="close" onclick="popupToggle();"><img src="foto/exit.png" style="width: 15px;height: 15px;"></a>
                         </div>
+
+                  
+                    </form>
+                    <form action="ForgotPassword.php" method="post">
+            <div>
+            <input type="submit" title="Forgot Password" class="ForgotPassword" name="ForgotPassword"  method="POST" href="ForgotPassword.php?>">Forgot Password</input>
+            </div>
+        </form>
+            
+            </section>
+            
+
                     </form>
             
             
             </section>
+
             <script>
               function popupToggle() {
                 const popup = document.getElementById("popup");
