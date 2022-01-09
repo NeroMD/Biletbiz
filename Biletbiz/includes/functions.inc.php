@@ -740,7 +740,8 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     mysqli_stmt_execute($stmt);
     }
     $confirm = mysqli_insert_id($conn);
-    $price = getPrice($conn,$eventID);
+    $prices = getPrice($conn,$eventID);
+    $price = $prices*sizeof($seatNo);
     createReceipt($conn, $confirm, $price, $uid);
 
     
