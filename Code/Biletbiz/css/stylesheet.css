@@ -162,23 +162,16 @@ div.sol1 {
 }
 
 div.sag {
-    float: right;
-    width: 550px;
-    padding: 10px;
+    float: right;width: 550px;padding: 10px;
 }
 
 div.sag1 {
     margin-top: 10px;
-    margin-left: 777px;
-    width: 500px;
-    padding: 10px;
+ margin-left: 777px;width: 500px;padding: 10px;
 }
 
 div.sag2 {
-    margin-top: 15px;
-    margin-left: 777px;
-    width: 500px;
-    padding: 10px;
+    margin-top: 15px;margin-left: 777px;width: 500px;padding: 10px;
 }
 
 img {

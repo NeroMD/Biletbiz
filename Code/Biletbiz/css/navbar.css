@@ -6,13 +6,7 @@
     padding: 0;
 }
 
-.container {
-    background-image: url(back.jpg);
-    background-size: 100% 100%;
-    height: 100cm;
-}
-
-.container .navbar {
+.navbar{
     width: 100%;
     height: 100px;
     background-color: #8b2323;
@@ -172,7 +166,7 @@ div.sol {
     float: left;
     margin-left: 55px;
     margin-top: 50px;
-}
+}/* This is a single-line comment */
 
 div.sol1 {
     width: 50%;
