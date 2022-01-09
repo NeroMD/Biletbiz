@@ -147,7 +147,7 @@ function emptyInputCreateEvent($name,$email,$date,$price,$descp,$location,$capac
 }
 
 function createEvent($conn,$name,$email,$date,$price,$desc,$locat,$capacity){
-    $sql = "INSERT INTO Event(ECompanyEmail,EventName,EventPrice,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
+    $sql = "INSERT INTO Event(ECompanyEmail,EventName,TicketPrice,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity)
 VALUES(?,?,?,?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
@@ -335,13 +335,13 @@ function bookSeat($conn,$seatNo,$eventID,$uid){
         header("location:../listevent.php?error=stmtFail");
         exit();
     }
-    getPrice($conn,$eventID);
+    
     
     mysqli_stmt_bind_param($stmt,"isi",$seatNo,$uid,$eventID);
     mysqli_stmt_execute($stmt);
     
     $confirm = mysqli_insert_id($conn);
-    
+    $price = getPrice($conn,$eventID);
     createReceipt($conn, $confirm, $price, $uid);
 
     
@@ -355,7 +355,7 @@ function isBanned($conn,$mail){
     $sql = "SELECT * FROM user WHERE email = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../signup.php?error=stmtFail");//find better one
         exit();
     }
     
@@ -524,7 +524,7 @@ function UpdateEventName($conn,$value,$ID){
     $sql = "UPDATE event SET EventName=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../editevent.php?error=stmtFail");
         exit();
     }
     
@@ -532,14 +532,14 @@ function UpdateEventName($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");
+    header("location:../editevent.php?Unbanned");
     exit();
 }
 function UpdateEventDescription($conn,$value,$ID){
     $sql = "UPDATE event SET EventDescription=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");//yeni sayfa
+        header("location:../editevent.php?error=stmtFail");//yeni sayfa
         exit();
     }
     
@@ -547,14 +547,14 @@ function UpdateEventDescription($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");//yeni sayfa
+    header("location:../editevent.php?Unbanned");//yeni sayfa
     exit();
 }
 function UpdateEventPrice($conn,$value,$ID){
-    $sql = "UPDATE event SET EventPrice=? WHERE idEvent = ?;";
+    $sql = "UPDATE event SET TicketPrice=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");//yeni sayfa
+        header("location:../editevent.php?error=stmtFail");//yeni sayfa
         exit();
     }
     
@@ -562,14 +562,14 @@ function UpdateEventPrice($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");//yeni sayfa
+    header("location:../editevent.php?Unbanned");//yeni sayfa
     exit();
 }
 function UpdateEventDate($conn,$value,$ID){
     $sql = "UPDATE event SET EventName=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../editevent.php?error=stmtFail");
         exit();
     }
     
@@ -577,14 +577,14 @@ function UpdateEventDate($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");
+    header("location:../editevent.php?Unbanned");
     exit();
 }
 function UpdateEventLocation($conn,$value,$ID){
     $sql = "UPDATE event SET EventLocation=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../editevent.php?error=stmtFail");
         exit();
     }
     
@@ -592,14 +592,14 @@ function UpdateEventLocation($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");
+    header("location:../editevent.php?");
     exit();
 }
 function UpdateEventCapacity($conn,$value,$ID){
     $sql = "UPDATE event SET EventCapacity=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../editevent.php?error=stmtFail");
         exit();
     }
     
@@ -607,14 +607,14 @@ function UpdateEventCapacity($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");
+    header("location:../editevent.php?");
     exit();
 }
 function UpdateEventPurchasable($conn,$value,$ID){
     $sql = "UPDATE event SET EventNoLongerPurchasable=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../editevent.php?error=stmtFail");
         exit();
     }
     
@@ -622,7 +622,7 @@ function UpdateEventPurchasable($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../BanUser.php?Unbanned");
+    header("location:../editevent.php?");
     exit();
 }
 function createCompanyRequest($conn,$name,$email,$adress,$phone){
@@ -630,7 +630,7 @@ function createCompanyRequest($conn,$name,$email,$adress,$phone){
     $sql = "INSERT INTO company (CompanyEmail, ApprovedCompany, CompanyName, CompanyAdress, CompanyPhone) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../companyregister.php?error=stmtFail");
         exit();
     }
     
@@ -640,7 +640,7 @@ function createCompanyRequest($conn,$name,$email,$adress,$phone){
     mysqli_stmt_execute($stmt);
          
     mysqli_stmt_close($stmt);
-    header("location:../signup.php?error=none");// deis
+    header("location:../companyregister.php?error=none");// deis
     exit();    
 }
 function approveCompanyRequest($conn,$email){
@@ -660,7 +660,7 @@ function approveCompanyRequest($conn,$email){
     $sql = "INSERT INTO logintype (loginEmail,loginPassword,isCompany) VALUES (?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");
+        header("location:../Approve.php?error=stmtFail");
         exit();
     }
     $password=1;
@@ -672,15 +672,15 @@ function approveCompanyRequest($conn,$email){
     mysqli_stmt_close($stmt);
     
     
-    header("location:../signup.php?error=none");// deis
+    header("location:../Approve.php?error=stmtFail");// deis
     exit();    
 }
 function disapproveCompanyRequest($conn,$email){
     
-    $sql = "DELETE FROM company [WHERE CompanyEmail=?];";
+    $sql = "DELETE FROM company WHERE CompanyEmail=?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../signup.php?error=stmtFail");// deis
+        header("location:../Approve.php?error=stmtFail1");// deis
         exit();
     }
     
@@ -690,7 +690,7 @@ function disapproveCompanyRequest($conn,$email){
     mysqli_stmt_execute($stmt);
          
     mysqli_stmt_close($stmt);
-    header("location:../signup.php?error=none");// deis
+    header("location:../Approve.php?error=none");// deis
     exit();    
 }
 function createReceipt($conn,$ticketID,$price,$purchaser){// receipt price eklencek odenen para yazilcak
@@ -702,13 +702,50 @@ function createReceipt($conn,$ticketID,$price,$purchaser){// receipt price eklen
     }
     $time = date("Y-m-d");
     
-    mysqli_stmt_bind_param($stmt,"ssi",$time,$purchaser,$ticketID,$price);
+    mysqli_stmt_bind_param($stmt,"ssid",$time,$purchaser,$ticketID,$price);
     mysqli_stmt_execute($stmt);
     
     
 
     
     mysqli_stmt_close($stmt);
+    
+}
+function getPrice($conn,$EventID){
+    $sql = "SELECT * FROM event WHERE idEvent=?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+    echo "STMT FAIL";
+            
+    }   
+    
+    mysqli_stmt_bind_param($stmt,"i", $EventID);
+    mysqli_stmt_execute($stmt);
+    
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row=mysqli_fetch_assoc($resultData);
+    mysqli_stmt_close($stmt);
+    return $row["TicketPrice"];
+}
+function bookSeats($conn,$seatNo,$eventID,$uid){
+    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../listevent.php?error=stmtFail");
+        exit();
+    }
+    
+    foreach($seatNo as $element){
+    mysqli_stmt_bind_param($stmt,"isi",$element,$uid,$eventID);
+    mysqli_stmt_execute($stmt);
+    }
+    $confirm = mysqli_insert_id($conn);
+    $price = getPrice($conn,$eventID);
+    createReceipt($conn, $confirm, $price, $uid);
+
+    
+    mysqli_stmt_close($stmt);
     header("location:../listevent.php?");
     exit();
+    
 }

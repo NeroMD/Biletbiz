@@ -4,9 +4,7 @@
 session_start();
 include_once 'includes/Event.inc.php';
 include_once 'includes/dbh.inc.php';
-if(isset($_GET["ID"])){
-    
-}
+
 
 ?>
 <head>
@@ -21,27 +19,37 @@ if(isset($_GET["ID"])){
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <div class="partpage">
             <div class="sol">
                 <form action="includes/bookingseat.inc.php" method="post">
-                <select id="categories" name="seat" class="price" required>
-                    <?php
-                    if(isset($_GET["ID"])){
-                    $arr= remainingSeats($conn, $_GET["ID"]);
-                    for($x=0;$x<count($arr);$x++){
-                        echo '<option value='.$arr[$x].'>'.$arr[$x].'</option>';
-                    }
-}                   echo '<input type="hidden" name="email" value="'.$_SESSION['uid'].'">';
-                    echo '<input type="hidden" name="eventID" value="'.$_GET['ID'].'">';
-                    if(isset($_GET["ID"])){
-                      echo  '<button type="submit" name="submit">buy</button>';
-}
-                    ?>
+                    <?php $p=4; 
+                    if(isset($_POST["submit"])){
+                    for($l=0;$l<$_POST["AA"];$l++){
                     
-                </select>
+echo "<select id='categories' name='seat[]' class='price' required>";
+                    
+                    
+                    $arr= remainingSeats($conn, $_POST["ID"]);
+                    
+                    for($x=0;$x<count($arr);$x++){
+                        echo '<option  value='.$arr[$x].'>'.$arr[$x].'</option>';
+                    }
+                   
+                    
+                   echo '</select>';
+                     }
+                    
+                    echo '<input type="hidden" name="email" value="'.$_SESSION['uid'].'">';
+                    echo '<input type="hidden" name="eventID" value="'.$_POST["ID"].'">';
+                    if(isset($_POST["ID"])){
+                      echo  '<button type="submit" name="submit">buy</button>';
+                    }
+                    
+                    }
+                    ?>
                 </form>
                 
 

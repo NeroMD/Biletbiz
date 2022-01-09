@@ -2,13 +2,13 @@
     include_once 'header.php'
     
     ?>
-</body>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bilet Biz</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="css/index.css">
   <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
@@ -18,7 +18,10 @@
       <!--partofpage-->
       <div class="partpage">
         <!--slider-->
-        <div class="sol">
+        <div class="sol" style="width: 50%;
+    float: left;
+    margin-left: 55px;
+    margin-top: 50px;">
           <div class="slider">
             <div class="slides">
               <input type="radio" name="radio-btn" id="radio1">
@@ -59,7 +62,7 @@
           <div class="gallery">
             <img src="foto/ZeynepBastık.jpg" alt="Cinema" style="width: 150px; height: 100px;">
             </a>
-            <button class="btn success">Zeynep Bastık</button>
+            <button class="btn success">Zeynep1 Bastık</button>
           </div>
           <div class="gallery">
             <img src="foto/OğuzhanKoç.jpg" alt="Cinema" style="width: 150px; height: 100px;">
@@ -115,7 +118,7 @@
           </div>
         </div>
         <!---cinema-->
-        <div class="sag1">
+        <div class="sag1"style="float: right;width: 550px;padding: 10px;">
           <h1>Cinema</h1>
           <div class="gallery">
             <img src="foto/uyumusz.jpg" alt="Uyumsuz" style="width: 100px; height: 100px;">
@@ -150,7 +153,7 @@
         </div>
 
         <!---theatre-->
-        <div class="sag2">
+        <div class="sag2"">
           <h1>Theatre</h1>
           <div class="gallery">
             <img src="foto/theatre1.jpg" alt="Zengin Mutfagi" style="width: 90px; height: 100px;">

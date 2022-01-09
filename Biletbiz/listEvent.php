@@ -66,7 +66,7 @@
             else{
                 echo '<div class="th">
             <a href="Event.php?ID='.$row["idEvent"].'">'.$row["EventName"].'</a>
-            <dd> '.$row["EventDate"].' <br> '.$row["EventLocation"].' <br> '.$row["EventPrice"].'TL (Capacity : '.$row["EventCapacity"].') <br>Event Is
+            <dd> '.$row["EventDate"].' <br> '.$row["EventLocation"].' <br> '.$row["TicketPrice"].'TL (Capacity : '.$row["EventCapacity"].') <br>Event Is
                 Available for Purchase</dd>
         </div>';
             }

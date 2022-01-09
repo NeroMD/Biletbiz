@@ -13,8 +13,8 @@
     <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
-    <div class="container">
-    <div class="navbar">
+    
+    <div class="navbar" style="background-color: #8b2323;">
         <ul>
           <li><a href="#">Concert</a> </li>
           <li><a href="#">Cinema</a> </li>
@@ -35,7 +35,7 @@
                 echo "<li><a href='createEvent.php'>Create Event</a></li>";
             }
             if($_SESSION["isAdmin"]==1){
-                echo "<li><a href='BanUser.php'>BanUser</a></li>";
+                echo "<li><a href='BanUser.php'>BanUser</a></li><li><a href='Approve.php'>Company Request</a></li>";
             }
         }
         else{
@@ -83,4 +83,5 @@
     ?>
 
       </div>
-    </div>
+   
+</body>
