@@ -127,7 +127,7 @@ if(isset($_SESSION["uid"])){
             </tr>';
                 if($result==false){echo '<form action="includes/refund.inc.php" method="post">
                     <input type="hidden" name="ticket" value="'.$row['TicketID'].'">
-    <button type="submit" name="submit">refund</button>
+   <td> <button type="submit" name="submit">refund</button></td>
 </form>';}
                 echo '<br>';
             }

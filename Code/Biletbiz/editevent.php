@@ -165,7 +165,7 @@
         <!--Navbar-->
         <div class="navbar">
             <div class="logo">
-                <a href="companypage.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
             <!--Event Form-->
             <div class="eventform">
@@ -181,7 +181,7 @@
                     <a class="btn" onclick="popup1Toggle();">Edit</a><br>
                     <div id="popup1">
                         <div class="content">
-                            <center><form action="includes/nameUpdate.inc.php"></form>
+                            <center><form action="includes/nameUpdate.inc.php" method="post">
                                 <input type="text" placeholder="Enter Event Name" style="width: 180px;" name="email"
                                     required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';
@@ -201,7 +201,7 @@
                     <a class="btn" onclick="popup2Toggle();">Edit</a><br>
                     <div id="popup2">
                         <div class="content">
-                            <center><form action="includes/dateUpdate.inc.php"></form>
+                            <center><form action="includes/dateUpdate.inc.php" method="post">
                                 <input type="date" placeholder="Enter Date" style="width: 180px;" name="email" required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';
                 ?>
@@ -220,7 +220,7 @@
                     <a class="btn" onclick="popup3Toggle();">Edit</a><br>
                     <div id="popup3">
                         <div class="content">
-                            <center><form action="includes/priceUpdate.inc.php">
+                            <center><form action="includes/priceUpdate.inc.php" method="post">
                                 <input type="number" placeholder="Enter Event Price" style="width: 180px;" name="email"
                                     required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';
@@ -241,7 +241,7 @@
                     <a class="btn" onclick="popup4Toggle();">Edit</a><br>
                     <div id="popup4">
                         <div class="content">
-                            <center><form action="includes/descUpdate.inc.php">
+                            <center><form action="includes/descUpdate.inc.php" method="post">
                                 <input type="text" placeholder="Enter Event Description" name="name" required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';
                 ?>
@@ -261,7 +261,7 @@
                     <div id="popup5">
                         <div class="content">
                             <center>
-                                <form action="includes/locUpdate.inc.php">
+                                <form action="includes/locUpdate.inc.php" method="post">
                                 <input type="text" placeholder="Enter Event Location" name="name" required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';
                 ?>
@@ -281,7 +281,7 @@
                     <div id="popup6">
                         <div class="content">
                             <center>
-                                <form action="includes/capacityUpdate.inc.php">
+                                <form action="includes/capacityUpdate.inc.php" method="post">
                                 <input type="number" placeholder="Enter Event Capacity" style="width: 180px;"
                                     name="email" required><?php
                     echo '<input type="hidden" name="ID" value="'.$_GET["ID"].'">';

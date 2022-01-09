@@ -115,7 +115,7 @@ if(isset($_GET["ID"])){
                     <h4>'.$row['EventName'].'</h4><br>
                     <h5>Yer : '.$row['EventLocation'].'</h5>
                     <h5>Tarih: '.$row['EventDate'].'</h5>
-                    <h5>Bilet : 150TL</h5><br>
+                    <h5>Bilet : '.$row["TicketPrice"].'TL</h5><br>
                     <p>'.$row['EventDescription'].'</p>
                 </div>';
 
