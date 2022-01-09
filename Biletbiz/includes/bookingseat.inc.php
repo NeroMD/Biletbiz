@@ -14,6 +14,12 @@ if(isset($_POST["submit"])){
 
 
 
+
+    bookSeats($conn,$sea,$event,$email);
+
+
+    
+
     bookSeats($conn,$sea,$event,$email);
 
 }

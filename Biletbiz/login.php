@@ -8,6 +8,7 @@
             
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="psswrd" placeholder="Password">
+
             <button type="submit" name="submit">Log in
 
 
@@ -17,6 +18,10 @@
             <div>
                 <input type="submit" title="Forgot Password" class="ForgotPassword" name="ForgotPassword"  method="POST" href="ForgotPassword.php?>"></input>
             </div>
+        </form>
+
+
+            <button type="submit" name="submit">Log in</button>
         </form>
 
 

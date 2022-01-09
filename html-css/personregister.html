@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="registercss.css">
+    <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+            </div>
+            <div class="registerform">
+                <br>
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <br>
+                <form action=" ">
+                    <label for="name"><b>Name & Surname</b></label>
+                    <input type="text" placeholder="Enter Name & Surname" name="name" required>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
+                    <label for="phone"><b>Phone Number</b></label><br><br>
+                    <input type="tel" id="phone" name="phone" placeholder="5xxxxxxxxx"
+                        pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required> 
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </form>
+
+                <div class="clear">
+                    <a href="#"><button type="submit" class="registerbutton">Register</button></a>
+                    <a href="index.html"><button type="button" class="cancelbutton">Cancel</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+    </div>
+</body>
+
+</html>

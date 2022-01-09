@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="event.css">
+    <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!--Navbar-->
+        <div class="navbar">
+            <div class="logo">
+                <a href="companypage.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+            </div>
+            <!--Event Form-->
+            <div class="eventform">
+                <br>
+                <h1>Create Event</h1>
+                <form action=" ">
+                    <label for="email"><b>Company E-mail</b></label>
+                    <input type="text" placeholder="Enter Company Email" name="email" required>
+                    
+                    <label for="name"><b>Event Name</b></label>
+                    <input type="text" placeholder="Enter Event Name" name="name" required>
+
+                    <label for="date"><b>Event Date</b></label>
+                    <input type="date" placeholder="DD/MM/YYYY" name="text" required>
+
+                    <label for="number"><b>Event Price</b></label>
+                    <input type="number" placeholder="Enter Event Price" name="name" required>
+
+                    <label for="name"><b>Event Description</b></label>
+                    <input type="text" placeholder="Enter Event Description" name="name" required>
+
+                    <label for="name"><b>Event Location</b></label>
+                    <input type="text" placeholder="Enter Event Location" name="name" required>
+
+                    <label for="number"><b>Event Capacity</b></label>
+                    <input type="number" placeholder="Enter Event Capacity" name="name" required>
+
+                    <form action="">
+                        <p>
+                            <center>Can the event be purchased?<center>
+                        </p><br>
+                        <input type="radio" id="yes" name="fav_language" value="Yes" required>
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="fav_language" value="No" style="margin-left: 20px;" required>
+                        <label for="no">No</label><br>
+
+                        <br>
+
+                        <p>Is there a seat available?</p><br>
+                        <input type="radio" id="yes1" name="seat" value="Yes1" required>
+                        <label for="yes1">Yes</label>
+                        <input type="radio" id="no1" name="seat" value="No1" style="margin-left: 20px;" required>
+                        <label for="no1">No</label><br>
+                        <br>
+                        <input type="radio" id="vip" name="vip" value="vip" style="margin-left: 20px;">
+                        <label for="vip">VIP Ticket</label><br>
+                    </form><br>
+                    <a href="listEvent.html"><button type="submit" class="button">Create Event</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <div class="footer">
+        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+    </div>
+</body>
+
+</html>

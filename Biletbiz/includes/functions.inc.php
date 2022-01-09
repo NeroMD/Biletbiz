@@ -728,7 +728,9 @@ function getPrice($conn,$EventID){
     return $row["TicketPrice"];
 }
 function bookSeats($conn,$seatNo,$eventID,$uid){
+
     ticketmail($conn,$seatNo,$eventID,$uid);
+
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
@@ -744,11 +746,13 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     $prices = getPrice($conn,$eventID);
     $price = $prices*sizeof($seatNo);
     createReceipt($conn, $confirm, $price, $uid);
+
     
     mysqli_stmt_close($stmt);
     header("location:../listevent.php?");
     exit();
     
+
 }
 
 function ticketmail($conn,$seatNo,$eventID,$uid){
@@ -813,5 +817,6 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
     }else{
         echo "Invalid Email Address. Go back";
     }
+
 
 }
