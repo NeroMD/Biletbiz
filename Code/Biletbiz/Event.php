@@ -138,7 +138,7 @@ if(isset($_SESSION["uid"])){
                 <button type="submit" name="submit">Buy</button>';
 }
 else{
-    echo '<p>yok</p>';
+    echo '<p>Once uye ol</p>';
 }
 ?>
         

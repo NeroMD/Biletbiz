@@ -58,7 +58,7 @@ echo "<select id='categories' name='seat[]' class='price' required>";
             </div>
             <div class="sag">
                 <div class="seatsimage">
-                    <img src="seats.png" style="height: 400px;">
+<!--                    <img src="foto/seats.png" style="height: 400px;">-->
                 </div>
             </div>
 

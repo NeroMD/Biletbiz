@@ -68,7 +68,7 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="personalpage.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <br><br>
@@ -146,14 +146,7 @@ if(isset($_SESSION["uid"])){
     
 }
 ?>
-            <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-            </tr>
+            
           
         </table>
     </div>

@@ -16,9 +16,8 @@
     
     <div class="navbar" style="background-color: #8b2323;">
         <ul>
-          <li><a href="#">Concert</a> </li>
-          <li><a href="#">Cinema</a> </li>
-          <li><a href="#">Theatre</a> </li>
+          
+          <li><a href="listEvent.php">All Events</a> </li>
         </ul>
         <div class="searchbox">
           <input class="searchtxt" type="text" name="" placeholder="Search...">
@@ -29,10 +28,12 @@
         </div>
         <?php
         if(isset($_SESSION["uid"])){
-            echo  "<li><a href=''>profile</a></li>";
+            
             echo "<li><a href='includes/logout.inc.php'>Log out</a></li>";
+            echo "<li><a href='myticket.php'>MyTickets</a></li>";
             if($_SESSION["isCompany"]==1){
                 echo "<li><a href='createEvent.php'>Create Event</a></li>";
+                echo "<li><a href='companyEvent.php'>MyEvents</a></li>";
             }
             if($_SESSION["isAdmin"]==1){
                 echo "<li><a href='BanUser.php'>BanUser</a></li><li><a href='Approve.php'>Company Request</a></li>";
@@ -76,8 +77,12 @@
         <div class="login">
           <ul class="login">
             <a href="signup.php" class="btn btn-warning">Register</a>
-          </ul>
-        </div>';
+          </ul></div>
+          <div class="reg">
+          <ul class="reg">
+            <a href="companyRegister.php" class="btn btn-warning">Register Company</a>
+          </ul></div>
+        ';
            
         }
     ?>

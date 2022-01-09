@@ -18,9 +18,13 @@
             <file>file:/C:/xampp/htdocs/Biletbiz/includes/login.inc.php</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/myticket.php</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/companyEvent.php</file>
+            <file>file:/C:/xampp/htdocs/Biletbiz/css/header.css</file>
+            <file>file:/C:/xampp/htdocs/Biletbiz/css/navbar.css</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/bookingseat.php</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/includes/locUpdate.inc.php</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/Approve.php</file>
+            <file>file:/C:/xampp/htdocs/Biletbiz/header.php</file>
+            <file>file:/C:/xampp/htdocs/Biletbiz/listEvent.php</file>
             <file>file:/C:/xampp/htdocs/Biletbiz/includes/bookingseat.inc.php</file>
         </group>
     </open-files>
