@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-image: url(back.jpg);
+    background-size: 100% 100%;
+    height: 100cm;
+}
+
+.container .navbar {
+    width: 100%;
+    height: 100px;
+    background-color: #8b2323;
+}
+
+.navbar ul {
+    float: left;
+    margin-right: 20px;
+}
+
+.navbar .logo {
+    display: inline-block;
+    margin-left: 290px;
+    margin-top: 20px;
+    width: 10px;
+    height: 70px;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 4px;
+    line-height: 100px
+}
+
+.navbar .login {
+    float: right;
+    margin-right: 50px;
+    list-style: none;
+    margin: 0px 10px;
+    line-height: 100px
+}
+
+.navbar .register {
+    float: right;
+    margin-right: 50px;
+    list-style: none;
+    margin: 0px 10px;
+    line-height: 100px
+}
+
+.navbar .login ul a {
+    color: thistle;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px 3px;
+    font-family: Lobster Two;
+}
+
+.navbar ul li a {
+    color: thistle;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px 3px;
+    font-family: Lobster Two;
+}
+
+.navbar ul li a:active, .navbar ul li a:hover {
+    background: #cd5555;
+    border-radius: 5px;
+}
+
+.searchbox {
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 1060px;
+    transform: translate(-50%, -50%);
+    background: rgb(66, 14, 5);
+    height: 30px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.searchbutton {
+    color: rgb(66, 14, 5);
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #8b2323;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchtxt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 30px;
+    width: 150px;
+    padding: 0px 6px;
+}
+
+.searchbox:hover>.searchbutton {
+    background: wheat;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 200px;
+    height: 100px;
+}
+
+h1 {
+    margin-top: 1px;
+    margin-left: 40px;
+    font-family: Pacifico;
+    color: rgb(94, 71, 71);
+}
+
+div.partpage {
+    overflow: hidden;
+    width: 100%;
+
+}
+
+div.sol {
+    width: 50%;
+    float: left;
+    margin-left: 55px;
+    margin-top: 50px;
+}
+
+div.sol1 {
+    width: 50%;
+    float: left;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+div.sag {
+    float: right;width: 550px;padding: 10px;
+}
+
+div.sag1 {
+    margin-top: 10px;
+ margin-left: 777px;width: 500px;padding: 10px;
+}
+
+div.sag2 {
+    margin-top: 15px;margin-left: 777px;width: 500px;padding: 10px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.success {
+    color: black;
+    font-family: Lobster Two;
+    margin: auto;
+    font-size: 16px;
+
+}
+
+.success:hover {
+    color: rgb(92, 42, 42);
+}
+
+
+.slider {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 1s;
+}
+
+.slide img {
+    margin-top: 20px;
+    width: 600px;
+    height: 400px;
+
+}
+
+.navigation-manual {
+    position: relative;
+    width: 800px;
+    margin-top: -170px;
+    display: flex;
+    margin-left: 200px;
+}
+
+.manual-btn {
+    border: 2px solid #001314;
+    padding: 5px;
+    margin-top: 100px;
+    border-radius: 10px;
+    cursor: auto;
+    transition: 1s;
+
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: #490303;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+
+#radio4:checked~.first {
+    margin-left: -60%;
+}
+
+.navigation-auto {
+    position: relative;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div {
+    border: 2px solid #001314;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+    background: #001314;
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: #001314;
+}
+
+#radio3:checked~.navigation-auto .auto-btn3 {
+    background: #001314;
+}
+
+#radio4:checked~.navigation-auto .auto-btn4 {
+    background: #001314;
+}
+
+.calenderlist {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.calenderlist ul {
+    list-style: none;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+.calenderlist .calender {
+    position: relative;
+    display: block;
+    background: #676966;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    height: 50px;
+    width:450px;
+}
+
+.calenderlist .calender:hover {
+    background: #2c2929;
+    text-decoration: none;
+}
+
+.button {
+    position: relative;
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.button:hover {
+    letter-spacing: 3px;
+}
+.popbuton {
+    background-color: #9aa3a0;
+    color: white;
+    padding: 14px 20px;
+    position: relative;
+    margin-left: 50px;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    opacity: 0.9;
+}
+.popbuton:hover {
+    opacity: 5;
+    letter-spacing: 3px;
+}
+
+#popup {
+    position: fixed;
+    background: #eee9e9;
+    transition: 0.5s;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 450px;
+    padding: 80px 50px 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 08);
+    visibility: hidden;
+}
+#popup.active{
+    visibility: visible;
+    top: 50%;
+}
+#popup.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#popup .content img {
+    width: 150px;
+    height: 150px;
+}
+
+#popup .content .inputbox {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup .content .inputbox input {
+    width: 1000%;
+    border: 1px solid;
+    padding: 15px;
+    outline: none;
+    font-size: 18px;
+}
+
+#popup .content .inputbox a {
+    background-color: rgb(80, 53, 53);
+    color: white;
+    padding:20px ;
+    margin-left:30px;
+    justify-items: center;
+    
+}
+.button1 {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px 3px;
+    font-family: Lobster Two;
+
+}
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+
+}
+
