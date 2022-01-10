@@ -164,7 +164,7 @@ VALUES(?,?,?,?,?,?,?,?);";
     mysqli_stmt_close($stmt);
     $confirm = mysqli_insert_id($conn);
     #createTicket($conn, $capacity, $confirm);
-    header("location:../createEvent.php?error=none");
+    header("location:../companyEvent.php");
     exit();
     
 
