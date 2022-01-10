@@ -47,7 +47,7 @@
 
         <div class="navbar">
             <div class="logo">
-                <a href="companypage.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <br><br>

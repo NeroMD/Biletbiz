@@ -110,16 +110,10 @@
                 <label for="email"><b>Email</b></label><br>
                 <input type="text" placeholder="Enter Email" name="email" required>
                 <div class="clear">
-
                     <a href="passwordresettoken.php"><button type="submit" class="registerbutton">Send Code</button></a>
                 </div>
             </div>
             </form>>
-
-                    <a href="#"><button type="submit" class="registerbutton">Send Code</button></a>
-                </div>
-            </div>
-
         </div>
     </div>
     <div class="footer">
