@@ -123,7 +123,7 @@ if(isset($_GET["ID"])){
 
 
 }
-if(isset($_SESSION["uid"])){
+if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1){
     
     echo '<form action="bookingseat.php" method="post">
         <select id="people" class="adet" name="AA" required>
