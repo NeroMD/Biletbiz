@@ -12,16 +12,9 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
 
-
-
-
-    bookSeats($conn,$sea,$event,$email);
-
-
     
 
     bookSeats($conn,$sea,$event,$email);
-
 }
 else{
 

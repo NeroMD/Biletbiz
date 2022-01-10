@@ -120,11 +120,12 @@ function loginUser($conn,$username,$passwrd){
         header("location:../login.php?error=wrongLogin");
      exit();
     }
-    else if($checkPwd==true){
-        if(!isBanned($conn, $mail)){
+    if(!isBanned($conn,$username)){
             header("location:../login.php?error=wrongLogin");
             exit();
         }
+    else if($checkPwd==true){
+        
         session_start();
         $_SESSION["uid"]=$uidExists["loginEmail"];
         $_SESSION["isCompany"]=$uidExists["isCompany"];
@@ -359,7 +360,7 @@ function isBanned($conn,$mail){
         exit();
     }
     
-    mysqli_stmt_bind_param($stmt,"s",$email);
+    mysqli_stmt_bind_param($stmt,"s",$mail);
     mysqli_stmt_execute($stmt);
     
     $resultData = mysqli_stmt_get_result($stmt);
@@ -376,16 +377,16 @@ function refundTicket($conn,$ticketID){
         header("location:../MyTickets.php?niceTry");
         exit();
     }
-    $sql = "DELETE FROM ticket WHERE TicketID = ?;";
+    $sql = "DELETE FROM `biletbizdatabase`.`ticket` WHERE TicketID = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../MyTickets.php?error=stmtFail");
+        header("location:../myticket.php?error=stmtFail");
         exit();
     }
     
     mysqli_stmt_bind_param($stmt,"i",$ticketID);
     mysqli_stmt_execute($stmt);
-    header("location:../MyTickets.php?refunded");
+    header("location:../myticket.php?refunded");
     exit();
 }
 
@@ -532,7 +533,7 @@ function UpdateEventName($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?Unbanned");
+    header("location:../editevent.php?ID=$ID");
     exit();
 }
 function UpdateEventDescription($conn,$value,$ID){
@@ -547,7 +548,7 @@ function UpdateEventDescription($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?Unbanned");//yeni sayfa
+    header("location:../editevent.php?ID=$ID");//yeni sayfa
     exit();
 }
 function UpdateEventPrice($conn,$value,$ID){
@@ -562,11 +563,11 @@ function UpdateEventPrice($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?Unbanned");//yeni sayfa
+    header("location:../editevent.php?ID=$ID");//yeni sayfa
     exit();
 }
 function UpdateEventDate($conn,$value,$ID){
-    $sql = "UPDATE event SET EventName=? WHERE idEvent = ?;";
+    $sql = "UPDATE event SET EventDate=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
         header("location:../editevent.php?error=stmtFail");
@@ -577,7 +578,7 @@ function UpdateEventDate($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?Unbanned");
+    header("location:../editevent.php?ID=$ID");
     exit();
 }
 function UpdateEventLocation($conn,$value,$ID){
@@ -592,7 +593,7 @@ function UpdateEventLocation($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?");
+    header("location:../editevent.php?ID=$ID");
     exit();
 }
 function UpdateEventCapacity($conn,$value,$ID){
@@ -607,7 +608,7 @@ function UpdateEventCapacity($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?");
+    header("location:../editevent.php?ID=$ID");
     exit();
 }
 function UpdateEventPurchasable($conn,$value,$ID){
@@ -622,7 +623,7 @@ function UpdateEventPurchasable($conn,$value,$ID){
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?");
+    header("location:../editevent.php?ID=$ID");
     exit();
 }
 function createCompanyRequest($conn,$name,$email,$adress,$phone){
@@ -693,8 +694,8 @@ function disapproveCompanyRequest($conn,$email){
     header("location:../Approve.php?error=none");// deis
     exit();    
 }
-function createReceipt($conn,$ticketID,$price,$purchaser){// receipt price eklencek odenen para yazilcak
-    $sql = "INSERT INTO receipt(ReceiptDate,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased,ReceiptPayment) VALUES(?,?,?,1,?);";
+function createReceipt($conn,$ticketID,$price,$purchaser,$amount){// receipt price eklencek odenen para yazilcak
+    $sql = "INSERT INTO receipt(ReceiptDate,PurchaserEmail,ReceiptTicketID,AmountOfTicketsPurchased,ReceiptPayment) VALUES(?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
         header("location:../createEvent.php?error=stmtFail");
@@ -702,7 +703,7 @@ function createReceipt($conn,$ticketID,$price,$purchaser){// receipt price eklen
     }
     $time = date("Y-m-d");
     
-    mysqli_stmt_bind_param($stmt,"ssid",$time,$purchaser,$ticketID,$price);
+    mysqli_stmt_bind_param($stmt,"ssiid",$time,$purchaser,$ticketID,$amount,$price);
     mysqli_stmt_execute($stmt);
     
     
@@ -728,9 +729,7 @@ function getPrice($conn,$EventID){
     return $row["TicketPrice"];
 }
 function bookSeats($conn,$seatNo,$eventID,$uid){
-
     ticketmail($conn,$seatNo,$eventID,$uid);
-
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
@@ -745,16 +744,15 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     $confirm = mysqli_insert_id($conn);
     $prices = getPrice($conn,$eventID);
     $price = $prices*sizeof($seatNo);
-    createReceipt($conn, $confirm, $price, $uid);
+    $size = sizeof($seatNo);
+    createReceipt($conn, $confirm, $price,$uid,$size );
 
     
     mysqli_stmt_close($stmt);
     header("location:../listevent.php?");
     exit();
     
-
 }
-
 function ticketmail($conn,$seatNo,$eventID,$uid){
     $umail = $uid;
     $sql = "SELECT * FROM event WHERE idEvent='" . $eventID . "'";
@@ -774,49 +772,48 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
     $seat = implode(", ", $seatNo);
     if($row)
     {
-    require_once('../phpmailer/PHPMailerAutoload.php');
-    $mail = new PHPMailer();
+        require_once('../phpmailer/PHPMailerAutoload.php');
+        $mail = new PHPMailer();
 
-    $mail->IsSMTP();
-    //$mail->SMTPDebug = 3;
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = "587";
-    $mail->SMTPSecure = "tls";
+        $mail->IsSMTP();
+        //$mail->SMTPDebug = 3;
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = "587";
+        $mail->SMTPSecure = "tls";
 
-    $mail->SMTPAuth = true;
-    // GMAIL username
-    $mail->Username = "donotreplybiletbiz@gmail.com";
-    // GMAIL password
-    $mail->Password = "dnrbb706050";
+        $mail->SMTPAuth = true;
+        // GMAIL username
+        $mail->Username = "donotreplybiletbiz@gmail.com";
+        // GMAIL password
+        $mail->Password = "dnrbb706050";
 
 
-    $mail->From='donotreplybiletbiz@gmail.com';
-    $mail->FromName='biletbiz';
+        $mail->From='donotreplybiletbiz@gmail.com';
+        $mail->FromName='biletbiz';
 
-    $mail->smtpConnect(
-        array(
-            "ssl" => array(
-                "verify_peer" => false,
-                "verify_peer_name" => false,
-                "allow_self_signed" => true
+        $mail->smtpConnect(
+            array(
+                "ssl" => array(
+                    "verify_peer" => false,
+                    "verify_peer_name" => false,
+                    "allow_self_signed" => true
+                )
             )
-        )
-    );
-    $mail->AddAddress($umail, $umail);
-    $mail->Subject  =  'Payment Successful';
-    $mail->IsHTML(true);
-    $mail->Body    = 'Your payment for The '.$eventname.' event successful, at '.$date.' '.$hour.' The place, '.$place.' Your seat number(s)'.$seat.' Have FUN!';
-    if($mail->Send())
-    {
-        echo "Check Your Email and Click on the link sent to your email";
-    }
-    else
-    {
-        echo "Mail Error - >".$mail->ErrorInfo;
-    }
+        );
+        $mail->AddAddress($umail, $umail);
+        $mail->Subject  =  'Payment Successful';
+        $mail->IsHTML(true);
+        $mail->Body    = 'Your payment for The '.$eventname.' event successful, at '.$date.' '.$hour.' The place, '.$place.' Your seat number(s)'.$seat.' Have FUN!';
+        if($mail->Send())
+        {
+            echo "Check Your Email and Click on the link sent to your email";
+        }
+        else
+        {
+            echo "Mail Error - >".$mail->ErrorInfo;
+        }
     }else{
         echo "Invalid Email Address. Go back";
     }
-
 
 }
