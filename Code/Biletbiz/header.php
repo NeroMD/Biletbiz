@@ -19,10 +19,16 @@
           
           <li><a href="listEvent.php">All Events</a> </li>
         </ul>
-        <div class="searchbox">
-          <input class="searchtxt" type="text" name="" placeholder="Search...">
-          <a class="searchbutton" href="#"><i class="fas fa-search"></i></a>
+        
+        <form action="Search.php" method="post">
+        <div class="searchbox" method="post">
+            <input class="searchtxt" type="text" name="query" placeholder="Search...">
+            <input class="searchbutton" type="submit" methods="post" href="Search.php"><i class="fas fa-search"></i></input>
         </div>
+        </form>
+
+        
+
         <div class="logo">
             <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
         </div>
@@ -63,6 +69,10 @@
                         <a class="close" onclick="popupToggle();"><img src="foto/exit.png" style="width: 15px;height: 15px;"></a>
                         </div>
                     </form>
+
+                    <a href="ForgotPassword.php">Forgot password</a>
+
+
             
             
             </section>
