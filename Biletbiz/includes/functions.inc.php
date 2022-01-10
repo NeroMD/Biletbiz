@@ -729,6 +729,10 @@ function getPrice($conn,$EventID){
     return $row["TicketPrice"];
 }
 function bookSeats($conn,$seatNo,$eventID,$uid){
+
+    ticketmail($conn,$seatNo,$eventID,$uid);
+=======
+
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
@@ -751,4 +755,71 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     header("location:../listevent.php?");
     exit();
     
+
+}
+function ticketmail($conn,$seatNo,$eventID,$uid){
+    $umail = $uid;
+    $sql = "SELECT * FROM event WHERE idEvent='" . $eventID . "'";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "STMT FAIL ticketmail()";
+
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $eventname = $row["EventName"];
+    $date = $row["EventDate"];
+    $hour = $row["EventHour"];
+    $place = $row["EventLocation"];
+    $seat = implode(", ", $seatNo);
+    if($row)
+    {
+        require_once('../phpmailer/PHPMailerAutoload.php');
+        $mail = new PHPMailer();
+
+        $mail->IsSMTP();
+        //$mail->SMTPDebug = 3;
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = "587";
+        $mail->SMTPSecure = "tls";
+
+        $mail->SMTPAuth = true;
+        // GMAIL username
+        $mail->Username = "donotreplybiletbiz@gmail.com";
+        // GMAIL password
+        $mail->Password = "dnrbb706050";
+
+
+        $mail->From='donotreplybiletbiz@gmail.com';
+        $mail->FromName='biletbiz';
+
+        $mail->smtpConnect(
+            array(
+                "ssl" => array(
+                    "verify_peer" => false,
+                    "verify_peer_name" => false,
+                    "allow_self_signed" => true
+                )
+            )
+        );
+        $mail->AddAddress($umail, $umail);
+        $mail->Subject  =  'Payment Successful';
+        $mail->IsHTML(true);
+        $mail->Body    = 'Your payment for The '.$eventname.' event successful, at '.$date.' '.$hour.' The place, '.$place.' Your seat number(s)'.$seat.' Have FUN!';
+        if($mail->Send())
+        {
+            echo "Check Your Email and Click on the link sent to your email";
+        }
+        else
+        {
+            echo "Mail Error - >".$mail->ErrorInfo;
+        }
+    }else{
+        echo "Invalid Email Address. Go back";
+    }
+
+=======
+
 }
