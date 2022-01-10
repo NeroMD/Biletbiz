@@ -731,7 +731,7 @@ function getPrice($conn,$EventID){
 function bookSeats($conn,$seatNo,$eventID,$uid){
 
     ticketmail($conn,$seatNo,$eventID,$uid);
-=======
+
 
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
     $stmt = mysqli_stmt_init($conn);
@@ -820,6 +820,6 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
         echo "Invalid Email Address. Go back";
     }
 
-=======
+
 
 }
