@@ -13,7 +13,6 @@
         }
 
         .container {
-            background-image: url(back.jpg);
             background-size: 100% 100%;
             height: 20cm;
         }
@@ -95,7 +94,7 @@
 include_once 'header.php';
 ?>
 <body>
-    <div class="container">
+    <div class="container" style="background-image: url(foto/back.jpg);height: 30cm">
         <br><br>
         <h2>
             <center>About The Event</center>
@@ -123,7 +122,7 @@ if(isset($_GET["ID"])){
 
 
 }
-if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1){
+if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1&&$row["EventNoLongerPurchasable"]==0){
     
     echo '<form action="bookingseat.php" method="post">
         <select id="people" class="adet" name="AA" required>
@@ -138,7 +137,7 @@ if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1){
                 <button type="submit" name="submit">Buy</button>';
 }
 else{
-    echo '<p>Once uye ol</p>';
+    echo '<p>Suan bilet alamazsin</p>';
 }
 ?>
         

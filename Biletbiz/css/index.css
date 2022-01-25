@@ -6,11 +6,14 @@
     padding: 0;
 }
 
+
 .container {
     background-image: url(back.jpg);
     background-size: 100% 100%;
-    height: 100cm;
+    height: 40cm;
 }
+
+
 
 div.gallery {
     margin: 5px;
@@ -213,32 +216,63 @@ img {
     background: #001314;
 }
 
-.calenderlist {
-    width: 500px;
-    margin: 0 auto;
+
+.footer {
+    background: #634a4a;
+    margin-top: 90px;
+    height: 200px;
 }
 
-.calenderlist ul {
-    list-style: none;
-    font-size: 15px;
-    font-family: 'Raleway', sans-serif;
-    padding: 0;
-    margin-bottom: 4em;
+.footertext {
+    font-size: 20px;
     text-align: center;
+    line-height: 180px;
 }
+.partpage .sol{
+        width: 50%;
+        float: left;
+        margin-left: 140px;
+        margin-top: 50px;
+    }
+    .footer {
+        background: #634a4a;
+        margin-top: 0px;
+        height: 200px;
+    }
 
-.calenderlist .calender {
-    position: relative;
-    display: block;
-    background: #676966;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    border-radius: 5px;
-    height: 50px;
-    width:450px;
-}
+    .footertext {
+        font-size: 20px;
+        text-align: center;
+        line-height: 180px;
+    }
+    .calenderlist {
+        width: 500px;
+        margin: 0 auto;
+    }
 
-.calenderlist .calender:hover {
-    background: #2c2929;
-    text-decoration: none;
-}
+    .calenderlist ul {
+        list-style: none;
+        font-size: 15px;
+        font-family: fantasy;
+        padding: 0;
+        margin-bottom: 4em;
+        text-align: center;
+
+    }
+
+    .calenderlist .calender {
+        position: relative;
+        padding: 15px 20px;
+        
+        background-color: #702929c0;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.5s;
+        color: white;
+    }
+
+    .calenderlist .calender:hover {
+        text-decoration: none;
+        letter-spacing: 3px;
+        background-color: #702929c0;
+    }

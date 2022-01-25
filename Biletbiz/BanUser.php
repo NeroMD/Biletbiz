@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <?php
-    include_once 'header.php'
-    
-    ?>
+include_once 'header.php'
+?>
 </body>
 
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ban User</title>
     <style>
         * {
@@ -26,7 +25,7 @@
 
         .container .navbar {
             width: 100%;
-            height: 100px;
+            height: 10px;
             background-color: #8b2323;
         }
 
@@ -37,7 +36,7 @@
 
         .navbar .logo {
             display: inline-block;
-            margin-left: 550px;
+            margin-left: 250px;
             margin-top: 20px;
             width: 10px;
             height: 70px;
@@ -126,14 +125,14 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                
-            </div>
-            <?php
-if($_SESSION["isAdmin"]==1){
-echo'
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+
+        </div>
+        <?php
+        if ($_SESSION["isAdmin"] == 1) {
+            echo'
             <div class="partpage">
                 <div class="sol">
                     <h1>Ban User</h1>
@@ -155,15 +154,17 @@ echo'
                     </div>
 
                 </div>
-</div>';}?>
-            
-            
-            
-        </div>
+</div>';
+        }
+        ?>
+
+
+
     </div>
-    <div class="footer">
-        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
-    </div>
+</div>
+<div class="footer">
+    <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+</div>
 </body>
 
 </html>

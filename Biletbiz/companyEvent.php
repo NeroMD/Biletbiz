@@ -86,7 +86,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
                 
                 echo '<tr>
                 <td><a href="showParticipants.php?ID='.$row["idEvent"].'">'.$row["EventName"].'</a></td>
-                <td>'.$row["idEvent"].' </td>
+                
                 <td>'.$row["EventDate"].' </td>
                 <td>'.$row["EventLocation"].' </td>
                 <td>'.$row["TicketPrice"].' </td>

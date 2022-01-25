@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Tickets</title>
     <style>
         * {
@@ -57,103 +57,109 @@
 
         th,
         td {
-            padding: 8px;
+
             text-align: left;
             border-bottom: 1px solid #ddd;
+        }
+        .bar__button, button.bar__button[type="submit"]{
+            float: right;
+            font-size: 16px;
+            position: relative;
+            top: inherit;
+            right: inherit;
+            margin:100px 100px;
+            padding: 0;
+            width: 86px;
+            letter-spacing: 1px;
+            height: 31px;
+            background-color: #5c3737;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
-            </div>
+<div class="container">
+    <div class="navbar">
+        <div class="logo" style="margin-left:750px"> 
+            <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
         </div>
-        <br><br>
-        <h2><center>My Tickets</center></h2><br>
-        <table>
-            <tr>
-                <th>Event Name</th>
-                <th>Date</th>
-                
-                
-                <th>Seats</th>
-            </tr>
-            <?php
-            session_start();
-if(isset($_SESSION["uid"])){
-    
-    require_once 'includes/dbh.inc.php';
-            
+    </div>
+    <br><br>
+    <h2><center>My Tickets</center></h2><br>
+    <table>
+        <tr>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Seats</th>
+        <button type="submit" class="bar__button" >ReFound</button>
+        </tr>
+        <?php
+        session_start();
+        if (isset($_SESSION["uid"])) {
+
+            require_once 'includes/dbh.inc.php';
+
             $sql = "SELECT * FROM ticket where TUserEmail=? ;";
             $stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt,$sql)) {
-            echo "STMT FAIL";
-            
-             }   
-    
-            mysqli_stmt_bind_param($stmt,"s",$_SESSION['uid']);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                echo "STMT FAIL";
+            }
+
+            mysqli_stmt_bind_param($stmt, "s", $_SESSION['uid']);
             mysqli_stmt_execute($stmt);
-    
+
             $resultData = mysqli_stmt_get_result($stmt);
             while ($row = mysqli_fetch_assoc($resultData)) {
                 $sql = "SELECT * FROM event where idEvent=? ;";
-            $stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt,$sql)) {
-            echo "STMT FAIL";
-            
-             }   
-    
-            mysqli_stmt_bind_param($stmt,"s",$row["idEventID"]);
-            mysqli_stmt_execute($stmt);
-            $res=mysqli_stmt_get_result($stmt);
-            $ro=mysqli_fetch_assoc($res);
-            $date=$ro["EventDate"];
-    
-            $result=true;
-            $time = date("Y-m-d");
-            if ($date>$time) {
-            $result=false;
-            }
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    echo "STMT FAIL";
+                }
+
+                mysqli_stmt_bind_param($stmt, "s", $row["idEventID"]);
+                mysqli_stmt_execute($stmt);
+                $res = mysqli_stmt_get_result($stmt);
+                $ro = mysqli_fetch_assoc($res);
+                $date = $ro["EventDate"];
+
+                $result = true;
+                $time = date("Y-m-d");
+                if ($date > $time) {
+                    $result = false;
+                }
                 echo '<tr>
-                <td> '.$ro["EventName"].' </td>
-                <td> '.$ro["EventDate"].'</td>
+                <td> ' . $ro["EventName"] . ' </td>
+                <td> ' . $ro["EventDate"] . '</td>
                 
                 
                 
-                <td> '.$row["seat"].'</td>
+                <td> ' . $row["seat"] . '</td>
             </tr>';
-                if($result==false){echo '<form action="includes/refund.inc.php" method="post">
-                    <input type="hidden" name="ticket" value="'.$row['TicketID'].'">
+                if ($result == false) {
+                    echo '<form action="includes/refund.inc.php" method="post">
+                    <input type="hidden" name="ticket" value="' . $row['TicketID'] . '">
    <td> <button type="submit" name="submit">refund</button></td>
-</form>';}
+</form>';
+                }
                 echo '<br>';
             }
-            
+
 
             mysqli_stmt_close($stmt);
+        }
+        ?>
 
-        
-        
-        
-        
-    
-    
-    
-    
-    
-}
-?>
-            
-          
-        </table>
-    </div>
-    </div>
-    <div class="footer">
-        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
-    </div>
+
+    </table>
+</div>
+</div>
+<div class="footer">
+    <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+</div>
 
 </body>
 

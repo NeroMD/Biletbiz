@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bookingseat.css">
+    <link rel="stylesheet" href="css/bookingseat.css">
     <title>Booking Seat</title>
     <style>
         input[type=text],
@@ -27,10 +27,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="background-image: url(foto/back.jpg);height: 20cm;">
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;margin-left: 180px"></a>
             </div>
         </div>
         <div class="partpage">
@@ -59,17 +59,17 @@
                         <a class="button1" onclick="popupToggle();">Next</a>
                         <div id="popup">
                             <div class="content">
-                                <img src="user.png" style="margin-left: 100px;">
+                                <img src="foto/user.png" style="margin-left: 100px;">
                                 <br>
                                 <label for="email"><b>Email</b></label>
                                 <input type="text" placeholder="Enter Email" name="email" required>
                                 <label for="psw"><b>Password</b></label>
                                 <input type="password" placeholder="Enter Password" name="psw" required><br><br>
                                 <div class="buton">
-                                    <a href="payment.html"
+                                    <a href="payment.php"
                                         style="color:black; font-size: 25px;margin-left:5px;">Login</a>
                                 </div><br><br>
-                                <a href="forgotpassword.html" style="color:black; font-size: 20px; float:right">Forgot
+                                <a href="forgotpassword.php" style="color:black; font-size: 20px; float:right">Forgot
                                     Password?</a>
                             </div>
                             <a class="close" onclick="popupToggle();"><img src="exit.png"
@@ -89,17 +89,15 @@
             </div>
             <div class="sag">
                 <div class="seatsimage">
-                    <img src="seats.png" style="height: 400px;">
+                    <img src="foto/seats.png" style="height: 400px;">
                 </div>
             </div>
-
         </div>
 
-        <div class="footer">
+    </div>
+<div class="footer">
             <p class="footertext">Copyright &copy; BiletBiz 2021</p>
         </div>
-    </div>
-
 </body>
 
 </html>

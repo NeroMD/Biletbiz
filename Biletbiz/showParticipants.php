@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Paticipants</title>
     <style>
         * {
@@ -71,7 +72,7 @@ include_once 'includes/dbh.inc.php';
 
 ?>
 <body>
-    <div class="container">
+    <div class="container" style="background-image: url(foto/back.jpg);height: 70cm">
         <div class="navbar">
             <div class="logo">
                 <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>

@@ -77,3 +77,15 @@ button:hover {
     height: 450px;
     margin: auto;
 }
+
+        .footer {
+        background: #634a4a;
+        margin-top: 0px;
+        height: 200px;
+    }
+
+    .footertext {
+        font-size: 20px;
+        text-align: center;
+        line-height: 180px;
+    }

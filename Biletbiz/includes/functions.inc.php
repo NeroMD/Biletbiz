@@ -130,7 +130,7 @@ function loginUser($conn,$username,$passwrd){
         $_SESSION["uid"]=$uidExists["loginEmail"];
         $_SESSION["isCompany"]=$uidExists["isCompany"];
         $_SESSION["isAdmin"]= isAdmin($username, $conn);
-        header("location:../index.php");
+        header("location:indexer.inc.php");
         exit();
     }
 
@@ -730,7 +730,7 @@ function getPrice($conn,$EventID){
 }
 function bookSeats($conn,$seatNo,$eventID,$uid){
 
-    ticketmail($conn,$seatNo,$eventID,$uid);
+    
 
 
     $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
@@ -739,7 +739,7 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
         header("location:../listevent.php?error=stmtFail");
         exit();
     }
-    
+    ticketmail($conn,$seatNo,$eventID,$uid);
     foreach($seatNo as $element){
     mysqli_stmt_bind_param($stmt,"isi",$element,$uid,$eventID);
     mysqli_stmt_execute($stmt);
@@ -822,4 +822,49 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
 
 
 
+}
+
+function changePassword($conn,$id,$pass){
+    $sql = "UPDATE logintype SET loginPassword = ? WHERE loginEmail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    $hashedPsswrd=password_hash($pass,PASSWORD_DEFAULT);
+    
+    
+    mysqli_stmt_bind_param($stmt,"ss",$hashedPsswrd,$id);
+    mysqli_stmt_execute($stmt); 
+    mysqli_stmt_close($stmt);
+    header("location:../listevent.php?");// nereye bilmiyorum
+    exit();
+}
+function getAttandeeCount($conn,$id){
+    $sql = "Select count(*) From ticket Where idEventID=?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"i",$id);
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $count = $row['count(*)'];
+    mysqli_stmt_close($stmt);
+    return $count;
+}
+function noLongerPurchase($conn,$id){
+    $sql = "UPDATE event SET EventNoLongerPurchasable = 1 WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"i",$id);
+    mysqli_stmt_execute($stmt); 
+    
+    mysqli_stmt_close($stmt);
+    
 }
