@@ -38,6 +38,7 @@ idEvent INT NOT NULL AUTO_INCREMENT,
 VipAvailability BOOLEAN,
 SeatAvailability BOOLEAN,
 TicketPrice double NOT NULL,
+VIPTicketPrice double,
 EventHour TIME,
 ECompanyEmail varChar(45) NOT NULL,
 EventName VarChar(45) NOT NULL,
@@ -46,6 +47,7 @@ EventDescription VarChar(1500) NOT NULL,
 EventLocation VarChar(250) NOT NULL,
 EventNoLongerPurchasable BOOLEAN,
 EventCapacity INTEGER,
+VIPEventCapacity INTEGER,
 
 PRIMARY KEY(idEvent),
 FOREIGN KEY(ECompanyEmail) REFERENCES Company(CompanyEmail));
@@ -79,23 +81,6 @@ FOREIGN KEY(REventID) REFERENCES Event(idEvent));
 
 
 
-CREATE TABLE Receipt(
-ReceiptID INTEGER NOT NULL AUTO_INCREMENT,
-ReceiptDate date NOT NULL, 
-ReceiptPayment DOUBLE, 
-
-PurchaserEmail VarChar(45) NOT NULL, 
-
-
-ReceiptTicketID INTEGER NOT NULL,
-
-
-AmountOfTicketsPurchased INTEGER NOT NULL,
-
-
-PRIMARY KEY(ReceiptID),
-FOREIGN KEY(PurchaserEmail) REFERENCES User(email),
-FOREIGN KEY(ReceiptTicketID) REFERENCES Ticket(TicketID));
 
 
 
