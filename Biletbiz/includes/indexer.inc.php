@@ -12,7 +12,10 @@ if($_SESSION["isCompany"]==1){
     exit();
 }
  if($_SESSION["isAdmin"]==1){    
-     header("location:../index.php");exit();
+     header("location:../adminpage.php");exit();
+ }
+ if(isset($_SESSION['uid'])){
+     header("location:../userpage.php");exit();
  }
  else {
      header("location:../index.php");exit();

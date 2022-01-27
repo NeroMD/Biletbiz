@@ -40,12 +40,12 @@ if(isset($_POST['email']))
 
         $mail->SMTPAuth = true;
         // GMAIL username
-        $mail->Username = "donotreplybiletbiz@gmail.com";
+        $mail->Username = "biletbizz@gmail.com";
         // GMAIL password
-        $mail->Password = "dnrbb706050";
+        $mail->Password = "bilet1234biz";
 
 
-        $mail->From='donotreplybiletbiz@gmail.com';
+        $mail->From='biletbizz@gmail.com';
         $mail->FromName='biletbiz';
 
         $mail->smtpConnect(
@@ -64,6 +64,7 @@ if(isset($_POST['email']))
         if($mail->Send())
         {
             echo "Check Your Email and Click on the link sent to your email";
+            header("Location:./index.php");
         }
         else
         {

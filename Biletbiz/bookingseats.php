@@ -30,7 +30,7 @@
     <div class="container" style="background-image: url(foto/back.jpg);height: 20cm;">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;margin-left: 180px"></a>
+                <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;margin-left: 180px"></a>
             </div>
         </div>
         <div class="partpage">

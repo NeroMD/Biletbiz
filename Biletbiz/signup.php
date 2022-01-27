@@ -24,7 +24,7 @@
     <div class="container" style="background-image: url(foto/back.jpg);height: 20cm">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;margin-left: 150px"></a>
+                <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;margin-left: 150px"></a>
             </div>
             <div class="registerform">
                 <section class="signupForm">
@@ -50,7 +50,7 @@
                                         </label>
                                         <div class="clear">
                                             <button type="submit" name="submit" class="registerbutton">Register</button></a>
-                                            <a href="index.php"><button type="button" class="cancelbutton">Cancel</button></a>
+                                            <a href="includes/indexer.inc.php"><button type="button" class="cancelbutton">Cancel</button></a>
 
                                         </div>
                                         </form>

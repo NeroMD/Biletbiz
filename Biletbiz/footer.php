@@ -1,3 +1,3 @@
 </body>
 </html>
-<a href="index.php"></a>
+<a href="includes/indexer.inc.php"></a>

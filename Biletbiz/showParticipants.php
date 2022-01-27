@@ -75,7 +75,7 @@ include_once 'includes/dbh.inc.php';
     <div class="container" style="background-image: url(foto/back.jpg);height: 70cm">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <br><br>

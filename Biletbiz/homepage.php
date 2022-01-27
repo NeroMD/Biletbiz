@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="buton">
-                            <a href="index.php" class="buton">Yes</a>
+                            <a href="includes/indexer.inc.php" class="buton">Yes</a>
                             <a href="homepage.php" class="buton">No</a>
                         </div>
                         <a class="close" onclick="popup1Toggle();"><img src="foto/exit.png"

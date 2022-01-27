@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start();$name;require_once 'includes/dbh.inc.php';
-if($_SESSION["isCompany"]==1){
-     $sql = "SELECT * FROM company WHERE CompanyEmail=?;";
+if($_SESSION["isAdmin"]==1){
+     $sql = "SELECT * FROM user WHERE email=?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
     echo "STMT FAIL";
@@ -14,7 +14,7 @@ if($_SESSION["isCompany"]==1){
     
     $resultData = mysqli_stmt_get_result($stmt);
     $row=mysqli_fetch_assoc($resultData);
-    $name = $row["CompanyName"];
+    $name = $row["username"];
     mysqli_stmt_close($stmt);
 }
 else{
@@ -64,7 +64,7 @@ else{
         }
 
         div.sol {
-            width: 50%;
+            width: 50%;  
             float: left;
             margin-left: 59px;
             margin-top: 50px;
@@ -144,7 +144,6 @@ else{
             margin: 0px 10px;
             line-height: 100px
         }
-
         .close {
             position: absolute;
             top: 30px;
@@ -157,9 +156,9 @@ else{
     <div class="container" style="background-image: url(foto/back.jpg);height: 55cm">
         <div class="navbar">
             <ul>
-                <li><a href="createEvent.php">Create Event</a> </li>    
+                  
                 <li><a href="listEvent.php">List Event</a> </li>
-                <li><a href="companyEvent.php">Companies events</a> </li>
+                
             </ul>
             <form action="Search.php" method="post">
             <div class="searchbox" method="post">
@@ -167,19 +166,21 @@ else{
                     <input class="searchbutton" type="submit" methods="post" href="Search.php"><i class="fas fa-search"></i></input>
             </div>
         </form>
-
             <div class="logo">
                 <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
-            </div>
-            <div id="rightMenu" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="changepassword.php">Change Password</a>
-                <a class="button" onclick="popup1Toggle();">Logout</a>
             </div>
             <div class="logout">
                 <!--user name near user logo on page-->
                 <span style="color:#ad5151;margin-right: 10px;font-size: 25px"><?php echo $name; ?></span>
                 <a href="#"><i class="fa fa-fw fa-user" style="color:#ad5151;width:40; height:40px;margin-top: 30px;margin-right: 25px;"onclick="openNav()"></i></a>
+            </div>
+            <div id="rightMenu" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="BanUser.php">Ban User</a>
+                <a href="myticket.php">My Tickets</a>
+                <a href="Approve.php">Company Request</a>
+                <a href="changepassword.php">Change Password</a>
+                <a class="button" onclick="popup1Toggle();">Logout</a>
             </div>
 
             <div class="logout">
@@ -193,7 +194,7 @@ else{
 
                         <div class="buton">
                             <a href="includes/logout.inc.php" class="buton">Yes</a>
-                            <a href="companypage.php" class="buton">No</a>
+                            <a href="homepage.php" class="buton">No</a>
                         </div>
                         <a class="close" onclick="popup1Toggle();"><img src="foto/exit.png"
                                                                         style="width: 15px;height: 15px;"></a>
@@ -212,9 +213,7 @@ else{
                     </script>
                 </ul>
             </div>
-        </div>
-        <!--partofpage-->
-        <div class="partpage">
+        </div><div class="partpage">
             <!--slider-->
             <div class="sol">
                 <div class="slider">
@@ -297,10 +296,10 @@ else{
                                         </div>
                                         <!--list-->
                                         <div class="sol1">
-                                            <div class="calenderlist" >
+                                            <div class="calenderlist">
                                                 <h1>Calender</h1>
                                                 <ul>
-                                                    <li><a href="" class="calender"  >Sıla Konseri<br>15.01.2022 - 20:30
+                                                    <li><a href="#" class="calender" >Sıla Konseri<br>15.01.2022 - 20:30
                                                             <br>Bostanlı Suat Taşer
                                                             Tiyatrosu(İzmir)</a></li><br>
                                                     <li><a href="#" class="calender">Bkm ÇGHB<br>17.01.2022 - 21:30

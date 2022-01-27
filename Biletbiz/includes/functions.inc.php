@@ -89,7 +89,7 @@ function createUser($conn,$name,$email,$password){
     
     
     mysqli_stmt_close($stmt);
-    header("location:../signup.php?error=none");
+    header("location:../index.php");
     exit();
     
 
@@ -156,7 +156,7 @@ VALUES(?,?,?,?,?,?,?,?);";
         exit();
     }
     
-    $event = 1;
+    $event = 0;
 
     mysqli_stmt_bind_param($stmt,"ssdsssii",$email,$name,$price,$date,$desc,$locat,$event,$capacity);
     mysqli_stmt_execute($stmt);
@@ -282,7 +282,7 @@ function remainingCapacity($conn,$eventID){
 }
 
 function remainingSeats($conn,$eventID){
-    $sql = "SELECT * FROM event WHERE idEvent=?;";
+    $sql = "SELECT * FROM event WHERE idEvent=? ;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
     echo "STMT FAIL";
@@ -297,7 +297,7 @@ function remainingSeats($conn,$eventID){
     mysqli_stmt_close($stmt);
     $capacity = $row["EventCapacity"];
     
-    $sql = "SELECT * FROM biletbizdatabase.ticket where idEventID=(?);";
+    $sql = "SELECT * FROM biletbizdatabase.ticket where idEventID=(?) and isVip!=1;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
     echo "STMT FAIL";
@@ -664,9 +664,10 @@ function approveCompanyRequest($conn,$email){
         header("location:../Approve.php?error=stmtFail");
         exit();
     }
-    $password=1;
+    $password=randomPassword();
     $hashedPsswrd=password_hash($password,PASSWORD_DEFAULT);
     $comp=1;
+    companymail($conn,$email, true, $password);
     mysqli_stmt_bind_param($stmt,"ssi",$email,$hashedPsswrd,$comp);
     mysqli_stmt_execute($stmt);
     
@@ -733,13 +734,13 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     
 
 
-    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID) VALUES(?,?,?);";
+    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID,isVip) VALUES(?,?,?,0);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
         header("location:../listevent.php?error=stmtFail");
         exit();
     }
-    ticketmail($conn,$seatNo,$eventID,$uid);
+    
     foreach($seatNo as $element){
     mysqli_stmt_bind_param($stmt,"isi",$element,$uid,$eventID);
     mysqli_stmt_execute($stmt);
@@ -748,8 +749,8 @@ function bookSeats($conn,$seatNo,$eventID,$uid){
     $prices = getPrice($conn,$eventID);
     $price = $prices*sizeof($seatNo);
     $size = sizeof($seatNo);
-    createReceipt($conn, $confirm, $price,$uid,$size );
-
+    
+    ticketmail($conn,$seatNo,$eventID,$uid);
     
     mysqli_stmt_close($stmt);
     header("location:../listevent.php?");
@@ -787,12 +788,13 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
 
         $mail->SMTPAuth = true;
         // GMAIL username
-        $mail->Username = "donotreplybiletbiz@gmail.com";
+        // GMAIL username
+        $mail->Username = "biletbizz@gmail.com";
         // GMAIL password
-        $mail->Password = "dnrbb706050";
+        $mail->Password = "bilet1234biz";
 
 
-        $mail->From='donotreplybiletbiz@gmail.com';
+        $mail->From='biletbizz@gmail.com';
         $mail->FromName='biletbiz';
 
         $mail->smtpConnect(
@@ -824,7 +826,11 @@ function ticketmail($conn,$seatNo,$eventID,$uid){
 
 }
 
-function changePassword($conn,$id,$pass){
+function changePassword($conn,$id,$pass,$curr){
+    if(currPassCheck($conn,$id,$curr)){
+        header("location:../changepassword.php?error");
+        exit();
+    }
     $sql = "UPDATE logintype SET loginPassword = ? WHERE loginEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
@@ -837,7 +843,7 @@ function changePassword($conn,$id,$pass){
     mysqli_stmt_bind_param($stmt,"ss",$hashedPsswrd,$id);
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt);
-    header("location:../listevent.php?");// nereye bilmiyorum
+    header("location:indexer.inc.php");// nereye bilmiyorum
     exit();
 }
 function getAttandeeCount($conn,$id){
@@ -867,4 +873,259 @@ function noLongerPurchase($conn,$id){
     
     mysqli_stmt_close($stmt);
     
+}
+function createVIPEvent($conn,$name,$email,$date,$price,$desc,$locat,$capacity,$vipCap,$vipPrice){
+    $sql = "INSERT INTO Event(ECompanyEmail,EventName,TicketPrice,EventDate,EventDescription,EventLocation,EventNoLongerPurchasable,EventCapacity,VipAvailability,VIPEventCapacity,VIPTicketPrice)
+VALUES(?,?,?,?,?,?,?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../createEvent.php?error=stmtFail");
+        exit();
+    }
+    
+    $event = 0;
+    $vi =1;
+    mysqli_stmt_bind_param($stmt,"ssdsssiiiid",$email,$name,$price,$date,$desc,$locat,$event,$capacity,$vi,$vipCap,$vipPrice);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    $confirm = mysqli_insert_id($conn);
+    #createTicket($conn, $capacity, $confirm);
+    header("location:../companyEvent.php");
+    exit();
+    
+
+}
+function currPassCheck($conn,$id,$curr){
+    
+   $sql = "Select * From logintype Where loginEmail=?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"s",$id);
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $count = $row[''];
+    
+    return $count;
+
+    $pwdHashed = $row["loginPassword"];
+    $checkPwd = password_verify($curr,$pwdHashed);
+    if($checkPwd){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function remainingVIPSeats($conn,$eventID){
+    $sql = "SELECT * FROM event WHERE idEvent=?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+    echo "STMT FAIL";
+            
+    }   
+    
+    mysqli_stmt_bind_param($stmt,"i", $eventID);
+    mysqli_stmt_execute($stmt);
+    
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row=mysqli_fetch_assoc($resultData);
+    mysqli_stmt_close($stmt);
+    $capacity = $row["VIPEventCapacity"];
+    
+    $sql = "SELECT * FROM biletbizdatabase.ticket where idEventID=(?) and isVip = 1;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+    echo "STMT FAIL";
+            
+    }   
+    
+    mysqli_stmt_bind_param($stmt,"i", $eventID);
+    mysqli_stmt_execute($stmt);
+    
+    $resultData = mysqli_stmt_get_result($stmt);
+    
+    $result = array();
+    while ($row = mysqli_fetch_assoc($resultData)){
+        
+        array_push($result, $row["seat"]);
+    }
+    sort($result);
+    $ret=array();
+    $count=0;
+    for($x=0;$x<$capacity;$x++){
+        $k=$x+1;
+        if($k==$result[$count]){
+            $count++;
+        }
+        else{
+            array_push($ret, $k);
+        }
+    }
+    return $ret;
+}
+function bookVIPSeats($conn,$seatNo,$eventID,$uid){
+
+    
+
+
+    $sql = "INSERT INTO Ticket(seat,TUserEmail,idEventID,isVip) VALUES(?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../listevent.php?error=stmtFail");
+        exit();
+    }
+    $vi =1;
+    foreach($seatNo as $element){
+    mysqli_stmt_bind_param($stmt,"isii",$element,$uid,$eventID,$vi);
+    mysqli_stmt_execute($stmt);
+    }
+    $confirm = mysqli_insert_id($conn);
+    $prices = getPrice($conn,$eventID);
+    $price = $prices*sizeof($seatNo);
+    $size = sizeof($seatNo);
+    
+    ticketmail($conn,$seatNo,$eventID,$uid);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../listevent.php?");
+    exit();
+    
+
+} 
+function companymail($conn,$email,$boo, $pass){
+    //$cmail = $email;
+    $sql = "SELECT * FROM company WHERE CompanyEmail='" . $email . "'";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "STMT FAIL ticketmail()";
+
+    }
+
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $cname = $row["CompanyName"];
+
+
+    if($row)
+    {
+        require_once('../phpmailer/PHPMailerAutoload.php');
+        $mail = new PHPMailer();
+
+        $mail->IsSMTP();
+        //$mail->SMTPDebug = 3;
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = "587";
+        $mail->SMTPSecure = "tls";
+
+        $mail->SMTPAuth = true;
+        // GMAIL username
+        $mail->Username = "biletbizz@gmail.com";
+        // GMAIL password
+        $mail->Password = "bilet1234biz";
+
+
+        $mail->From='biletbizz@gmail.com';
+        $mail->FromName='biletbiz';
+
+        $mail->smtpConnect(
+            array(
+                "ssl" => array(
+                    "verify_peer" => false,
+                    "verify_peer_name" => false,
+                    "allow_self_signed" => true
+                )
+            )
+        );
+        $mail->AddAddress($email, $email);
+        $mail->Subject  =  'Approval';
+        $mail->IsHTML(true);
+        $mail->Body    = 'Hello, The '.$cname.' your company request to biletbiz.com has been successful, your account password is '.$pass.' . All the best, your sincerely biletbiz adminstartion.!';
+        if($mail->Send())
+        {
+            echo "Check Your Email and Click on the link sent to your email";
+        }
+        else
+        {
+            echo "Mail Error - >".$mail->ErrorInfo;
+        }
+    }else{
+        echo "Invalid Email Address. Go back";
+    }
+
+}
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array();
+    $alphaLength = strlen($alphabet) - 1;
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass);
+}
+function UpdateEventVIPCapacity($conn,$value,$ID){
+    $sql = "UPDATE event SET VIPEventCapacity=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../editevent.php?error=stmtFail");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"ii",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../editevent.php?ID=$ID");
+    exit();
+}
+function UpdateEventVIPPrice($conn,$value,$ID){
+    $sql = "UPDATE event SET VIPTicketPrice=? WHERE idEvent = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../editevent.php?error=stmtFail");//yeni sayfa
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt,"di",$value,$ID);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location:../editevent.php?ID=$ID");//yeni sayfa
+    exit();
+}
+function getMaxCount($conn,$id){
+    $sql = "SELECT max(seat) FROM biletbizdatabase.ticket where idEventID=? and isVip!=1;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"i",$id);
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $count = $row['max(seat)'];
+    mysqli_stmt_close($stmt);
+    return $count;
+}
+function getMaxVIPCount($conn,$id){
+    $sql = "SELECT max(seat) FROM biletbizdatabase.ticket where idEventID=? and isVip=1;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location:../signup.php?error=stmtFail");// deis
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"i",$id);
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($resultData);
+    $count = $row['max(seat)'];
+    mysqli_stmt_close($stmt);
+    return $count;
 }

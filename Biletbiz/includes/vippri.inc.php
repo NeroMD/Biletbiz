@@ -9,14 +9,13 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
 
-    if(getMaxCount($conn,$passwrd)>$username){#12
-    header("location:../editevent.php?ID=$passwrd");
+    if(getMaxVIPCount($conn,$passwrd)<$username){#12
+    header("location:../location:../editevent.php?ID=$ID");
     exit();
 }
 
 
-
-    UpdateEventCapacity($conn,$username,$passwrd);
+    UpdateEventVIPPrice($conn,$username,$passwrd);
 }
 else{
 

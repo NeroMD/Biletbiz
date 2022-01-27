@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About The Event</title>
     <style>
         * {
@@ -88,43 +88,54 @@
         button:hover {
             opacity: 1;
         }
+        #people.adet, #categories.price {
+
+            border: 1px solid #b1b1b1;
+            height: 40px;
+            background: #5c3737;
+            font-size: 14px;
+            border-radius: 9px;
+            font-weight: bold;
+            color: #ffffff;
+
+        }
     </style>
 </head>
 <?php
 include_once 'header.php';
 ?>
 <body>
-    <div class="container" style="background-image: url(foto/back.jpg);height: 30cm">
-        <br><br>
-        <h2>
-            <center>About The Event</center>
-        </h2><br>
-        <center>
+<div class="container" style="background-image: url(foto/back.jpg);height: 30cm">
+    <br><br>
+    <h2>
+        <center>About The Event</center>
+    </h2><br>
+    <center>
         <?php
+        if (isset($_GET["ID"])) {
 
-
-if(isset($_GET["ID"])){
-    
-    require_once 'includes/dbh.inc.php';
-    require_once 'includes/Event.inc.php';
-    $row = EventDetail($conn, $_GET["ID"]);
-    $remain= remainingCapacity($conn, $_GET["ID"]);
-    echo '<div class="part"><br><br>
+            require_once 'includes/dbh.inc.php';
+            require_once 'includes/Event.inc.php';
+            $row = EventDetail($conn, $_GET["ID"]);
+            $remain = remainingCapacity($conn, $_GET["ID"]);
+            echo '<div class="part"><br><br>
                 <div class="part1">
-                    <h4>'.$row['EventName'].'</h4><br>
-                    <h5>Yer : '.$row['EventLocation'].'</h5>
-                    <h5>Tarih: '.$row['EventDate'].'</h5>
-                    <h5>Bilet : '.$row["TicketPrice"].'TL</h5><br>
-                    <p>'.$row['EventDescription'].'</p>
+                    <h4>' . $row['EventName'] . '</h4><br>
+                    <h5>Yer : ' . $row['EventLocation'] . '</h5>
+                    <h5>Tarih: ' . $row['EventDate'] . '</h5>
+                    <h5>Bilet : ' . $row["TicketPrice"] . 'TL</h5><br>';
+                    if($row["VipAvailability"]==1){
+                    echo '
+            
+                <h5>VIP Bilet : ' . $row["VIPTicketPrice"] . 'TL</h5><br>
+            ';
+                }
+                  echo'  <p>' . $row['EventDescription'] . '</p>
                 </div>';
+        }
+        if (isset($_SESSION["uid"]) && $_SESSION["isCompany"] != 1) {
 
-
-
-
-}
-if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1&&$row["EventNoLongerPurchasable"]==0){
-    
-    echo '<form action="bookingseat.php" method="post">
+            echo '<form action="bookingseat.php" method="post">
         <select id="people" class="adet" name="AA" required>
                     <option value="" disabled selected>Number Of Tickets</option>
                     <option>1</option>
@@ -133,23 +144,33 @@ if(isset($_SESSION["uid"])&&$_SESSION["isCompany"]!=1&&$row["EventNoLongerPurcha
                     <option>4</option>
                     <option>5</option>
                 </select>
-                <input type="hidden" name="ID" value="'.$row["idEvent"].'">
+                <center><select id="categories" class="price" name="type" required>
+                <option value="" disabled selected>Ticket Type</option>
+                <option value="std">Standart Ticket</option>';
+                if($row["VipAvailability"]==1){
+                    echo '
+            
+                <option value="vip">VIP Ticket</option>
+            ';
+                }
+               echo'</select>
+
+        </center> <input type="hidden" name="ID" value="' . $row["idEvent"] . '">
                 <button type="submit" name="submit">Buy</button>';
-}
-else{
-    echo '<p>Suan bilet alamazsin</p>';
-}
-?>
+        } else {
+            echo '<p>Once uye ol</p>';
+        }
+        ?>
+
         
 
-                
-            </div>
-        </center>
-    </div>
-    </div>
-    <div class="footer">
-        <p class="footertext">Copyright &copy; BiletBiz 2021</p>
-    </div>
+</div>
+</center>
+</div>
+</div>
+<div class="footer">
+    <p class="footertext">Copyright &copy; BiletBiz 2021</p>
+</div>
 
 </body>
 

@@ -33,7 +33,7 @@
     <!--Navbar-->
     <div class="navbar">
         <div class="logo">
-            <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+            <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
         </div>
     </div>
     <h1>Results</h1>

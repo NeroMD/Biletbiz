@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
 if(invalidDate($username) !== false){#12
-    header("location:../location:../editevent.php?ID=$ID");
+    header("location:../editevent.php?ID=$passwrd");
     exit();
 }
     

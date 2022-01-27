@@ -64,7 +64,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
             ?>
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+                <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
         </div>
         <br><br>
@@ -85,7 +85,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
             while ($row = mysqli_fetch_assoc($resultData)) {
                 
                 echo '<tr>
-                <td><a href="showParticipants.php?ID='.$row["idEvent"].'">'.$row["EventName"].'</a></td>
+                <td>'.$row["EventName"].'</td>
                 
                 <td>'.$row["EventDate"].' </td>
                 <td>'.$row["EventLocation"].' </td>

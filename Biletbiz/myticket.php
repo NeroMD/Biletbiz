@@ -67,11 +67,11 @@
             position: relative;
             top: inherit;
             right: inherit;
-            margin:100px 100px;
+            
             padding: 0;
-            width: 86px;
+            width: 60px;
             letter-spacing: 1px;
-            height: 31px;
+            height: 26px;
             background-color: #5c3737;
             color: white;
             border-radius: 5px;
@@ -85,17 +85,18 @@
 <div class="container">
     <div class="navbar">
         <div class="logo" style="margin-left:750px"> 
-            <a href="index.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
+            <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
         </div>
     </div>
     <br><br>
-    <h2><center>My Tickets</center></h2><br>
+    <h2><center>My Tickets</center></h2>
     <table>
         <tr>
             <th>Event Name</th>
             <th>Date</th>
             <th>Seats</th>
-        <button type="submit" class="bar__button" >ReFound</button>
+            <th>VIP</th>
+        
         </tr>
         <?php
         session_start();
@@ -138,14 +139,15 @@
                 
                 
                 <td> ' . $row["seat"] . '</td>
-            </tr>';
+                <td> ' . $row["isVip"] . '</td>
+            ';
                 if ($result == false) {
                     echo '<form action="includes/refund.inc.php" method="post">
                     <input type="hidden" name="ticket" value="' . $row['TicketID'] . '">
-   <td> <button type="submit" name="submit">refund</button></td>
+   <td> <button type="submit" name="submit" class="bar__button">refund</button></td>
 </form>';
                 }
-                echo '<br>';
+                echo '</tr><br>';
             }
 
 

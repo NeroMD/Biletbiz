@@ -13,7 +13,58 @@ include_once 'header.php'
         <script defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
         </head>
+        <style>
+            .check {
+                display: block;
+                position: relative;
+                padding-left: 200px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                font-size: 15px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .check input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 180px;
+                height: 15px;
+                width: 15px;
+                background-color: #5e0e0e;
+            }
 
+            .check input:checked ~ .checkmark {
+                background-color: #ccc;
+            }
+            .checkmark:before {
+                content: "";
+                position: absolute;
+                display: inline;
+            }
+            .check input:checked ~ .checkmark:before {
+                display: none;
+            }
+            #people.adet, #categories.price {
+                 
+                border: 1px solid #b1b1b1;
+                height: 40px;
+                background: #5c3737;
+                font-size: 14px;
+                border-radius: 9px;
+                font-weight: bold;
+                color: #ffffff;
+
+            }
+        </style>
         <!--Navbar-->
 
         <body>
@@ -46,48 +97,37 @@ include_once 'header.php'
                                             <label for="number"><b>Event Capacity</b></label>
                                             <input type="number" placeholder="Enter Event Capacity" name="capacity" required>
 
+                                            <label for="number"><b>VIP PRICE (if not exists enter 0)</b></label>
+                                            <input type="number" placeholder="Enter VIP PRICE" name="VIPprice" required>
+                                            
+                                            <label for="number"><b>VIP Capacity (if not exists enter 0)</b></label>
+                                            <input type="number" placeholder="Enter VIP Capacity" name="VIPcapacity" required>
                                                 <br><br>
-                                                <form action="">
-                                                    <p>
-                                                    <center>Can the event be purchased?<center>
-                                                            </p><br>
-                                                            <input type="radio" id="yes" name="fav_language" value="Yes" required>
-                                                                <label for="yes">Yes</label>
-                                                                <input type="radio" id="no" name="fav_language" value="No" style="margin-left: 20px;" required>
-                                                                    <label for="no">No</label><br>
+                                               
 
-                                                                    <br>
+                                                    
 
-                                                                    <p>Is there a seat available?</p><br>
-                                                                    <input type="radio" id="yes1" name="seat" value="Yes1" required>
-                                                                        <label for="yes1">Yes</label>
-                                                                        <input type="radio" id="no1" name="seat" value="No1" style="margin-left: 20px;" required>
-                                                                            <label for="no1">No</label><br>
-                                                                            <br>
-                                                                            <input type="radio" id="vip" name="vip" value="vip" style="margin-left: 20px;">
-                                                                                <label for="vip">VIP Ticket</label><br>
-                                                                                </form>
-                                                                                </form>
-                                                                                <br>
-                                                                                <button type="submit" class="button" name="submit">Create Event</button>
-                                                                                </form>
 
-                                                                                <?php
-                                                                                if (isset($_GET["error"])) {
-                                                                                    if ($_GET["error"] == 'emptyinput') {
-                                                                                        echo "<p>Fill all the input boxes</p>";
-                                                                                    } else if ($_GET["error"] == 'invalidDate') {
-                                                                                        echo "<p>Date cannot be past</p>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
+                                                                <br><br>
+                                                                <button type="submit" class="button" name="submit">Create Event</button>
+                                                                </form>
 
-                                                                                </section>
-                                                                                </div>
-                                                                                </div>
-                                                                                <div class="footer">
-                                                                                    <p class="footertext" style="color: black;">Copyright &copy; BiletBiz 2021</p>
-                                                                                    <?php
-                                                                                    include_once 'footer.php'
-                                                                                    ?>
-                                                                                </div>
+                                                                <?php
+                                                                if (isset($_GET["error"])) {
+                                                                    if ($_GET["error"] == 'emptyinput') {
+                                                                        echo "<p>Fill all the input boxes</p>";
+                                                                    } else if ($_GET["error"] == 'invalidDate') {
+                                                                        echo "<p>Date cannot be past</p>";
+                                                                    }
+                                                                }
+                                                                ?>
+
+                                                                </section>
+                                                                </div>
+                                                                </div>
+                                                                <div class="footer">
+                                                                    <p class="footertext" style="color: black;">Copyright &copy; BiletBiz 2021</p>
+                                                                    <?php
+                                                                    include_once 'footer.php'
+                                                                    ?>
+                                                                </div>

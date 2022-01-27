@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start();$name;require_once 'includes/dbh.inc.php';
-if($_SESSION["isCompany"]==1){
-     $sql = "SELECT * FROM company WHERE CompanyEmail=?;";
+if(isset($_SESSION["uid"])){
+     $sql = "SELECT * FROM user WHERE email=?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
     echo "STMT FAIL";
@@ -14,7 +14,7 @@ if($_SESSION["isCompany"]==1){
     
     $resultData = mysqli_stmt_get_result($stmt);
     $row=mysqli_fetch_assoc($resultData);
-    $name = $row["CompanyName"];
+    $name = $row["username"];
     mysqli_stmt_close($stmt);
 }
 else{
@@ -157,9 +157,9 @@ else{
     <div class="container" style="background-image: url(foto/back.jpg);height: 55cm">
         <div class="navbar">
             <ul>
-                <li><a href="createEvent.php">Create Event</a> </li>    
+                  
                 <li><a href="listEvent.php">List Event</a> </li>
-                <li><a href="companyEvent.php">Companies events</a> </li>
+                
             </ul>
             <form action="Search.php" method="post">
             <div class="searchbox" method="post">
@@ -172,7 +172,9 @@ else{
                 <a href="includes/indexer.inc.php"><img src="foto/logo.png" alt="Logo" style="width:250px; height:70px;"></a>
             </div>
             <div id="rightMenu" class="sidenav">
+                
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="myticket.php">My Tickets</a>
                 <a href="changepassword.php">Change Password</a>
                 <a class="button" onclick="popup1Toggle();">Logout</a>
             </div>

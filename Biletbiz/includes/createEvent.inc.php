@@ -8,6 +8,8 @@ $price=$_POST["price"];
 $desc=$_POST["descp"];
 $locat=$_POST["location"];
 $capacity=$_POST["capacity"];
+$vipCap=$_POST['VIPcapacity'];
+$vipPrice=$_POST['VIPprice'];
 
 require_once 'dbh.inc.php';
 require_once 'functions.inc.php';
@@ -21,7 +23,9 @@ if(invalidDate($date) !== false){#12
     header("location:../createEvent.php?error=invalidDate");
     exit();
 }
-
+if($vipCap==0){
+    createEvent($conn,$name,$email,$date,$price,$desc,$locat,$capacity);exit();
+}
 
 
 #if(emailExistsComp($email,$conn) !== false){#12
@@ -29,7 +33,7 @@ if(invalidDate($date) !== false){#12
 #    exit();
 #}
 
-createEvent($conn,$name,$email,$date,$price,$desc,$locat,$capacity);
+createVIPEvent($conn,$name,$email,$date,$price,$desc,$locat,$capacity,$vipCap,$vipPrice);
 
 }
 else{
