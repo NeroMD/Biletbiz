@@ -28,8 +28,7 @@ ApprovedCompany Boolean,
 CompanyName VarChar(100) NOT NULL,
 CompanyAdress VarChar(200) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
-PRIMARY KEY(CompanyEmail),
-FOREIGN KEY(CompanyEmail) REFERENCES LoginType(loginEmail));
+PRIMARY KEY(CompanyEmail);
 
 
 CREATE TABLE Event(
@@ -59,13 +58,14 @@ TicketID INTEGER NOT NULL AUTO_INCREMENT,
 seat INTEGER,
 TUserEmail varChar(45) NOT NULL,
 idEventID INTEGER NOT NULL,
+isVip boolean,
 
 
 
 PRIMARY KEY(TicketID),
 FOREIGN KEY (TUserEmail) REFERENCES User(email),
 FOREIGN KEY (idEventID) REFERENCES Event(idEvent),
-UNIQUE KEY SeatEvent (seat,idEventID));
+UNIQUE KEY SeatEvent (seat,idEventID,isVip));
 
 
 
