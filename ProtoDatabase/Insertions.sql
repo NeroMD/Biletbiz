@@ -187,247 +187,247 @@ VALUES(203054,False,True,75,null,'20:30:00','SinemalarTurkiye@hotmail.com','Uyum
 
 
 --  Uyumsuz --
-INSERT INTO Ticket(TicketID,seat,TUserEmail,idEventID)
-  VALUES(043002,9,'bezginmete@hotmail.com',203054),
-        (684899,10,'assassinboyz@hotmail.com',203054),
-	    (505000,15,'Ldimitrescu@hotmail.com',203054),
+INSERT INTO Ticket(TicketID,seat,TUserEmail,idEventID,isVip)
+  VALUES(043002,9,'bezginmete@hotmail.com',203054,false),
+        (684899,10,'assassinboyz@hotmail.com',203054,false),
+	    (505000,15,'Ldimitrescu@hotmail.com',203054,false),
 
 -- Harry Potter --
-     (566717,36,'neomatrix@hotmail.com',152033),
-     (456303,22,'assassinboyz@hotmail.com',152033),
-	 (566600,17,'tatumjayson@hotmail.com',152033),
-	 (541401,18,'mariobros@hotmail.com',152033),
+     (566717,36,'neomatrix@hotmail.com',152033,false),
+     (456303,22,'assassinboyz@hotmail.com',152033,false),
+	 (566600,17,'tatumjayson@hotmail.com',152033,false),
+	 (541401,18,'mariobros@hotmail.com',152033,false),
 
 
 -- Joker -- 
 
-     (676447,19,'Heisenberg@hotmail.com',141958),
-     (456404,22,'darkinaatrox@gmail.com',141958),
-	 (500001,24,'lichking@hotmail.com',141958),
+     (676447,19,'Heisenberg@hotmail.com',141958,false),
+     (456404,22,'darkinaatrox@gmail.com',141958,false),
+	 (500001,24,'lichking@hotmail.com',141958,false),
      
 -- Labirent --
 
 
-      (455661,5,'thewitcher@hotmail.com',634099),
-      (043423,6,'cjmccolum@hotmail.com',634099),
-      (166302,8,'goldlion@hotmail.com',634099),
-      (194490,42,'dancingbanana@hotmail.com',634099),
+      (455661,5,'thewitcher@hotmail.com',634099,false),
+      (043423,6,'cjmccolum@hotmail.com',634099,false),
+      (166302,8,'goldlion@hotmail.com',634099,false),
+      (194490,42,'dancingbanana@hotmail.com',634099,false),
 
 
 -- Amelie --
-      (040130,32,'reggiejackson@hotmail.com',890094),
-	  (194406,43,'alexandrucicaldau@hotmail.com',890094),
+      (040130,32,'reggiejackson@hotmail.com',890094,false),
+	  (194406,43,'alexandrucicaldau@hotmail.com',890094,false),
 
 -- Captain Marvel --
-      (066898,15,'literallyahand@hotmail.com',199124),
-      (314995,16,'ugurkaya@hotmail.com',199124),
-	  (600243,22,'thewitcher@hotmail.com',199124),
+      (066898,15,'literallyahand@hotmail.com',199124,false),
+      (314995,16,'ugurkaya@hotmail.com',199124,false),
+	  (600243,22,'thewitcher@hotmail.com',199124,false),
 
 -- 7 kocali hurmuz --
 
-	  (421101,21,'Heisenberg@hotmail.com',172111),
-      (678256,22,'tatarusanu@hotmail.com',172111),
-      (456190,14,'burakyilmaz@hotmail.com',172111),
+	  (421101,21,'Heisenberg@hotmail.com',172111,false),
+      (678256,22,'tatarusanu@hotmail.com',172111,false),
+      (456190,14,'burakyilmaz@hotmail.com',172111,false),
 
 
 -- Zengin Mutfagi -- 
-      (162212,14,'dancingbanana@hotmail.com',890060),
-      (147870,27,'brodixon@gmail.com',890060),
+      (162212,14,'dancingbanana@hotmail.com',890060,false),
+      (147870,27,'brodixon@gmail.com',890060,false),
 
 
 
 -- SILA KONSERI --
 
-(531523,15,'mkeremhan@hotmail.com',455124),
-(781351,16,'damianlillard@gmail.com',455124),
-(483445,27,'klaythompson@hotmail.com',455124),
-(539152,33,'reggiejackson@hotmail.com',455124),
-(134934,44,'alexandrucicaldau@hotmail.com',455124),
-(351031,12,'karlanthonytowns@hotmail.com',455124),
-(300513,26,'tatumjayson@hotmail.com',455124),
-(120100,37,'darkinaatrox@gmail.com',455124),
-(120401,29,'mehmetkarahanli@hotmail.com',455124),
+(531523,15,'mkeremhan@hotmail.com',455124,false),
+(781351,16,'damianlillard@gmail.com',455124,false),
+(483445,27,'klaythompson@hotmail.com',455124,false),
+(539152,33,'reggiejackson@hotmail.com',455124,false),
+(134934,44,'alexandrucicaldau@hotmail.com',455124,false),
+(351031,12,'karlanthonytowns@hotmail.com',455124,false),
+(300513,26,'tatumjayson@hotmail.com',455124,false),
+(120100,37,'darkinaatrox@gmail.com',455124,false),
+(120401,29,'mehmetkarahanli@hotmail.com',455124,false),
 
 
 -- CGHB --
 
-(073307,10,'Heisenberg@hotmail.com',783728),
-(456000,22,'darkinaatrox@gmail.com',783728),
-(500000,23,'lichking@hotmail.com',783728),
-(222579,11,'damianlillard@gmail.com',783728),
+(073307,10,'Heisenberg@hotmail.com',783728,false),
+(456000,22,'darkinaatrox@gmail.com',783728,false),
+(500000,23,'lichking@hotmail.com',783728,false),
+(222579,11,'damianlillard@gmail.com',783728,false),
 
 -- TOLGSHOW -- 
-(513503,23,'reggiejackson@hotmail.com',617124),
-(630145,22,'ibrahimtatlises@gmail.com',617124),
-(701501,15,'burakyilmaz@hotmail.com',617124),
+(513503,23,'reggiejackson@hotmail.com',617124,false),
+(630145,22,'ibrahimtatlises@gmail.com',617124,false),
+(701501,15,'burakyilmaz@hotmail.com',617124,false),
 
 
 -- MABEL MATIZ --
 
-(999310,05,'tatarusanu@hotmail.com',152060),
-(999020,06,'bekirmalik@hotmail.com',152060),
-(094031,12,'mkeremhan@hotmail.com',152060),
+(999310,05,'tatarusanu@hotmail.com',152060,false),
+(999020,06,'bekirmalik@hotmail.com',152060,false),
+(094031,12,'mkeremhan@hotmail.com',152060,false),
 
 -- Yasemin Sakallioglu --
 
-(642000,55,'karlanthonytowns@hotmail.com',621030),
-(763100,56,'tatumjayson@hotmail.com',621030),
-(010111,151,'darkinaatrox@gmail.com',621030),
+(642000,55,'karlanthonytowns@hotmail.com',621030,false),
+(763100,56,'tatumjayson@hotmail.com',621030,false),
+(010111,151,'darkinaatrox@gmail.com',621030,false),
 
 
 -- Guldur Guldur --
 
-(535352,20,'cjmccolum@hotmail.com',477124),
-(641000,15,'goldlion@hotmail.com',477124),
+(535352,20,'cjmccolum@hotmail.com',477124,false),
+(641000,15,'goldlion@hotmail.com',477124,false),
 
 
 -- Ölun Bizi Ayirana Dek --
 
-(064010,22,'reggiejackson@hotmail.com',675671),
-(053100,12,'ibrahimtatlises@gmail.com',675671),
-(005641,13,'burakyilmaz@hotmail.com',675671),
-(100350,17,'tatarusanu@hotmail.com',675671),
+(064010,22,'reggiejackson@hotmail.com',675671,false),
+(053100,12,'ibrahimtatlises@gmail.com',675671,false),
+(005641,13,'burakyilmaz@hotmail.com',675671,false),
+(100350,17,'tatarusanu@hotmail.com',675671,false),
 
 
 -- Iki Bekar --
 
-(602100,56,'damianlillard@gmail.com',765451),
-(700530,05,'klaythompson@hotmail.com',765451),
+(602100,56,'damianlillard@gmail.com',765451,false),
+(700530,05,'klaythompson@hotmail.com',765451,false),
 
 -- Buray Konseri --
 
-(783129,27,'bekirmalik@hotmail.com',677771),
-(103102,38,'literallyahand@hotmail.com',677771),
-(175601,29,'thewitcher@hotmail.com',677771),
+(783129,27,'bekirmalik@hotmail.com',677771,false),
+(103102,38,'literallyahand@hotmail.com',677771,false),
+(175601,29,'thewitcher@hotmail.com',677771,false),
 
 
 -- 1 --
-(031523,52,'ugurkaya@hotmail.com',123124),
-(351351,152,'damianlillard@gmail.com',123124),
-(413445,252,'klaythompson@hotmail.com',123124),
-(534152,53,'reggiejackson@hotmail.com',123124),
-(134134,54,'alexandrucicaldau@hotmail.com',123124),
-(351531,55,'karlanthonytowns@hotmail.com',123124),
-(351513,56,'tatumjayson@hotmail.com',123124),
-(123120,151,'darkinaatrox@gmail.com',123124),
-(123121,150,'mehmetkarahanli@hotmail.com',123124),
+(031523,52,'ugurkaya@hotmail.com',123124,false),
+(351351,152,'damianlillard@gmail.com',123124,false),
+(413445,252,'klaythompson@hotmail.com',123124,false),
+(534152,53,'reggiejackson@hotmail.com',123124,false),
+(134134,54,'alexandrucicaldau@hotmail.com',123124,false),
+(351531,55,'karlanthonytowns@hotmail.com',123124,false),
+(351513,56,'tatumjayson@hotmail.com',123124,false),
+(123120,151,'darkinaatrox@gmail.com',123124,false),
+(123121,150,'mehmetkarahanli@hotmail.com',123124,false),
 
 -- 2 --
 
-(789321,54,'alexandrucicaldau@hotmail.com',125124),
-(789879,56,'tatumjayson@hotmail.com',125124),
-(200100,253,'damianlillard@gmail.com',125124),
-(300044,353,'klaythompson@hotmail.com',125124),
-(462100,12,'reggiejackson@hotmail.com',125124),
-(440008,14,'tatumjayson@hotmail.com',125124),
-(790050,59,'karlanthonytowns@hotmail.com',125124),
+(789321,54,'alexandrucicaldau@hotmail.com',125124,false),
+(789879,56,'tatumjayson@hotmail.com',125124,false),
+(200100,253,'damianlillard@gmail.com',125124,false),
+(300044,353,'klaythompson@hotmail.com',125124,false),
+(462100,12,'reggiejackson@hotmail.com',125124,true),
+(440008,14,'tatumjayson@hotmail.com',125124,true),
+(790050,59,'karlanthonytowns@hotmail.com',125124,true),
 
 
 -- 3 --
 
-(103123,253,'damianlillard@gmail.com',146124),
-(169123,353,'klaythompson@hotmail.com',146124),
-(131131,12,'reggiejackson@hotmail.com',146124),
-(100126,13,'alexandrucicaldau@hotmail.com',146124),
-(123008,14,'tatumjayson@hotmail.com',146124),
-(531453,59,'karlanthonytowns@hotmail.com',146124),
-(600100,8,'literallyahand@hotmail.com',125124),
-(475400,9,'thewitcher@hotmail.com',125124),
+(103123,253,'damianlillard@gmail.com',146124,false),
+(169123,353,'klaythompson@hotmail.com',146124,false),
+(131131,12,'reggiejackson@hotmail.com',146124,false),
+(100126,13,'alexandrucicaldau@hotmail.com',146124,false),
+(123008,14,'tatumjayson@hotmail.com',146124,false),
+(531453,59,'karlanthonytowns@hotmail.com',146124,false),
+(600100,8,'literallyahand@hotmail.com',125124,true),
+(475400,9,'thewitcher@hotmail.com',125124,true),
 
 -- 4 --
 
-(148023,5,'mkeremhan@hotmail.com',154124),
-(163189,6,'busraT@hotmail.com',154124),
-(783123,7,'bekirmalik@hotmail.com',154124),
-(103100,8,'literallyahand@hotmail.com',154124),
-(175600,9,'thewitcher@hotmail.com',154124),
-(172423,10,'cjmccolum@hotmail.com',154124),
-(177992,11,'goldlion@hotmail.com',154124),
-(199990,12,'dancingbanana@hotmail.com',154124),
+(148023,5,'mkeremhan@hotmail.com',154124,false),
+(163189,6,'busraT@hotmail.com',154124,false),
+(783123,7,'bekirmalik@hotmail.com',154124,false),
+(103100,8,'literallyahand@hotmail.com',154124,false),
+(175600,9,'thewitcher@hotmail.com',154124,false),
+(172423,10,'cjmccolum@hotmail.com',154124,false),
+(177992,11,'goldlion@hotmail.com',154124,false),
+(199990,12,'dancingbanana@hotmail.com',154124,false),
 
 
 -- 5 --
 
-(146793,25,'ugurkaya@hotmail.com',147124),
-(174733,27,'Ldimitrescu@hotmail.com',147124),
-(176443,28,'reggiejackson@hotmail.com',147124),
-(163723,29,'ibrahimtatlises@gmail.com',147124),
-(140003,35,'burakyilmaz@hotmail.com',147124),
-(100003,42,'tatarusanu@hotmail.com',147124),
-(147620,43,'bekirmalik@hotmail.com',147124),
-(177900,45,'mkeremhan@hotmail.com',147124),
+(146793,25,'ugurkaya@hotmail.com',147124,true),
+(174733,27,'Ldimitrescu@hotmail.com',147124,true),
+(176443,28,'reggiejackson@hotmail.com',147124,true),
+(163723,29,'ibrahimtatlises@gmail.com',147124,false),
+(140003,35,'burakyilmaz@hotmail.com',147124,false),
+(100003,42,'tatarusanu@hotmail.com',147124,false),
+(147620,43,'bekirmalik@hotmail.com',147124,false),
+(177900,45,'mkeremhan@hotmail.com',147124,false),
 
 
 -- 6 --
 
 
-(456723,null,'neomatrix@hotmail.com',134124),
-(432023,null,'kaanozturk@hotmail.com',134124),
-(702123,null,'ismailcipe@hotmail.com',134124),
-(333567,null,'damianlillard@gmail.com',134124),
+(456723,null,'neomatrix@hotmail.com',134124,false),
+(432023,null,'kaanozturk@hotmail.com',134124,false),
+(702123,null,'ismailcipe@hotmail.com',134124,false),
+(333567,null,'damianlillard@gmail.com',134124,false),
 
 
 -- 7 --
 
-(173123,14,'maviteletabi@hotmail.com',111124),
-(183123,12,'reggiejackson@hotmail.com',111124),
-(193123,18,'Ldimitrescu@hotmail.com',111124),
-(103124,20,'tusinabbasi@hotmail.com',111124),
+(173123,14,'maviteletabi@hotmail.com',111124,false),
+(183123,12,'reggiejackson@hotmail.com',111124,false),
+(193123,18,'Ldimitrescu@hotmail.com',111124,false),
+(103124,20,'tusinabbasi@hotmail.com',111124,false),
 
 
 -- 8 --
 
-(179929,21,'vledaputin@hotmail.com',166124),
-(123877,22,'tusinabbasi@hotmail.com',166124),
-(103890,25,'bekirmalik@hotmail.com',166124),
+(179929,21,'vledaputin@hotmail.com',166124,false),
+(123877,22,'tusinabbasi@hotmail.com',166124,false),
+(103890,25,'bekirmalik@hotmail.com',166124,false),
 
 
 -- 9 --
 
-(101111,30,'reggiejackson@hotmail.com',177124),
-(122222,35,'tatarusanu@hotmail.com',177124),
-(144443,60,'Ldimitrescu@hotmail.com',177124),
-(166663,70,'maviteletabi@hotmail.com',177124),
+(101111,30,'reggiejackson@hotmail.com',177124,false),
+(122222,35,'tatarusanu@hotmail.com',177124,false),
+(144443,60,'Ldimitrescu@hotmail.com',177124,false),
+(166663,70,'maviteletabi@hotmail.com',177124,false),
 
 
 -- 10 --
 
-(903300,20,'Heisenberg@hotmail.com',108124),
-(220011,22,'darkinaatrox@gmail.com',108124),
-(550060,23,'lichking@hotmail.com',108124),
+(903300,20,'Heisenberg@hotmail.com',108124,false),
+(220011,22,'darkinaatrox@gmail.com',108124,false),
+(550060,23,'lichking@hotmail.com',108124,false),
 
 
 
 
 -- 11 --
 
-(199993,null,'literallyahand@hotmail.com',199124),
-(313165,null,'ugurkaya@hotmail.com',199124),
-(071445,null,'thewitcher@hotmail.com',199124),
-(895310,null,'dancingbanana@hotmail.com',199124),
-(531531,null,'brodixon@gmail.com',199124),
-(761235,null,'Heisenberg@hotmail.com',199124),
-(642510,null,'darkinaatrox@gmail.com',199124),
-(812385,null,'lichking@hotmail.com',199124),
+(199993,null,'literallyahand@hotmail.com',199124,false),
+(313165,null,'ugurkaya@hotmail.com',199124,false),
+(071445,null,'thewitcher@hotmail.com',199124,false),
+(895310,null,'dancingbanana@hotmail.com',199124,false),
+(531531,null,'brodixon@gmail.com',199124,false),
+(761235,null,'Heisenberg@hotmail.com',199124,false),
+(642510,null,'darkinaatrox@gmail.com',199124,false),
+(812385,null,'lichking@hotmail.com',199124,false),
 
 
 -- 12 --
 
 
-(778877,null,'ugurkaya@hotmail.com',120124),
-(999990,null,'Ldimitrescu@hotmail.com',120124),
-(223366,null,'darkinaatrox@gmail.com',120124),
-(755555,null,'lichking@hotmail.com',120124),
-(100405,null,'thewitcher@hotmail.com',120124),
+(778877,null,'ugurkaya@hotmail.com',120124,false),
+(999990,null,'Ldimitrescu@hotmail.com',120124,false),
+(223366,null,'darkinaatrox@gmail.com',120124,false),
+(755555,null,'lichking@hotmail.com',120124,false),
+(100405,null,'thewitcher@hotmail.com',120124,false),
 
 
 
 -- 13 --
 
 
-(000315,25,'tusinabbasi@hotmail.com',156150),
-(631405,27,'ugurkaya@hotmail.com',156150),
-(053156,35,'maviteletabi@hotmail.com',156150),
+(000315,25,'tusinabbasi@hotmail.com',156150,false),
+(631405,27,'ugurkaya@hotmail.com',156150,false),
+(053156,35,'maviteletabi@hotmail.com',156150,false),
 
 
 
@@ -435,45 +435,45 @@ INSERT INTO Ticket(TicketID,seat,TUserEmail,idEventID)
 -- 14 --
 
 
-(631413,60,'tatarusanu@hotmail.com',123020),
-(783241,65,'dancingbanana@hotmail.com',123020),
-(503156,66,'Heisenberg@hotmail.com',123020),
-(356931,67,'Ldimitrescu@hotmail.com',123020),
-(359130,68,'klaythompson@hotmail.com',123020),
+(631413,60,'tatarusanu@hotmail.com',123020,false),
+(783241,65,'dancingbanana@hotmail.com',123020,false),
+(503156,66,'Heisenberg@hotmail.com',123020,false),
+(356931,67,'Ldimitrescu@hotmail.com',123020,false),
+(359130,68,'klaythompson@hotmail.com',123020,false),
 
 
 
 -- 15 --
 
-(603143,70,'busraT@hotmail.com',144001),
-(503157,3,'tusinabbasi@hotmail.com',144001),
-(141561,25,'burakyilmaz@hotmail.com',144001),
-(531590,22,'brodixon@gmail.com',144001),
-(503151,15,'tatarusanu@hotmail.com',144001),
-(501351,17,'mkeremhan@hotmail.com',144001),
-(762135,16,'literallyahand@hotmail.com',144001),
-(012431,35,'cjmccolum@hotmail.com',144001),
+(603143,70,'busraT@hotmail.com',144001,false),
+(503157,3,'tusinabbasi@hotmail.com',144001,false),
+(141561,25,'burakyilmaz@hotmail.com',144001,false),
+(531590,22,'brodixon@gmail.com',144001,false),
+(503151,15,'tatarusanu@hotmail.com',144001,false),
+(501351,17,'mkeremhan@hotmail.com',144001,false),
+(762135,16,'literallyahand@hotmail.com',144001,false),
+(012431,35,'cjmccolum@hotmail.com',144001,false),
 
 
 -- 16 --
 
-(012934,18,'karlanthonytowns@hotmail.com',149039),
-(604521,21,'goldlion@hotmail.com',149039),
-(315130,24,'tusinabbasi@hotmail.com',149039),
-(043412,35,'thewitcher@hotmail.com',149039),
-(051356,40,'alexandrucicaldau@hotmail.com',149039),
-(053150,41,'vledaputin@hotmail.com',149039),
-(100000,42,'bezginmete@hotmail.com',149039),
-(200000,43,'mehmetkarahanli@hotmail.com',149039),
-(760234,45,'squidgamer@hotmail.com',149039),
-(064060,51,'mariobros@hotmail.com',149039),
+(012934,18,'karlanthonytowns@hotmail.com',149039,false),
+(604521,21,'goldlion@hotmail.com',149039,false),
+(315130,24,'tusinabbasi@hotmail.com',149039,false),
+(043412,35,'thewitcher@hotmail.com',149039,false),
+(051356,40,'alexandrucicaldau@hotmail.com',149039,false),
+(053150,41,'vledaputin@hotmail.com',149039,false),
+(100000,42,'bezginmete@hotmail.com',149039,false),
+(200000,43,'mehmetkarahanli@hotmail.com',149039,false),
+(760234,45,'squidgamer@hotmail.com',149039,false),
+(064060,51,'mariobros@hotmail.com',149039,false),
 
 
 -- 17 --
 
-(070510,50,'tatarusanu@hotmail.com',190137),
-(108030,16,'cjmccolum@hotmail.com',190137),
-(180700,12,'karlanthonytowns@hotmail.com',190137);
+(070510,50,'tatarusanu@hotmail.com',190137,false),
+(108030,16,'cjmccolum@hotmail.com',190137,false),
+(180700,12,'karlanthonytowns@hotmail.com',190137,false);
 
 
 -- Uyumsuz --
@@ -492,10 +492,11 @@ Geceye bir klasik olan "N"apim Tabiatim Böyle" ile baslayan Teoman, "Istanbul�
 ('Selami Sahin"den yilin son konserleri!','Turk muziginin duayen sanatçisi Selami Sahin, konserleri ile 2022 yilini surprizlerle karsilamaya hazirlaniyor
 Geçtigimiz gunlerde Kadiköy, Moda"da dinleyicileriyle bulusan Selami Sahin, 24 Aralik Cumartesi aksami da Askin Nur Yengi ile Maslak"taki bir mekanda sahne alacak.2022 için geri sayimi Antalya, Nirvana Cosmopolitan Otel"de yapacak olan Sahin, sarkilarini SemiJazz orkestrasi esliginde muzikseverler ile hep bir agizdan söyleyecek. Usta sanatçi, ayrica 2022 yilinin ilk aylarinda sevenleriyle paylasacagi yeni projelerinin hazirligi içinde çalismalarini surduruyor.');
 
+
+
 SELECT * FROM LoginType;
 SELECT * FROM User;
 SELECT * FROM Company;
 SELECT * FROM Event;
 SELECT * FROM Ticket;
-SELECT * FROM Receipt;
 SELECT * FROM News;

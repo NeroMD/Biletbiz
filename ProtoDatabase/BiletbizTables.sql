@@ -28,7 +28,7 @@ ApprovedCompany Boolean,
 CompanyName VarChar(100) NOT NULL,
 CompanyAdress VarChar(200) NOT NULL,
 CompanyPhone VarChar(11) NOT NULL,
-PRIMARY KEY(CompanyEmail);
+PRIMARY KEY(CompanyEmail));
 
 
 CREATE TABLE Event(
