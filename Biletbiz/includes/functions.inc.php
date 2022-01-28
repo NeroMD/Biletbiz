@@ -1088,15 +1088,16 @@ function UpdateEventVIPPrice($conn,$value,$ID){
     $sql = "UPDATE event SET VIPTicketPrice=? WHERE idEvent = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
-        header("location:../editevent.php?error=stmtFail");//yeni sayfa
-        exit();
+        header("location:../editevent.php?ID=$ID");
+    exit();
     }
     
     mysqli_stmt_bind_param($stmt,"di",$value,$ID);
     mysqli_stmt_execute($stmt);
     
     mysqli_stmt_close($stmt);
-    header("location:../editevent.php?ID=$ID");//yeni sayfa
+    header("location:../editevent.php?ID=$ID");
+    
     exit();
 }
 function getMaxCount($conn,$id){

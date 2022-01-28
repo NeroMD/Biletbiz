@@ -337,7 +337,7 @@
                     
                     <label for="number"><b>Event VIP PRICE</b></label>
                      <input type="number" placeholder="'.$row["VIPTicketPrice"].'" name="name" disabled>
-                    <a class="btn" onclick="popup6Toggle();">Edit</a><br>
+                    <a class="btn" onclick="popup8Toggle();">Edit</a><br>
                     <div id="popup8">
                         <div class="content">
                             <center>
