@@ -84,16 +84,30 @@ include_once 'includes/dbh.inc.php';
         <table>
             <tr>
                 <th>Participants Name</th>
-<!--                <th>Phone</th>
-                <th>Number Of Ticket</th>
-                <th>Seats</th>-->
+                <th>Participants Email</th>
+                <th>Seat</th>
+                <th>Vip Ticket</th>
+                <!--                <th>Phone</th>
+                                <th>Number Of Ticket</th>
+                                <th>Seats</th>-->
             </tr>
             <?php
-                    if(isset($_GET["ID"])){
-                    $arr= eventParticipants($conn, $_GET["ID"]);
-                    for($x=0;$x<count($arr);$x++){
-                        echo '<tr><th>name = '.$arr[$x].'</th></tr>' ;
-                    }
+            require_once 'includes/dbh.inc.php';
+            $sqlLink = mysqli_connect('localhost', 'root', '', 'biletbizdatabase');
+            /*   if(isset($_GET["ID"])){
+               $arr= eventParticipants($conn, $_GET["ID"]);
+               for($x=0;$x<count($arr);$x++){
+                   echo '<tr><th>name = '.$arr[$x].'</th></tr>' ;
+               }*/
+            $que = $_GET['ID'];
+            $query = $sqlLink->query("SELECT user.username,ticket.TUserEmail, ticket.seat, ticket.isVip FROM ticket, user WHERE ticket.TUserEmail=user.email AND ticket.ideventID = '$que' ORDER BY ticket.seat");
+            while($row = $query->fetch_array()){
+                echo "<tr>";
+                echo "<td>".$row['username']."</td>";
+                echo "<td>".$row['TUserEmail']."</td>";
+                echo "<td>".$row['seat']."</td>";
+                echo "<td>".$row['isVip']."</td>";
+                echo "</tr>";
 }                  
 
                     ?>

@@ -85,7 +85,7 @@ $sql = "SELECT * FROM event where ECompanyEmail=?;";
             while ($row = mysqli_fetch_assoc($resultData)) {
                 
                 echo '<tr>
-                <td>'.$row["EventName"].'</td>
+                <td><a href="showParticipants.php?ID='.$row["idEvent"].'">'.$row["EventName"].'</a></td>
                 
                 <td>'.$row["EventDate"].' </td>
                 <td>'.$row["EventLocation"].' </td>
